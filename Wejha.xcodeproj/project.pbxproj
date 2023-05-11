@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		561735A92A0D5026009A7D53 /* LBAR in Frameworks */ = {isa = PBXBuildFile; productRef = 561735A82A0D5026009A7D53 /* LBAR */; };
 		5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6A2A0B9682004F021E /* WejhaApp.swift */; };
 		5683BE6D2A0B9682004F021E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6C2A0B9682004F021E /* ContentView.swift */; };
 		5683BE6F2A0B9683004F021E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5683BE6E2A0B9683004F021E /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		561735A62A0BA942009A7D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5683BE672A0B9682004F021E /* Wejha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wejha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5683BE6A2A0B9682004F021E /* WejhaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WejhaApp.swift; sourceTree = "<group>"; };
 		5683BE6C2A0B9682004F021E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				561735A92A0D5026009A7D53 /* LBAR in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +54,7 @@
 		5683BE692A0B9682004F021E /* Wejha */ = {
 			isa = PBXGroup;
 			children = (
+				561735A62A0BA942009A7D53 /* Info.plist */,
 				5683BE6A2A0B9682004F021E /* WejhaApp.swift */,
 				5683BE6C2A0B9682004F021E /* ContentView.swift */,
 				5683BE6E2A0B9683004F021E /* Assets.xcassets */,
@@ -83,6 +87,9 @@
 			dependencies = (
 			);
 			name = Wejha;
+			packageProductDependencies = (
+				561735A82A0D5026009A7D53 /* LBAR */,
+			);
 			productName = Wejha;
 			productReference = 5683BE672A0B9682004F021E /* Wejha.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +118,9 @@
 				Base,
 			);
 			mainGroup = 5683BE5E2A0B9682004F021E;
+			packageReferences = (
+				561735A72A0D5026009A7D53 /* XCRemoteSwiftPackageReference "location-based-ar" */,
+			);
 			productRefGroup = 5683BE682A0B9682004F021E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -270,6 +280,12 @@
 				DEVELOPMENT_TEAM = 44QNX63HR6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Wejha/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = location;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = location;
+				INFOPLIST_KEY_NSLocationUsageDescription = location;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = location;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +315,12 @@
 				DEVELOPMENT_TEAM = 44QNX63HR6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Wejha/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = location;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = location;
+				INFOPLIST_KEY_NSLocationUsageDescription = location;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = location;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -339,6 +361,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		561735A72A0D5026009A7D53 /* XCRemoteSwiftPackageReference "location-based-ar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Mist3r-R/location-based-ar.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		561735A82A0D5026009A7D53 /* LBAR */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 561735A72A0D5026009A7D53 /* XCRemoteSwiftPackageReference "location-based-ar" */;
+			productName = LBAR;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5683BE5F2A0B9682004F021E /* Project object */;
 }
