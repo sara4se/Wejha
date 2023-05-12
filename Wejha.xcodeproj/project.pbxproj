@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5605E7612A0EA0C60027F2D8 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5605E7602A0EA0C60027F2D8 /* SwiftUIView.swift */; };
 		561735A92A0D5026009A7D53 /* LBAR in Frameworks */ = {isa = PBXBuildFile; productRef = 561735A82A0D5026009A7D53 /* LBAR */; };
 		5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6A2A0B9682004F021E /* WejhaApp.swift */; };
 		5683BE6D2A0B9682004F021E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6C2A0B9682004F021E /* ContentView.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5605E7602A0EA0C60027F2D8 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		561735A62A0BA942009A7D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5683BE672A0B9682004F021E /* Wejha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wejha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5683BE6A2A0B9682004F021E /* WejhaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WejhaApp.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				5683BE6C2A0B9682004F021E /* ContentView.swift */,
 				5683BE6E2A0B9683004F021E /* Assets.xcassets */,
 				5683BE702A0B9683004F021E /* Preview Content */,
+				5605E7602A0EA0C60027F2D8 /* SwiftUIView.swift */,
 			);
 			path = Wejha;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			files = (
 				5683BE6D2A0B9682004F021E /* ContentView.swift in Sources */,
 				5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */,
+				5605E7612A0EA0C60027F2D8 /* SwiftUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
