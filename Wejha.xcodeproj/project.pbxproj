@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5605E7612A0EA0C60027F2D8 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5605E7602A0EA0C60027F2D8 /* SwiftUIView.swift */; };
+		5605E7632A0EA3290027F2D8 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5605E7622A0EA3290027F2D8 /* Media.xcassets */; };
 		561735A92A0D5026009A7D53 /* LBAR in Frameworks */ = {isa = PBXBuildFile; productRef = 561735A82A0D5026009A7D53 /* LBAR */; };
 		5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6A2A0B9682004F021E /* WejhaApp.swift */; };
 		5683BE6D2A0B9682004F021E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6C2A0B9682004F021E /* ContentView.swift */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		5605E7602A0EA0C60027F2D8 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		5605E7622A0EA3290027F2D8 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		561735A62A0BA942009A7D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5683BE672A0B9682004F021E /* Wejha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wejha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5683BE6A2A0B9682004F021E /* WejhaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WejhaApp.swift; sourceTree = "<group>"; };
@@ -37,6 +39,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5605E7882A0F82B90027F2D8 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		5605E7892A0F82C80027F2D8 /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelView;
+			sourceTree = "<group>";
+		};
+		5605E78A2A0F83230027F2D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5605E78B2A0F83310027F2D8 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				5605E7892A0F82C80027F2D8 /* ModelView */,
+				5605E78A2A0F83230027F2D8 /* Model */,
+				5605E7882A0F82B90027F2D8 /* MapView */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		5605E78C2A0F83380027F2D8 /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				5605E78F2A0F83810027F2D8 /* ARView */,
+				5605E78E2A0F836A0027F2D8 /* ModelView */,
+				5605E78D2A0F835A0027F2D8 /* Model */,
+			);
+			path = AR;
+			sourceTree = "<group>";
+		};
+		5605E78D2A0F835A0027F2D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5605E78E2A0F836A0027F2D8 /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelView;
+			sourceTree = "<group>";
+		};
+		5605E78F2A0F83810027F2D8 /* ARView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ARView;
+			sourceTree = "<group>";
+		};
 		5683BE5E2A0B9682004F021E = {
 			isa = PBXGroup;
 			children = (
@@ -56,12 +120,15 @@
 		5683BE692A0B9682004F021E /* Wejha */ = {
 			isa = PBXGroup;
 			children = (
+				5605E78C2A0F83380027F2D8 /* AR */,
+				5605E78B2A0F83310027F2D8 /* Map */,
 				561735A62A0BA942009A7D53 /* Info.plist */,
 				5683BE6A2A0B9682004F021E /* WejhaApp.swift */,
 				5683BE6C2A0B9682004F021E /* ContentView.swift */,
 				5683BE6E2A0B9683004F021E /* Assets.xcassets */,
 				5683BE702A0B9683004F021E /* Preview Content */,
 				5605E7602A0EA0C60027F2D8 /* SwiftUIView.swift */,
+				5605E7622A0EA3290027F2D8 /* Media.xcassets */,
 			);
 			path = Wejha;
 			sourceTree = "<group>";
@@ -139,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5683BE722A0B9683004F021E /* Preview Assets.xcassets in Resources */,
+				5605E7632A0EA3290027F2D8 /* Media.xcassets in Resources */,
 				5683BE6F2A0B9683004F021E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
