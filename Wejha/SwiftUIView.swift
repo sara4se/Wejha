@@ -7,6 +7,7 @@
 
 import SwiftUI
 import ARKit
+import CoreLocation
 struct ARView : UIViewRepresentable{
     func makeUIView(context: Context) -> some UIView {
         let sceneView = ARSCNView()

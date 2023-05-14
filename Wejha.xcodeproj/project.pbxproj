@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		5605E7612A0EA0C60027F2D8 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5605E7602A0EA0C60027F2D8 /* SwiftUIView.swift */; };
 		5605E7632A0EA3290027F2D8 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5605E7622A0EA3290027F2D8 /* Media.xcassets */; };
-		561735A92A0D5026009A7D53 /* LBAR in Frameworks */ = {isa = PBXBuildFile; productRef = 561735A82A0D5026009A7D53 /* LBAR */; };
+		56543D3BCCE5A71EBB0AF8C2 /* Pods_Wejha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C7ACEF13A1306A51C3F17A /* Pods_Wejha.framework */; };
+		567BEEBE2A10E58F00861FA3 /* MapIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567BEEBD2A10E58F00861FA3 /* MapIView.swift */; };
 		5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6A2A0B9682004F021E /* WejhaApp.swift */; };
 		5683BE6D2A0B9682004F021E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6C2A0B9682004F021E /* ContentView.swift */; };
 		5683BE6F2A0B9683004F021E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5683BE6E2A0B9683004F021E /* Assets.xcassets */; };
@@ -17,14 +18,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0298ED6677EC882C65D57D59 /* Pods-Wejha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wejha.release.xcconfig"; path = "Target Support Files/Pods-Wejha/Pods-Wejha.release.xcconfig"; sourceTree = "<group>"; };
+		17C7ACEF13A1306A51C3F17A /* Pods_Wejha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wejha.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5605E7602A0EA0C60027F2D8 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		5605E7622A0EA3290027F2D8 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		561735A62A0BA942009A7D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		567BEEBD2A10E58F00861FA3 /* MapIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapIView.swift; sourceTree = "<group>"; };
 		5683BE672A0B9682004F021E /* Wejha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wejha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5683BE6A2A0B9682004F021E /* WejhaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WejhaApp.swift; sourceTree = "<group>"; };
 		5683BE6C2A0B9682004F021E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5683BE6E2A0B9683004F021E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5683BE712A0B9683004F021E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		902E51E6998828EDAC3D310A /* Pods-Wejha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wejha.debug.xcconfig"; path = "Target Support Files/Pods-Wejha/Pods-Wejha.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				561735A92A0D5026009A7D53 /* LBAR in Frameworks */,
+				56543D3BCCE5A71EBB0AF8C2 /* Pods_Wejha.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,7 @@
 		5605E7882A0F82B90027F2D8 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				567BEEBD2A10E58F00861FA3 /* MapIView.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -106,6 +112,8 @@
 			children = (
 				5683BE692A0B9682004F021E /* Wejha */,
 				5683BE682A0B9682004F021E /* Products */,
+				5FA314352D501CA9831AFA9A /* Pods */,
+				995DFFE14A46817A0AE1ABF4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,6 +149,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		5FA314352D501CA9831AFA9A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				902E51E6998828EDAC3D310A /* Pods-Wejha.debug.xcconfig */,
+				0298ED6677EC882C65D57D59 /* Pods-Wejha.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		995DFFE14A46817A0AE1ABF4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17C7ACEF13A1306A51C3F17A /* Pods_Wejha.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,18 +173,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5683BE752A0B9683004F021E /* Build configuration list for PBXNativeTarget "Wejha" */;
 			buildPhases = (
+				7A06F45020E0A3C9BC0DB2B8 /* [CP] Check Pods Manifest.lock */,
 				5683BE632A0B9682004F021E /* Sources */,
 				5683BE642A0B9682004F021E /* Frameworks */,
 				5683BE652A0B9682004F021E /* Resources */,
+				E0F4C2D880B126B796CB5EC9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Wejha;
-			packageProductDependencies = (
-				561735A82A0D5026009A7D53 /* LBAR */,
-			);
 			productName = Wejha;
 			productReference = 5683BE672A0B9682004F021E /* Wejha.app */;
 			productType = "com.apple.product-type.application";
@@ -188,9 +212,6 @@
 				Base,
 			);
 			mainGroup = 5683BE5E2A0B9682004F021E;
-			packageReferences = (
-				561735A72A0D5026009A7D53 /* XCRemoteSwiftPackageReference "location-based-ar" */,
-			);
 			productRefGroup = 5683BE682A0B9682004F021E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -213,6 +234,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7A06F45020E0A3C9BC0DB2B8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Wejha-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0F4C2D880B126B796CB5EC9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wejha/Pods-Wejha-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wejha/Pods-Wejha-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wejha/Pods-Wejha-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5683BE632A0B9682004F021E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -221,6 +284,7 @@
 				5683BE6D2A0B9682004F021E /* ContentView.swift in Sources */,
 				5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */,
 				5605E7612A0EA0C60027F2D8 /* SwiftUIView.swift in Sources */,
+				567BEEBE2A10E58F00861FA3 /* MapIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +407,7 @@
 		};
 		5683BE762A0B9683004F021E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 902E51E6998828EDAC3D310A /* Pods-Wejha.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -370,14 +435,18 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.sara.Wejha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		5683BE772A0B9683004F021E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0298ED6677EC882C65D57D59 /* Pods-Wejha.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -405,9 +474,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.sara.Wejha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -433,25 +505,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		561735A72A0D5026009A7D53 /* XCRemoteSwiftPackageReference "location-based-ar" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Mist3r-R/location-based-ar.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		561735A82A0D5026009A7D53 /* LBAR */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 561735A72A0D5026009A7D53 /* XCRemoteSwiftPackageReference "location-based-ar" */;
-			productName = LBAR;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5683BE5F2A0B9682004F021E /* Project object */;
 }
