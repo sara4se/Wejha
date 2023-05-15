@@ -12,7 +12,7 @@ import GoogleMaps
 struct WejhaApp: App {
     var body: some Scene {
         WindowGroup {
-            MapIViewUi()
+            ARUIView()
         }
     }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
