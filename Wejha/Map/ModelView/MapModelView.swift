@@ -10,6 +10,7 @@ import CoreLocation
 import SwiftUI
 import GoogleMaps
 import UIKit
+ 
 
 
 struct MapLocationViewWrapper: UIViewControllerRepresentable {
@@ -24,23 +25,6 @@ struct MapLocationViewWrapper: UIViewControllerRepresentable {
     }
 }
 
-
-struct MapView: UIViewRepresentable {
-    var latitude: Double
-    var longitude: Double
-    var zoom: Float
-//    ViewMapController
-    func makeUIView(context: Context) -> GMSMapView {
-        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoom)
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        return mapView
-    }
-    
-    func updateUIView(_ mapView: GMSMapView, context: Context) {
-        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoom)
-        mapView.animate(to: camera)
-    }
-}
 
 class ViewMapController: UIViewController, CLLocationManagerDelegate{
     

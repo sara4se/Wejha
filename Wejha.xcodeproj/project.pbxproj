@@ -18,6 +18,8 @@
 		5683BE722A0B9683004F021E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5683BE712A0B9683004F021E /* Preview Assets.xcassets */; };
 		56E6AD6E2A1155C800006719 /* ARUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E6AD6D2A1155C800006719 /* ARUIView.swift */; };
 		99E625DE2A1223760075734A /* MapModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E625DD2A1223760075734A /* MapModelView.swift */; };
+		99F805D92A13944400C859DF /* ViewPlacesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F805D82A13944400C859DF /* ViewPlacesController.swift */; };
+		99F805DB2A1397CD00C859DF /* PlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F805DA2A1397CD00C859DF /* PlacesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		56E6AD6D2A1155C800006719 /* ARUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ARUIView.swift; path = Wejha/AR/ARView/ARUIView.swift; sourceTree = SOURCE_ROOT; };
 		902E51E6998828EDAC3D310A /* Pods-Wejha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wejha.debug.xcconfig"; path = "Target Support Files/Pods-Wejha/Pods-Wejha.debug.xcconfig"; sourceTree = "<group>"; };
 		99E625DD2A1223760075734A /* MapModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModelView.swift; sourceTree = "<group>"; };
+		99F805D82A13944400C859DF /* ViewPlacesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPlacesController.swift; sourceTree = "<group>"; };
+		99F805DA2A1397CD00C859DF /* PlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				567BEEBD2A10E58F00861FA3 /* MapIView.swift */,
+				99F805DA2A1397CD00C859DF /* PlacesView.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -62,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				99E625DD2A1223760075734A /* MapModelView.swift */,
+				99F805D82A13944400C859DF /* ViewPlacesController.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -311,7 +317,9 @@
 				5683BE6D2A0B9682004F021E /* ContentView.swift in Sources */,
 				560EAE7F2A116F7800D8D659 /* File.swift in Sources */,
 				5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */,
+				99F805DB2A1397CD00C859DF /* PlacesView.swift in Sources */,
 				5605E7612A0EA0C60027F2D8 /* SwiftUIView.swift in Sources */,
+				99F805D92A13944400C859DF /* ViewPlacesController.swift in Sources */,
 				99E625DE2A1223760075734A /* MapModelView.swift in Sources */,
 				56E6AD6E2A1155C800006719 /* ARUIView.swift in Sources */,
 				567BEEBE2A10E58F00861FA3 /* MapIView.swift in Sources */,
