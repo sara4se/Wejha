@@ -6,17 +6,18 @@
 //
 
 import SwiftUI
+import GooglePlaces
 
-import GoogleMaps
 @main
 struct WejhaApp: App {
     var body: some Scene {
         WindowGroup {
-            ARUIView()
+            GetStartedView()
         }
     }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        GMSServices.provideAPIKey("AIzaSyDgXEpiATw1IAcW1T2gYLcwhM8S1v0IHOI")
+        GMSPlacesClient.provideAPIKey("AIzaSyDgXEpiATw1IAcW1T2gYLcwhM8S1v0IHOI") // Replace with your actual API key
+
         //AIzaSyCP4TRMYUvFilsluvQnRZGV1mWFJHBoGT8
         return true
     }
