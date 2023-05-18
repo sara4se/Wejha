@@ -7,19 +7,23 @@
 
 import SwiftUI
 import GooglePlaces
+import GoogleMaps
 
+class AppDelegate: NSObject, UIApplicationDelegate {
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+      GMSPlacesClient.provideAPIKey("AIzaSyDgXEpiATw1IAcW1T2gYLcwhM8S1v0IHOI")
+      GMSServices.provideAPIKey("AIzaSyDgXEpiATw1IAcW1T2gYLcwhM8S1v0IHOI")
+    return true
+  }
+}
 @main
 struct WejhaApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            GetStartedView()
+            MapIViewUi()
         }
-    }
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        GMSPlacesClient.provideAPIKey("AIzaSyDgXEpiATw1IAcW1T2gYLcwhM8S1v0IHOI") // Replace with your actual API key
-
-        //AIzaSyCP4TRMYUvFilsluvQnRZGV1mWFJHBoGT8
-        return true
     }
      
 }

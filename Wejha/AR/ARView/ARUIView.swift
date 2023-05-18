@@ -10,7 +10,7 @@ import GoogleMaps
 struct ARUIView: View {
     var body: some View {
         SceneLocationViewWrapper()
-                   .edgesIgnoringSafeArea(.all)
+                //   .edgesIgnoringSafeArea(.all)
     }
 }
 

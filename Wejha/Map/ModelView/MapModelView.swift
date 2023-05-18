@@ -9,8 +9,8 @@ import Foundation
 import CoreLocation
 import SwiftUI
 import GoogleMaps
-import UIKit
- 
+import UIKit 
+
 
 
 struct MapLocationViewWrapper: UIViewControllerRepresentable {
@@ -25,7 +25,7 @@ struct MapLocationViewWrapper: UIViewControllerRepresentable {
     }
 }
 
-
+ 
 class ViewMapController: UIViewController, CLLocationManagerDelegate{
     
     let manager = CLLocationManager()
@@ -36,30 +36,34 @@ class ViewMapController: UIViewController, CLLocationManagerDelegate{
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         
-         GMSServices.provideAPIKey("AIzaSyDgXEpiATw1IAcW1T2gYLcwhM8S1v0IHOI")
-        
-        print("License: \n\n\(GMSServices.openSourceLicenseInfo())")
+        //GMSServices.provideAPIKey("AIzaSyDgXEpiATw1IAcW1T2gYLcwhM8S1v0IHOI")
+//
+   //     print("License: \n\n\(GMSServices.openSourceLicenseInfo())")
         
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else {
-            return
+}
+
+class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
+
+    // Publish the user's location so subscribers can react to updates
+    @Published var lastKnownLocation: CLLocation? = nil
+    private let manager = CLLocationManager()
+
+    override init() {
+        super.init()
+        self.manager.delegate = self
+        self.manager.startUpdatingLocation()
+    }
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            self.manager.startUpdatingLocation()
         }
-        
-        // coordinate -33.86,151.20 at zoom level 6.
-        let coordinate = location.coordinate
-        let camera = GMSCameraPosition.camera(withLatitude: coordinate.latitude, longitude: coordinate.longitude, zoom: 6.0)
-        // remove self
-        let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
-        self.view.addSubview(mapView)
+    }
 
-        // Creates a marker in the center of the map.
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
-             marker.title = "London"
-             marker.snippet = "UK"
-             marker.map = mapView
-
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // Notify listeners that the user has a new location
+        self.lastKnownLocation = locations.last
     }
 }

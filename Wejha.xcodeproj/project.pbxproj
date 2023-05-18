@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5605E7612A0EA0C60027F2D8 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5605E7602A0EA0C60027F2D8 /* SwiftUIView.swift */; };
 		5605E7632A0EA3290027F2D8 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5605E7622A0EA3290027F2D8 /* Media.xcassets */; };
-		560EAE7F2A116F7800D8D659 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EAE7E2A116F7800D8D659 /* File.swift */; };
+		560EAE7F2A116F7800D8D659 /* SceneLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EAE7E2A116F7800D8D659 /* SceneLocation.swift */; };
 		56543D3BCCE5A71EBB0AF8C2 /* Pods_Wejha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C7ACEF13A1306A51C3F17A /* Pods_Wejha.framework */; };
 		567BEEBE2A10E58F00861FA3 /* MapIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567BEEBD2A10E58F00861FA3 /* MapIView.swift */; };
 		5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6A2A0B9682004F021E /* WejhaApp.swift */; };
@@ -18,7 +18,7 @@
 		5683BE722A0B9683004F021E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5683BE712A0B9683004F021E /* Preview Assets.xcassets */; };
 		56E6AD6E2A1155C800006719 /* ARUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E6AD6D2A1155C800006719 /* ARUIView.swift */; };
 		99E625DE2A1223760075734A /* MapModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E625DD2A1223760075734A /* MapModelView.swift */; };
-		99F805D92A13944400C859DF /* ViewPlacesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F805D82A13944400C859DF /* ViewPlacesController.swift */; };
+		99F805D92A13944400C859DF /* PlacesModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F805D82A13944400C859DF /* PlacesModelView.swift */; };
 		99F805DB2A1397CD00C859DF /* PlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F805DA2A1397CD00C859DF /* PlacesView.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,7 +27,7 @@
 		17C7ACEF13A1306A51C3F17A /* Pods_Wejha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wejha.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5605E7602A0EA0C60027F2D8 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		5605E7622A0EA3290027F2D8 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		560EAE7E2A116F7800D8D659 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		560EAE7E2A116F7800D8D659 /* SceneLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLocation.swift; sourceTree = "<group>"; };
 		561735A62A0BA942009A7D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		567BEEBD2A10E58F00861FA3 /* MapIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapIView.swift; sourceTree = "<group>"; };
 		5683BE672A0B9682004F021E /* Wejha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wejha.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,7 +38,7 @@
 		56E6AD6D2A1155C800006719 /* ARUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ARUIView.swift; path = Wejha/AR/ARView/ARUIView.swift; sourceTree = SOURCE_ROOT; };
 		902E51E6998828EDAC3D310A /* Pods-Wejha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wejha.debug.xcconfig"; path = "Target Support Files/Pods-Wejha/Pods-Wejha.debug.xcconfig"; sourceTree = "<group>"; };
 		99E625DD2A1223760075734A /* MapModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModelView.swift; sourceTree = "<group>"; };
-		99F805D82A13944400C859DF /* ViewPlacesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPlacesController.swift; sourceTree = "<group>"; };
+		99F805D82A13944400C859DF /* PlacesModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesModelView.swift; sourceTree = "<group>"; };
 		99F805DA2A1397CD00C859DF /* PlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,7 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				99E625DD2A1223760075734A /* MapModelView.swift */,
-				99F805D82A13944400C859DF /* ViewPlacesController.swift */,
+				99F805D82A13944400C859DF /* PlacesModelView.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -109,7 +109,7 @@
 		5605E78E2A0F836A0027F2D8 /* ModelView */ = {
 			isa = PBXGroup;
 			children = (
-				560EAE7E2A116F7800D8D659 /* File.swift */,
+				560EAE7E2A116F7800D8D659 /* SceneLocation.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -315,11 +315,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5683BE6D2A0B9682004F021E /* ContentView.swift in Sources */,
-				560EAE7F2A116F7800D8D659 /* File.swift in Sources */,
+				560EAE7F2A116F7800D8D659 /* SceneLocation.swift in Sources */,
 				5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */,
 				99F805DB2A1397CD00C859DF /* PlacesView.swift in Sources */,
 				5605E7612A0EA0C60027F2D8 /* SwiftUIView.swift in Sources */,
-				99F805D92A13944400C859DF /* ViewPlacesController.swift in Sources */,
+				99F805D92A13944400C859DF /* PlacesModelView.swift in Sources */,
 				99E625DE2A1223760075734A /* MapModelView.swift in Sources */,
 				56E6AD6E2A1155C800006719 /* ARUIView.swift in Sources */,
 				567BEEBE2A10E58F00861FA3 /* MapIView.swift in Sources */,
@@ -452,7 +452,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wejha/Preview Content\"";
-				DEVELOPMENT_TEAM = 56P48H3M35;
+				DEVELOPMENT_TEAM = 44QNX63HR6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Wejha/Info.plist;
@@ -492,7 +492,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wejha/Preview Content\"";
-				DEVELOPMENT_TEAM = 56P48H3M35;
+				DEVELOPMENT_TEAM = 44QNX63HR6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Wejha/Info.plist;

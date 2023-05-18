@@ -40,11 +40,9 @@ class ViewPlacesController : UIViewController , CLLocationManagerDelegate{
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
-        
-         GMSServices.provideAPIKey("AIzaSyDgXEpiATw1IAcW1T2gYLcwhM8S1v0IHOI")
         GMSPlacesClient.provideAPIKey("AIzaSyDgXEpiATw1IAcW1T2gYLcwhM8S1v0IHOI")
         placesClient = GMSPlacesClient.shared()
-        print("License: \n\n\(GMSServices.openSourceLicenseInfo())")
+      //  print("License: \n\n\(GMSServices.openSourceLicenseInfo())")
         
     }
     
