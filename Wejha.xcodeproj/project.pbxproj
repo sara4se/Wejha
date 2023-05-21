@@ -11,6 +11,11 @@
 		5605E7632A0EA3290027F2D8 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5605E7622A0EA3290027F2D8 /* Media.xcassets */; };
 		560EAE7F2A116F7800D8D659 /* SceneLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EAE7E2A116F7800D8D659 /* SceneLocation.swift */; };
 		56543D3BCCE5A71EBB0AF8C2 /* Pods_Wejha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C7ACEF13A1306A51C3F17A /* Pods_Wejha.framework */; };
+		565F94BA2A17F62900121125 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 565F94B92A17F62900121125 /* FirebaseDatabase */; };
+		565F94BC2A17F62900121125 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 565F94BB2A17F62900121125 /* FirebaseDatabaseSwift */; };
+		565F94BE2A17F62900121125 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 565F94BD2A17F62900121125 /* FirebaseFirestore */; };
+		565F94C22A17F6C400121125 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 565F94C12A17F6C400121125 /* GoogleService-Info.plist */; };
+		565F94C62A1A240500121125 /* PlaceSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94C52A1A240400121125 /* PlaceSearch.swift */; };
 		567BEEBE2A10E58F00861FA3 /* MapIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567BEEBD2A10E58F00861FA3 /* MapIView.swift */; };
 		5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6A2A0B9682004F021E /* WejhaApp.swift */; };
 		5683BE6D2A0B9682004F021E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6C2A0B9682004F021E /* ContentView.swift */; };
@@ -18,8 +23,7 @@
 		5683BE722A0B9683004F021E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5683BE712A0B9683004F021E /* Preview Assets.xcassets */; };
 		56E6AD6E2A1155C800006719 /* ARUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E6AD6D2A1155C800006719 /* ARUIView.swift */; };
 		99E625DE2A1223760075734A /* MapModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E625DD2A1223760075734A /* MapModelView.swift */; };
-		99F805D92A13944400C859DF /* PlacesModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F805D82A13944400C859DF /* PlacesModelView.swift */; };
-		99F805DB2A1397CD00C859DF /* PlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F805DA2A1397CD00C859DF /* PlacesView.swift */; };
+		99F805D92A13944400C859DF /* RoutesModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F805D82A13944400C859DF /* RoutesModelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,8 @@
 		5605E7622A0EA3290027F2D8 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		560EAE7E2A116F7800D8D659 /* SceneLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLocation.swift; sourceTree = "<group>"; };
 		561735A62A0BA942009A7D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		565F94C12A17F6C400121125 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		565F94C52A1A240400121125 /* PlaceSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceSearch.swift; sourceTree = "<group>"; };
 		567BEEBD2A10E58F00861FA3 /* MapIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapIView.swift; sourceTree = "<group>"; };
 		5683BE672A0B9682004F021E /* Wejha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wejha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5683BE6A2A0B9682004F021E /* WejhaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WejhaApp.swift; sourceTree = "<group>"; };
@@ -38,8 +44,7 @@
 		56E6AD6D2A1155C800006719 /* ARUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ARUIView.swift; path = Wejha/AR/ARView/ARUIView.swift; sourceTree = SOURCE_ROOT; };
 		902E51E6998828EDAC3D310A /* Pods-Wejha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wejha.debug.xcconfig"; path = "Target Support Files/Pods-Wejha/Pods-Wejha.debug.xcconfig"; sourceTree = "<group>"; };
 		99E625DD2A1223760075734A /* MapModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModelView.swift; sourceTree = "<group>"; };
-		99F805D82A13944400C859DF /* PlacesModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesModelView.swift; sourceTree = "<group>"; };
-		99F805DA2A1397CD00C859DF /* PlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesView.swift; sourceTree = "<group>"; };
+		99F805D82A13944400C859DF /* RoutesModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesModelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +52,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				565F94BC2A17F62900121125 /* FirebaseDatabaseSwift in Frameworks */,
+				565F94BE2A17F62900121125 /* FirebaseFirestore in Frameworks */,
+				565F94BA2A17F62900121125 /* FirebaseDatabase in Frameworks */,
 				56543D3BCCE5A71EBB0AF8C2 /* Pods_Wejha.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				567BEEBD2A10E58F00861FA3 /* MapIView.swift */,
-				99F805DA2A1397CD00C859DF /* PlacesView.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -66,8 +73,9 @@
 		5605E7892A0F82C80027F2D8 /* ModelView */ = {
 			isa = PBXGroup;
 			children = (
+				565F94C52A1A240400121125 /* PlaceSearch.swift */,
 				99E625DD2A1223760075734A /* MapModelView.swift */,
-				99F805D82A13944400C859DF /* PlacesModelView.swift */,
+				99F805D82A13944400C859DF /* RoutesModelView.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -143,6 +151,7 @@
 		5683BE692A0B9682004F021E /* Wejha */ = {
 			isa = PBXGroup;
 			children = (
+				565F94C12A17F6C400121125 /* GoogleService-Info.plist */,
 				5683BE6A2A0B9682004F021E /* WejhaApp.swift */,
 				5605E78C2A0F83380027F2D8 /* AR */,
 				5605E78B2A0F83310027F2D8 /* Map */,
@@ -200,6 +209,11 @@
 			dependencies = (
 			);
 			name = Wejha;
+			packageProductDependencies = (
+				565F94B92A17F62900121125 /* FirebaseDatabase */,
+				565F94BB2A17F62900121125 /* FirebaseDatabaseSwift */,
+				565F94BD2A17F62900121125 /* FirebaseFirestore */,
+			);
 			productName = Wejha;
 			productReference = 5683BE672A0B9682004F021E /* Wejha.app */;
 			productType = "com.apple.product-type.application";
@@ -228,6 +242,9 @@
 				Base,
 			);
 			mainGroup = 5683BE5E2A0B9682004F021E;
+			packageReferences = (
+				565F94B82A17F62900121125 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 5683BE682A0B9682004F021E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -243,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5683BE722A0B9683004F021E /* Preview Assets.xcassets in Resources */,
+				565F94C22A17F6C400121125 /* GoogleService-Info.plist in Resources */,
 				5605E7632A0EA3290027F2D8 /* Media.xcassets in Resources */,
 				5683BE6F2A0B9683004F021E /* Assets.xcassets in Resources */,
 			);
@@ -317,10 +335,10 @@
 				5683BE6D2A0B9682004F021E /* ContentView.swift in Sources */,
 				560EAE7F2A116F7800D8D659 /* SceneLocation.swift in Sources */,
 				5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */,
-				99F805DB2A1397CD00C859DF /* PlacesView.swift in Sources */,
 				5605E7612A0EA0C60027F2D8 /* SwiftUIView.swift in Sources */,
-				99F805D92A13944400C859DF /* PlacesModelView.swift in Sources */,
+				99F805D92A13944400C859DF /* RoutesModelView.swift in Sources */,
 				99E625DE2A1223760075734A /* MapModelView.swift in Sources */,
+				565F94C62A1A240500121125 /* PlaceSearch.swift in Sources */,
 				56E6AD6E2A1155C800006719 /* ARUIView.swift in Sources */,
 				567BEEBE2A10E58F00861FA3 /* MapIView.swift in Sources */,
 			);
@@ -545,6 +563,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		565F94B82A17F62900121125 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		565F94B92A17F62900121125 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 565F94B82A17F62900121125 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		565F94BB2A17F62900121125 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 565F94B82A17F62900121125 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		565F94BD2A17F62900121125 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 565F94B82A17F62900121125 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5683BE5F2A0B9682004F021E /* Project object */;
 }
