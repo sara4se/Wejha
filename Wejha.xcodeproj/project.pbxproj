@@ -16,6 +16,8 @@
 		565F94BE2A17F62900121125 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 565F94BD2A17F62900121125 /* FirebaseFirestore */; };
 		565F94C22A17F6C400121125 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 565F94C12A17F6C400121125 /* GoogleService-Info.plist */; };
 		565F94C62A1A240500121125 /* PlaceSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94C52A1A240400121125 /* PlaceSearch.swift */; };
+		565F94C92A1A99DD00121125 /* CompineAR+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94C82A1A99DD00121125 /* CompineAR+MapView.swift */; };
+		565F94CD2A1A9A4000121125 /* CompineAR_MapModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94CC2A1A9A4000121125 /* CompineAR_MapModelView.swift */; };
 		567BEEBE2A10E58F00861FA3 /* MapIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567BEEBD2A10E58F00861FA3 /* MapIView.swift */; };
 		5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6A2A0B9682004F021E /* WejhaApp.swift */; };
 		5683BE6D2A0B9682004F021E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6C2A0B9682004F021E /* ContentView.swift */; };
@@ -35,6 +37,8 @@
 		561735A62A0BA942009A7D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		565F94C12A17F6C400121125 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		565F94C52A1A240400121125 /* PlaceSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceSearch.swift; sourceTree = "<group>"; };
+		565F94C82A1A99DD00121125 /* CompineAR+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompineAR+MapView.swift"; sourceTree = "<group>"; };
+		565F94CC2A1A9A4000121125 /* CompineAR_MapModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompineAR_MapModelView.swift; sourceTree = "<group>"; };
 		567BEEBD2A10E58F00861FA3 /* MapIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapIView.swift; sourceTree = "<group>"; };
 		5683BE672A0B9682004F021E /* Wejha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wejha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5683BE6A2A0B9682004F021E /* WejhaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WejhaApp.swift; sourceTree = "<group>"; };
@@ -130,6 +134,31 @@
 			path = ARView;
 			sourceTree = "<group>";
 		};
+		565F94C72A1A99C200121125 /* AR+Map */ = {
+			isa = PBXGroup;
+			children = (
+				565F94CB2A1A9A2600121125 /* View */,
+				565F94CA2A1A9A1C00121125 /* ModelView */,
+			);
+			path = "AR+Map";
+			sourceTree = "<group>";
+		};
+		565F94CA2A1A9A1C00121125 /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+				565F94CC2A1A9A4000121125 /* CompineAR_MapModelView.swift */,
+			);
+			path = ModelView;
+			sourceTree = "<group>";
+		};
+		565F94CB2A1A9A2600121125 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				565F94C82A1A99DD00121125 /* CompineAR+MapView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		5683BE5E2A0B9682004F021E = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +180,7 @@
 		5683BE692A0B9682004F021E /* Wejha */ = {
 			isa = PBXGroup;
 			children = (
+				565F94C72A1A99C200121125 /* AR+Map */,
 				565F94C12A17F6C400121125 /* GoogleService-Info.plist */,
 				5683BE6A2A0B9682004F021E /* WejhaApp.swift */,
 				5605E78C2A0F83380027F2D8 /* AR */,
@@ -335,11 +365,13 @@
 				5683BE6D2A0B9682004F021E /* ContentView.swift in Sources */,
 				560EAE7F2A116F7800D8D659 /* SceneLocation.swift in Sources */,
 				5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */,
+				565F94C92A1A99DD00121125 /* CompineAR+MapView.swift in Sources */,
 				5605E7612A0EA0C60027F2D8 /* SwiftUIView.swift in Sources */,
 				99F805D92A13944400C859DF /* RoutesModelView.swift in Sources */,
 				99E625DE2A1223760075734A /* MapModelView.swift in Sources */,
 				565F94C62A1A240500121125 /* PlaceSearch.swift in Sources */,
 				56E6AD6E2A1155C800006719 /* ARUIView.swift in Sources */,
+				565F94CD2A1A9A4000121125 /* CompineAR_MapModelView.swift in Sources */,
 				567BEEBE2A10E58F00861FA3 /* MapIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

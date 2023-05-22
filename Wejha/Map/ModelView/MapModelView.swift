@@ -2,46 +2,83 @@
 //  MapModelView.swift
 //  Wejha
 //
-//  Created by Rawan on 25/10/1444 AH.
+//  Created by Sara Alhumidi on 24/10/1444 AH.
 //
 
 import Foundation
 import CoreLocation
 import SwiftUI
 import GoogleMaps
-import UIKit 
-
-
-
-struct MapLocationViewWrapper: UIViewControllerRepresentable {
-    typealias UIViewControllerType = ViewMapController
-     
-    func makeUIViewController(context: Context) -> ViewMapController {
-        return ViewMapController()
-    }
-    
-    func updateUIViewController(_ uiViewController: ViewMapController, context: Context) {
-        // No updates needed for this example
-    }
-}
+import UIKit
+import CoreLocation
+import GooglePlaces
 
  
-class ViewMapController: UIViewController, CLLocationManagerDelegate{
-    
-    let manager = CLLocationManager()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        manager.delegate = self
-        manager.requestWhenInUseAuthorization()
-        manager.startUpdatingLocation()
+struct MapViewRepresentable: UIViewRepresentable {
+    @ObservedObject var locationManager = LocationManager()
+    @Binding var selectedPlace: String?
+   
+    //var searchResults: [Place]
+    class Coordinator: NSObject, CLLocationManagerDelegate {
+        var mapView: GMSMapView?
         
-        //GMSServices.provideAPIKey("AIzaSyDgXEpiATw1IAcW1T2gYLcwhM8S1v0IHOI")
-//
-   //     print("License: \n\n\(GMSServices.openSourceLicenseInfo())")
-        
+        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            if let location = locations.first {
+                mapView?.animate(toLocation: location.coordinate)
+            }
+        }
+        func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+            if status == .authorizedWhenInUse {
+                manager.startUpdatingLocation()
+                mapView?.isMyLocationEnabled = true
+                mapView?.settings.myLocationButton = true
+                mapView?.settings.compassButton = true
+                mapView?.settings.rotateGestures = true
+                mapView?.settings.scrollGestures = true
+                mapView?.settings.tiltGestures = true
+                mapView?.settings.zoomGestures = true
+                //                mapView?.camera = GMSCameraPosition(target: manager.location!.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+            }
+        }
     }
     
+    func makeUIView(context: Context) -> GMSMapView {
+        let mapView = GMSMapView(frame: .zero)
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
+        mapView.settings.compassButton = true
+        mapView.settings.rotateGestures = true
+        mapView.settings.scrollGestures = true
+        mapView.settings.tiltGestures = true
+        mapView.settings.zoomGestures = true
+        mapView.isIndoorEnabled = true
+        mapView.settings.indoorPicker = true
+        mapView.delegate = context.coordinator as? any GMSMapViewDelegate
+        
+        return mapView
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator()
+    }
+    
+    func updateUIView(_ mapView: GMSMapView, context: Context) {
+        mapView.clear()
+        
+        if let selectedPlace = selectedPlace {
+            let placesClient = GMSPlacesClient()
+            
+            placesClient.findAutocompletePredictions(fromQuery: selectedPlace , filter: GMSAutocompleteFilter(), sessionToken: nil) { predictions, error in
+                guard let prediction = predictions?.first else { return }
+                
+                placesClient.fetchPlace(fromPlaceID: prediction.placeID, placeFields: .coordinate, sessionToken: nil) { (fetchedPlace, error) in
+                    guard let coordinate = fetchedPlace?.coordinate else { return }
+                    let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 15)
+                    mapView.animate(to: camera)
+                }
+            }
+        }
+    }
 }
 
 class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
@@ -67,3 +104,5 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
         self.lastKnownLocation = locations.last
     }
 }
+
+ 

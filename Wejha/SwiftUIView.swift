@@ -8,35 +8,35 @@
 import SwiftUI
 import ARKit
 import CoreLocation
-struct ARView : UIViewRepresentable{
-    func makeUIView(context: Context) -> some UIView {
-        let sceneView = ARSCNView()
-        sceneView.showsStatistics = true
-        
-        
-        let scene = SCNScene(named: "image")!
-        sceneView.scene = scene
-        let config = ARWorldTrackingConfiguration()
-        sceneView.session.run(config)
-        
-        
-        return sceneView
-    }
-    func updateUIView(_ uiView: UIViewType, context: Context) {
-        
-    }
-}
-struct SwiftUIView: View {
-    var body: some View {
-        ARView()
-    }
-}
-
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        SwiftUIView()
-    }
-}
+//struct ARView : UIViewRepresentable{
+//    func makeUIView(context: Context) -> some UIView {
+//        let sceneView = ARSCNView()
+//        sceneView.showsStatistics = true
+//        
+//        
+//        let scene = SCNScene(named: "")
+//        sceneView.scene = scene ?? SCNScene.init()
+//        let config = ARWorldTrackingConfiguration()
+//        sceneView.session.run(config)
+//        
+//        
+//        return sceneView
+//    }
+//    func updateUIView(_ uiView: UIViewType, context: Context) {
+//        
+//    }
+//}
+//struct SwiftUIView: View {
+//    var body: some View {
+//        ARView()
+//    }
+//}
+//
+//struct SwiftUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SwiftUIView()
+//    }
+//}
 
 
 /*

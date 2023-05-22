@@ -26,26 +26,6 @@ final class PlaceSearch : ObservableObject {
             }
             
             guard let results = results else {return}
-            //            for place in searchResults {
-            //                let marker = GMSMarker()
-            //                marker.position = CLLocationCoordinate2D(latitude: 0, longitude: 0) // Default position
-            //
-            ////                PlacesClient.shared.fetchPlaceDetails(placeID: place.identifier) { result in
-            ////                    switch result {
-            ////                    case .success(let placeDetails):
-            ////                        marker.position = CLLocationCoordinate2D(latitude: placeDetails.latitude, longitude: placeDetails.longitude)
-            ////                        marker.title = placeDetails.name
-            ////                        marker.map = mapView
-            ////
-            ////                        // Move the camera to the searched place
-            ////                        let camera = GMSCameraPosition.camera(withLatitude: placeDetails.latitude, longitude: placeDetails.longitude, zoom: 15.0)
-            ////                        mapView.camera = camera
-            ////                    case .failure(let error):
-            ////                        print("Error retrieving place details: \(error)")
-            ////                    }
-            ////                }
-            //            }
-            //        }
             for result in results {
                 self.searchedLocation.append(result.attributedFullText.string)
                 print("Result \(result.attributedFullText) with placeID \(result.placeID)")
