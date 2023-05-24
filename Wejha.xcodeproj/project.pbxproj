@@ -26,6 +26,7 @@
 		56E6AD6E2A1155C800006719 /* ARUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E6AD6D2A1155C800006719 /* ARUIView.swift */; };
 		99E625DE2A1223760075734A /* MapModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E625DD2A1223760075734A /* MapModelView.swift */; };
 		99F805D92A13944400C859DF /* RoutesModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F805D82A13944400C859DF /* RoutesModelView.swift */; };
+		D46077172A1DF66A004E78B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D46077192A1DF66A004E78B9 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,8 @@
 		902E51E6998828EDAC3D310A /* Pods-Wejha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wejha.debug.xcconfig"; path = "Target Support Files/Pods-Wejha/Pods-Wejha.debug.xcconfig"; sourceTree = "<group>"; };
 		99E625DD2A1223760075734A /* MapModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModelView.swift; sourceTree = "<group>"; };
 		99F805D82A13944400C859DF /* RoutesModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesModelView.swift; sourceTree = "<group>"; };
+		D46077182A1DF66A004E78B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D460771A2A1DF66E004E78B9 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,7 @@
 		5683BE5E2A0B9682004F021E = {
 			isa = PBXGroup;
 			children = (
+				D46077192A1DF66A004E78B9 /* Localizable.strings */,
 				5683BE692A0B9682004F021E /* Wejha */,
 				5683BE682A0B9682004F021E /* Products */,
 				5FA314352D501CA9831AFA9A /* Pods */,
@@ -270,6 +274,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 5683BE5E2A0B9682004F021E;
 			packageReferences = (
@@ -289,6 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D46077172A1DF66A004E78B9 /* Localizable.strings in Resources */,
 				5683BE722A0B9683004F021E /* Preview Assets.xcassets in Resources */,
 				565F94C22A17F6C400121125 /* GoogleService-Info.plist in Resources */,
 				5605E7632A0EA3290027F2D8 /* Media.xcassets in Resources */,
@@ -377,6 +383,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D46077192A1DF66A004E78B9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D46077182A1DF66A004E78B9 /* en */,
+				D460771A2A1DF66E004E78B9 /* ar */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5683BE732A0B9683004F021E /* Debug */ = {
