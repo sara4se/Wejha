@@ -52,6 +52,9 @@
 		99F805D82A13944400C859DF /* RoutesModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesModelView.swift; sourceTree = "<group>"; };
 		D46077182A1DF66A004E78B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D460771A2A1DF66E004E78B9 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D460771B2A1F55F0004E78B9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D460771C2A1F560C004E78B9 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D460771D2A1F5638004E78B9 /* ur */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ur; path = ur.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +278,9 @@
 				en,
 				Base,
 				ar,
+				fr,
+				tr,
+				ur,
 			);
 			mainGroup = 5683BE5E2A0B9682004F021E;
 			packageReferences = (
@@ -390,6 +396,9 @@
 			children = (
 				D46077182A1DF66A004E78B9 /* en */,
 				D460771A2A1DF66E004E78B9 /* ar */,
+				D460771B2A1F55F0004E78B9 /* fr */,
+				D460771C2A1F560C004E78B9 /* tr */,
+				D460771D2A1F5638004E78B9 /* ur */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
