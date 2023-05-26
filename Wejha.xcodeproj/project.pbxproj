@@ -18,6 +18,10 @@
 		565F94C62A1A240500121125 /* PlaceSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94C52A1A240400121125 /* PlaceSearch.swift */; };
 		565F94C92A1A99DD00121125 /* CompineAR+MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94C82A1A99DD00121125 /* CompineAR+MapView.swift */; };
 		565F94CD2A1A9A4000121125 /* CompineAR_MapModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94CC2A1A9A4000121125 /* CompineAR_MapModelView.swift */; };
+		565F94CF2A1CB85100121125 /* sheetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94CE2A1CB85100121125 /* sheetExtension.swift */; };
+		565F94D32A1E22AB00121125 /* MapUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94D22A1E22AB00121125 /* MapUIView.swift */; };
+		565F94D52A1F5FD400121125 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94D42A1F5FD400121125 /* Helper.swift */; };
+		565F94D82A1FE76300121125 /* MapRouteTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94D72A1FE76300121125 /* MapRouteTasks.swift */; };
 		567BEEBE2A10E58F00861FA3 /* MapIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567BEEBD2A10E58F00861FA3 /* MapIView.swift */; };
 		5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6A2A0B9682004F021E /* WejhaApp.swift */; };
 		5683BE6D2A0B9682004F021E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6C2A0B9682004F021E /* ContentView.swift */; };
@@ -39,6 +43,10 @@
 		565F94C52A1A240400121125 /* PlaceSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceSearch.swift; sourceTree = "<group>"; };
 		565F94C82A1A99DD00121125 /* CompineAR+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompineAR+MapView.swift"; sourceTree = "<group>"; };
 		565F94CC2A1A9A4000121125 /* CompineAR_MapModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompineAR_MapModelView.swift; sourceTree = "<group>"; };
+		565F94CE2A1CB85100121125 /* sheetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sheetExtension.swift; sourceTree = "<group>"; };
+		565F94D22A1E22AB00121125 /* MapUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUIView.swift; sourceTree = "<group>"; };
+		565F94D42A1F5FD400121125 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		565F94D72A1FE76300121125 /* MapRouteTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRouteTasks.swift; sourceTree = "<group>"; };
 		567BEEBD2A10E58F00861FA3 /* MapIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapIView.swift; sourceTree = "<group>"; };
 		5683BE672A0B9682004F021E /* Wejha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wejha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5683BE6A2A0B9682004F021E /* WejhaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WejhaApp.swift; sourceTree = "<group>"; };
@@ -69,7 +77,9 @@
 		5605E7882A0F82B90027F2D8 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				565F94CE2A1CB85100121125 /* sheetExtension.swift */,
 				567BEEBD2A10E58F00861FA3 /* MapIView.swift */,
+				565F94D22A1E22AB00121125 /* MapUIView.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -77,9 +87,11 @@
 		5605E7892A0F82C80027F2D8 /* ModelView */ = {
 			isa = PBXGroup;
 			children = (
+				565F94D72A1FE76300121125 /* MapRouteTasks.swift */,
 				565F94C52A1A240400121125 /* PlaceSearch.swift */,
 				99E625DD2A1223760075734A /* MapModelView.swift */,
 				99F805D82A13944400C859DF /* RoutesModelView.swift */,
+				565F94D42A1F5FD400121125 /* Helper.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -363,9 +375,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5683BE6D2A0B9682004F021E /* ContentView.swift in Sources */,
+				565F94D52A1F5FD400121125 /* Helper.swift in Sources */,
+				565F94CF2A1CB85100121125 /* sheetExtension.swift in Sources */,
 				560EAE7F2A116F7800D8D659 /* SceneLocation.swift in Sources */,
 				5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */,
 				565F94C92A1A99DD00121125 /* CompineAR+MapView.swift in Sources */,
+				565F94D32A1E22AB00121125 /* MapUIView.swift in Sources */,
+				565F94D82A1FE76300121125 /* MapRouteTasks.swift in Sources */,
 				5605E7612A0EA0C60027F2D8 /* SwiftUIView.swift in Sources */,
 				99F805D92A13944400C859DF /* RoutesModelView.swift in Sources */,
 				99E625DE2A1223760075734A /* MapModelView.swift in Sources */,

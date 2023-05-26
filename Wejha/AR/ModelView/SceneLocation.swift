@@ -63,7 +63,7 @@ class ViewController: UIViewController {
       sceneLocationView.frame = view.bounds
     }
     
-    
+    //take the place from search then try to find it from the places api then start drow location from my location to the distntion
     
     func ARINIT(selectedPlace:String) {
         // Create a location variable to store the selected location
