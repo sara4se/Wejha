@@ -22,6 +22,7 @@
 		565F94D32A1E22AB00121125 /* MapUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94D22A1E22AB00121125 /* MapUIView.swift */; };
 		565F94D52A1F5FD400121125 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94D42A1F5FD400121125 /* Helper.swift */; };
 		565F94D82A1FE76300121125 /* MapRouteTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94D72A1FE76300121125 /* MapRouteTasks.swift */; };
+		565F94DE2A21EE1D00121125 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94DD2A21EE1D00121125 /* Category.swift */; };
 		567BEEBE2A10E58F00861FA3 /* MapIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567BEEBD2A10E58F00861FA3 /* MapIView.swift */; };
 		5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6A2A0B9682004F021E /* WejhaApp.swift */; };
 		5683BE6D2A0B9682004F021E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6C2A0B9682004F021E /* ContentView.swift */; };
@@ -47,6 +48,7 @@
 		565F94D22A1E22AB00121125 /* MapUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUIView.swift; sourceTree = "<group>"; };
 		565F94D42A1F5FD400121125 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		565F94D72A1FE76300121125 /* MapRouteTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRouteTasks.swift; sourceTree = "<group>"; };
+		565F94DD2A21EE1D00121125 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		567BEEBD2A10E58F00861FA3 /* MapIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapIView.swift; sourceTree = "<group>"; };
 		5683BE672A0B9682004F021E /* Wejha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wejha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5683BE6A2A0B9682004F021E /* WejhaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WejhaApp.swift; sourceTree = "<group>"; };
@@ -96,18 +98,11 @@
 			path = ModelView;
 			sourceTree = "<group>";
 		};
-		5605E78A2A0F83230027F2D8 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		5605E78B2A0F83310027F2D8 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				565F94DC2A21EE0F00121125 /* Model */,
 				5605E7892A0F82C80027F2D8 /* ModelView */,
-				5605E78A2A0F83230027F2D8 /* Model */,
 				5605E7882A0F82B90027F2D8 /* MapView */,
 			);
 			path = Map;
@@ -169,6 +164,14 @@
 				565F94C82A1A99DD00121125 /* CompineAR+MapView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		565F94DC2A21EE0F00121125 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				565F94DD2A21EE1D00121125 /* Category.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		5683BE5E2A0B9682004F021E = {
@@ -381,6 +384,7 @@
 				5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */,
 				565F94C92A1A99DD00121125 /* CompineAR+MapView.swift in Sources */,
 				565F94D32A1E22AB00121125 /* MapUIView.swift in Sources */,
+				565F94DE2A21EE1D00121125 /* Category.swift in Sources */,
 				565F94D82A1FE76300121125 /* MapRouteTasks.swift in Sources */,
 				5605E7612A0EA0C60027F2D8 /* SwiftUIView.swift in Sources */,
 				99F805D92A13944400C859DF /* RoutesModelView.swift in Sources */,

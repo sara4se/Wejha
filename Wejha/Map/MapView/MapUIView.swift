@@ -1,7 +1,7 @@
 //
 //  MapUIView.swift
 //  Wejha
-//
+//@State var userLocation: CLLocationCoordinate2D?
 //  Created by Sara Alhumidi on 04/11/1444 AH.
 //
 import GoogleMaps
@@ -112,6 +112,10 @@ struct BottomSheet: View {
     @Binding var locationQuery: String
     @ObservedObject var locationViewModel: LocationViewModel
     @ObservedObject var locationHandler: PlaceSearch
+    var categories : Categories = Categories()
+    //var category : Category = Category(name: "")
+    
+    var AllPlace: [Place] = []
     var body: some View {
         NavigationView {
         VStack {
