@@ -7,111 +7,111 @@
 */
 
 //MARK: Onboarding
-"Text0" = "Skip" ;
+"Text0" = "Sautiller" ;
 "Text1" = "Wejha" ;
-"Text2" = "Latest Technologies" ;
-"Text3" = "Open the camera and enjoy using AR map to reach your destination" ;
-"Text4" = "Various Services" ;
-"Text5" = "Find out about the services offered at the Holy Mosque to facilitate your visit" ;
-"Text6" = "Quick Access" ;
-"Text7" = "Explore the nearest places around you" ;
-"Text8" = "Start" ;
+"Text2" = "Dernières Technologies" ;
+"Text3" = "Déverrouillez la caméra et profitez de la technologie de réalité augmentée pour atteindre votre destination" ;
+"Text4" = "Services Divers" ;
+"Text5" = "Découvrez  Services Offerts à la Mosquée de la Mecque pour faciliter votre visite" ;
+"Text6" = "Accès plus Rapide" ;
+"Text7" = "Explorez l’endroit le plus près de chez vous" ;
+"Text8" = "Commencer" ;
 
 //MARK: Allow access location
-"Text9" = "Allow “Wejha / وجهة” to use
-your location?" ;
-"Text10" = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results" ;
-"Text11" = "Precise: On" ;
-"Text12" = "Allow Once" ;
-"Text13" = "Allow While Using the App" ;
-"Text14" = "Don’t Allow" ;
+"Text9" = "Permettre à “Wejha | وجهة” d’accéder à votre emplacement actuel?" ;
+"Text10" = "Votre emplacement actuel sera affiché sur la carte et servira à déterminer les directions et les résultats de la recherche.
+A propos des endroits près de chez vous, capacité d’accès aux temps." ;
+"Text11" = "Précis : Activé" ;
+"Text12" = "Accorder une seule fois" ;
+"Text13" = "Autoriser l’utilisation de l’application" ;
+"Text14" = "Refus" ;
 
 //MARK: Categories sheet
-"Text15" = "Select your destination" ;
-"Text16" = "Gates" ;
-"Text17" = "Al-Sahan" ;
-"Text18" = "Al-Safa & Al-Marwah";
-"Text19" = "Wheelchair Store";
-"Text20" = "Restrooms" ;
+"Text15" = "Sélectionnez votre Destination" ;
+"Text16" = "Portes" ;
+"Text17" = "Sahan" ;
+"Text18" = "Safa & Marwa";
+"Text19" = "Bureau de distribution des Fauteuil Roulant";
+"Text20" = "Toilettes" ;
 "Text21" = "Ablution" ;
-"Text22" = "Vertical Transportation ";
-"Text23" = "Bus Station" ;
-"Text24" = "Lost & Found Office" ;
+"Text22" = "Transport Vertical";
+"Text23" = "Station de Bus" ;
+"Text24" = " Bureau des Objets Trouves" ;
 
 //MARK: Gates
-"Text25" = "King Abdulaziz Gate 1";
-"Text26" = "King Fahad Gate 79" ;
+"Text25" = "Porte du Roi Abdulaziz 1";
+"Text26" = "Porte du Roi Fahd 79" ;
 "Text27" = "King Abdullah Gate 100" ;
-"Text28" = "Umra Gate 40" ;
-"Text29" = "Ismail Gate 5";
-"Text30" = "As-Salam Gate";
-"Text31" = "Fateh Gate 30" ;
-"Text32" = "Ajyad Gate 3";
-"Text33" = "Al-Nabi Bridge 15" ;
-"Text34" = "Muzdalifah Gate 36" ;
-"Text35" = "Al-Mudaa Gate 25";
+"Text28" = "Porte Al-Umrah 40" ;
+"Text29" = "Porte Ismail 5";
+"Text30" = "Porte de la paix";
+"Text31" = "Porte Al Fath 30" ;
+"Text32" = "Porte Ajyad 3";
+"Text33" = "Pont Nabi 15" ;
+"Text34" = "Porte Mozdalifa 36" ;
+"Text35" = "Porte Al-Mudaa  25";
 
 //MARK: Al-Sahan
-"Text36" = "Holy Kaaba" ;
-"Text37" = "Maqaam Ibrahim" ;
+"Text36" = "Kaaba" ;
+"Text37" = "Le maqam du Abraham" ;
 
 //MARK: Al-Safa & Al-Marwah
-"Text38" = "Al-Safa" ;
-"Text39" = "Al-Marwah";
+"Text38" = "Safa" ;
+"Text39" = "Marwa";
 
 //MARK: Wheelchair Store
-"Text40" = "Wheelchair Store";
+"Text40" = "Bureau de distribution des Fauteuil Roulant";
 
 //MARK: Restrooms
-"Text41" = "WC Woman" ;
-"Text42" = "WC Men";
+"Text41" = "Toilettes pour femmes" ;
+"Text42" = "Toilettes pour hommes";
 
 //MARK: Ablution
-"Text43" = "Ablution Woman" ;
-"Text44" = "Ablution  Men" ;
+"Text43" = "Ablution pour femmes" ;
+"Text44" = "Ablution pour hommes" ;
 
 //MARK: Vertical Transportation
-"Text45" = "Elevator";
-"Text46" = "Escalator" ;
-"Text47" = "Staircase" ;
+"Text45" = "Ascenseur";
+"Text46" = "Échelle électrique" ;
+"Text47" = "Escaliers" ;
 
 //MARK: Bus Station
-"Text48" = "Bus Station" ;
+"Text48" = "Station de Bus" ;
 
 //MARK: Lost & Found Office
-"Text49" = "Lost & Found Office";
+"Text49" = "Bureau des Objets Trouves";
 
 //MARK: Search
-"Text50" = "Recent searches";
-"Text51" = "Cancel" ;
-"Text52" = "No results found";
-"Text53" = "Search";
+"Text50" = "Recherches récentes";
+"Text51" = "Annulation" ;
+"Text52" = "Aucun résultat trouvé";
+"Text53" = "Recherche";
 
 //MARK: Selected destination
-"Text54" = "Min" ;
+"Text54" = "Minute" ;
 "Text55" = "Km" ;
-"Text56" = "Unknown";
+"Text56" = "Inconnu";
 
 //MARK: Camera access
-"Text57" = "“Wejha / وجهة” Would Like to Access to the Camera" ;
-"Text58" = "To use the AR map and show the directions" ;
-"Text59" = "Allow";
-"Text60" = "Don’t Allow";
+"Text57" = "“Wejha | وجهة” Souhaite accéder à la caméra" ;
+"Text58" = "Utiliser la technologie de réalité augmentée et visualiser les tendances" ;
+"Text59" = "Permettre";
+"Text60" = "Refus";
 
 //MARK: Camera Access is not given
-"Text61" = "Unable to access the camera" ;
-"Text62" = "Camera access is required to use AR map" ;
-"Text63" = "Allow access to the camera from settings or";
-"Text64" = "Switch to the 2D map" ;
+"Text61" = "Impossible d’accéder à la caméra" ;
+"Text62" = "L’accès à la caméra est nécessaire pour utiliser la technologie de réalité augmentée." ;
+"Text63" = "euillez autoriser l’accès à la caméra à partir des comptoirs ou";
+"Text64" = "Passer à une carte bidimensionnelle" ;
 
 //MARK: Map directions
-"Text65" = "Estimated time" ;
-"Text66" = "Exit";
-"Text67" = "Arrived at your destination" ;
-"Text68" = "Moving forward" ;
-"Text69" = "Turn Right" ;
-"Text70" = "Go straight";
-"Text71" = "U-Turn";
-"Text72" = "Your destination is on the left";
-"Text73" = "Your destination is on the right" ;
-"Text74" = "Turn Left" ;
+"Text65" = "Temps restant" ;
+"Text66" = "Fin";
+"Text67" = "Votre destination est arrivée" ;
+"Text68" = "Aller de l’avant" ;
+"Text69" = "Allez à droite" ;
+"Text70" = "Vers l’avant";
+"Text71" = "Rotation arrière";
+"Text72" = "Votre Destination en gauche";
+"Text73" = "Votre Destination à Droite" ;
+"Text74" = "Tournez à Gauche" ;

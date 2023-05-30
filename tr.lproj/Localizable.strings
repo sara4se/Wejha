@@ -28,15 +28,15 @@ your location?" ;
 
 //MARK: Categories sheet
 "Text15" = "Select your destination" ;
-"Text16" = "Gates" ;
+"Text16" = "Kapilar" ;
 "Text17" = "Al-Sahan" ;
-"Text18" = "Al-Safa & Al-Marwah";
-"Text19" = "Wheelchair Store";
-"Text20" = "Restrooms" ;
-"Text21" = "Ablution" ;
-"Text22" = "Vertical Transportation ";
-"Text23" = "Bus Station" ;
-"Text24" = "Lost & Found Office" ;
+"Text18" = "Safa & Merve";
+"Text19" = "Tekerlekli Sandalye Temin noktası";
+"Text20" = "Tuvaleti" ;
+"Text21" = "Abdesthane" ;
+"Text22" = "Düşey Taşıma";
+"Text23" = "Otobüs Durağı" ;
+"Text24" = "Kayıp Eşya Bürosu" ;
 
 //MARK: Gates
 "Text25" = "King Abdulaziz Gate 1";
