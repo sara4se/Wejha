@@ -23,6 +23,8 @@
 		565F94D52A1F5FD400121125 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94D42A1F5FD400121125 /* Helper.swift */; };
 		565F94D82A1FE76300121125 /* MapRouteTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94D72A1FE76300121125 /* MapRouteTasks.swift */; };
 		565F94DE2A21EE1D00121125 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94DD2A21EE1D00121125 /* Category.swift */; };
+		5663F9B72A24BEFF0054AD54 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5663F9B62A24BEFF0054AD54 /* File.swift */; };
+		5663F9B92A24BF400054AD54 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5663F9B82A24BF400054AD54 /* FirebaseFirestoreSwift */; };
 		567BEEBE2A10E58F00861FA3 /* MapIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567BEEBD2A10E58F00861FA3 /* MapIView.swift */; };
 		5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6A2A0B9682004F021E /* WejhaApp.swift */; };
 		5683BE6D2A0B9682004F021E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6C2A0B9682004F021E /* ContentView.swift */; };
@@ -49,6 +51,7 @@
 		565F94D42A1F5FD400121125 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		565F94D72A1FE76300121125 /* MapRouteTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRouteTasks.swift; sourceTree = "<group>"; };
 		565F94DD2A21EE1D00121125 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		5663F9B62A24BEFF0054AD54 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		567BEEBD2A10E58F00861FA3 /* MapIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapIView.swift; sourceTree = "<group>"; };
 		5683BE672A0B9682004F021E /* Wejha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wejha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5683BE6A2A0B9682004F021E /* WejhaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WejhaApp.swift; sourceTree = "<group>"; };
@@ -66,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5663F9B92A24BF400054AD54 /* FirebaseFirestoreSwift in Frameworks */,
 				565F94BC2A17F62900121125 /* FirebaseDatabaseSwift in Frameworks */,
 				565F94BE2A17F62900121125 /* FirebaseFirestore in Frameworks */,
 				565F94BA2A17F62900121125 /* FirebaseDatabase in Frameworks */,
@@ -144,6 +148,7 @@
 		565F94C72A1A99C200121125 /* AR+Map */ = {
 			isa = PBXGroup;
 			children = (
+				5663F9B52A24BEF40054AD54 /* Model */,
 				565F94CB2A1A9A2600121125 /* View */,
 				565F94CA2A1A9A1C00121125 /* ModelView */,
 			);
@@ -170,6 +175,14 @@
 			isa = PBXGroup;
 			children = (
 				565F94DD2A21EE1D00121125 /* Category.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5663F9B52A24BEF40054AD54 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5663F9B62A24BEFF0054AD54 /* File.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -258,6 +271,7 @@
 				565F94B92A17F62900121125 /* FirebaseDatabase */,
 				565F94BB2A17F62900121125 /* FirebaseDatabaseSwift */,
 				565F94BD2A17F62900121125 /* FirebaseFirestore */,
+				5663F9B82A24BF400054AD54 /* FirebaseFirestoreSwift */,
 			);
 			productName = Wejha;
 			productReference = 5683BE672A0B9682004F021E /* Wejha.app */;
@@ -388,6 +402,7 @@
 				565F94D82A1FE76300121125 /* MapRouteTasks.swift in Sources */,
 				5605E7612A0EA0C60027F2D8 /* SwiftUIView.swift in Sources */,
 				99F805D92A13944400C859DF /* RoutesModelView.swift in Sources */,
+				5663F9B72A24BEFF0054AD54 /* File.swift in Sources */,
 				99E625DE2A1223760075734A /* MapModelView.swift in Sources */,
 				565F94C62A1A240500121125 /* PlaceSearch.swift in Sources */,
 				56E6AD6E2A1155C800006719 /* ARUIView.swift in Sources */,
@@ -642,6 +657,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 565F94B82A17F62900121125 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		5663F9B82A24BF400054AD54 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 565F94B82A17F62900121125 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

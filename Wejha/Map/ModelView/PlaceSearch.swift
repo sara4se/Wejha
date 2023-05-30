@@ -16,7 +16,6 @@ final class PlaceSearch : ObservableObject {
     let client = GMSPlacesClient()
     
     @Published var searchedLocation = [String]()
-    
     func searchLocation(_ query:String) {
         searchedLocation = []
         let filter = createSearchFilter()
@@ -24,13 +23,11 @@ final class PlaceSearch : ObservableObject {
             if let error = error {
                 print("Error find predictions : \(error.localizedDescription)")
             }
-            
-            guard let results = results else {return}
+           guard let results = results else {return}
             for result in results {
                 self.searchedLocation.append(result.attributedFullText.string)
                 print("Result \(result.attributedFullText) with placeID \(result.placeID)")
             }
-          
         }
     }
 

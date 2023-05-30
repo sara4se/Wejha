@@ -4,14 +4,11 @@
 //
 //  Created by Rawan on 26/10/1444 AH.
 //
-
 import Foundation 
 import GooglePlaces
 import UIKit
 import SwiftUI
 import GoogleMaps
-
-
 //struct RoutesModelViewRepresentable: UIViewRepresentable {
 //    typealias UIViewType = RoutesModelVie
 //    func makeUIView(context: Context) -> RoutesModelView {
@@ -43,7 +40,6 @@ struct RoutesView : View{
 //                getTotalDistance()
 //            }
     }
-
 }
 struct RoutesView_Previews: PreviewProvider {
     static var previews: some View {

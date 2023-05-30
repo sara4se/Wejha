@@ -24,15 +24,15 @@ class Category  {
     //        self.name = name
     //    }
 }
-struct Place : Identifiable {
-    var id:UUID?
-    let name: String
-    let latitude: Double
-    let longitude: Double
-    let category: Category
-    let documentID: String
-    
-}
+//struct Place : Identifiable {
+//    var id:UUID?
+//    let name: String
+//    let latitude: Double
+//    let longitude: Double
+//    let category: Category
+//    let documentID: String
+//    
+//}
 
 class Categories {
 //    let categories: [Category] = [.sahn, .alsafaAlmarwaGates, .gates, .restrooms, .ablution, .lostFound, .busStation, .wheelchairPlace, .verticalTransportations]
