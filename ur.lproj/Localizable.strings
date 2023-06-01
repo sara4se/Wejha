@@ -18,8 +18,8 @@
 "Text8" = "شروع کرنا" ;
 
 //MARK: Allow access location
-"Text9" = "Allow “Wejha | وجهة” to use
-your location?" ;
+"Text9" = "اجازت دینا “Wejha | وجهة” استعمال کرنے کے لئے
+آپ کا محل وقوع?" ;
 "Text10" = "آپ کا موجودہ مقام نقشے پر دکھایا جائے گا، اور اسے سمت فراہم کرنے، آپ کے آس پاس کے مقامات کی تلاش کے نتائج، اور آمد کے تخمینی اوقات کے لیے استعمال کیا جائے گا۔" ;
 "Text11" = "آڈٹ: چالو" ;
 "Text12" = " ایک بار کی اجازت دیں۔" ;
@@ -44,12 +44,12 @@ your location?" ;
 "Text27" = " کنگ عبداللہ گیٹ 100" ;
 "Text28" = "عمرہ گیٹ 40" ;
 "Text29" = "اسماعیل  گیٹ 5";
-"Text30" = "As-Salam Gate";
-"Text31" = "Fateh Gate 30" ;
+"Text30" = "السلام  گیٹ ";
+"Text31" = "فتح گیٹ 30" ;
 "Text32" = "اجیاد  گیٹ 3";
-"Text33" = "Al-Nabi Bridge 15" ;
+"Text33" = "النبی پل 15" ;
 "Text34" = "مزدلفہ گیٹ 36" ;
-"Text35" = "Al-Mudaa Gate 25";
+"Text35" = "مدعی کا گیٹ  25";
 
 //MARK: Al-Sahan
 "Text36" = "کعبہ" ;
@@ -88,9 +88,9 @@ your location?" ;
 "Text53" = "تلاش";
 
 //MARK: Selected destination
-"Text54" = "Min" ;
+"Text54" = " منٹ" ;
 "Text55" = "Km" ;
-"Text56" = "Unknown";
+"Text56" = "نامعلوم";
 
 //MARK: Camera access
 "Text57" = "“Wejha / وجهة” Would Like to Access to the Camera" ;
