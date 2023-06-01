@@ -7,85 +7,85 @@
 */
 
 //MARK: Onboarding
-"Text0" = "Skip" ;
-"Text1" = "Wejha" ;
-"Text2" = "Latest Technologies" ;
-"Text3" = "Open the camera and enjoy using AR map to reach your destination" ;
-"Text4" = "Various Services" ;
-"Text5" = "Find out about the services offered at the Holy Mosque to facilitate your visit" ;
-"Text6" = "Quick Access" ;
-"Text7" = "Explore the nearest places around you" ;
-"Text8" = "Start" ;
+"Text0" = "اچٹیں" ;
+"Text1" = "وجهه" ;
+"Text2" = "تازہ ترین ٹیکنالوجیز" ;
+"Text3" = "کیمرہ کھولیں اور اپنی منزل تک پہنچنے کے لئے اے آر نقشہ استعمال کرنے کا لطف اٹھائیں" ;
+"Text4" = "مختلف خدمات" ;
+"Text5" = "اپنے دورے کی سہولت کے لئے مسجد الحرام میں پیش کی جانے والی خدمات کے بارے میں جانیں" ;
+"Text6" = "تیز رسائی" ;
+"Text7" = "اپنے آس پاس کے قریب ترین مقامات کو دریافت کریں۔" ;
+"Text8" = "شروع کرنا" ;
 
 //MARK: Allow access location
-"Text9" = "Allow “Wejha / وجهة” to use
+"Text9" = "Allow “Wejha | وجهة” to use
 your location?" ;
-"Text10" = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results" ;
-"Text11" = "Precise: On" ;
-"Text12" = "Allow Once" ;
-"Text13" = "Allow While Using the App" ;
-"Text14" = "Don’t Allow" ;
+"Text10" = "آپ کا موجودہ مقام نقشے پر دکھایا جائے گا، اور اسے سمت فراہم کرنے، آپ کے آس پاس کے مقامات کی تلاش کے نتائج، اور آمد کے تخمینی اوقات کے لیے استعمال کیا جائے گا۔" ;
+"Text11" = "آڈٹ: چالو" ;
+"Text12" = " ایک بار کی اجازت دیں۔" ;
+"Text13" = "ایپلیکیشن استعمال کرتے وقت اجازت دیں۔" ;
+"Text14" = "اجازت نہ دیں۔" ;
 
 //MARK: Categories sheet
-"Text15" = "Select your destination" ;
-"Text16" = "Gates" ;
-"Text17" = "Al-Sahan" ;
-"Text18" = "Al-Safa & Al-Marwah";
-"Text19" = "Wheelchair Store";
-"Text20" = "Restrooms" ;
-"Text21" = "Ablution" ;
-"Text22" = "Vertical Transportation ";
-"Text23" = "Bus Station" ;
-"Text24" = "Lost & Found Office" ;
+"Text15" = "اپنی منزل منتخب کریں" ;
+"Text16" = "گیٹ" ;
+"Text17" = "صحن" ;
+"Text18" = "صفا و مروه";
+"Text19" = "وہیل چیئر آفس";
+"Text20" = "باتھ روم" ;
+"Text21" = "وضوخانہ" ;
+"Text22" = "عمودی نقل و حمل";
+"Text23" = "بس اسٹاپ" ;
+"Text24" = "آفس برائے گمشده اشياء" ;
 
 //MARK: Gates
-"Text25" = "King Abdulaziz Gate 1";
-"Text26" = "King Fahad Gate 79" ;
-"Text27" = "King Abdullah Gate 100" ;
-"Text28" = "Umra Gate 40" ;
-"Text29" = "Ismail Gate 5";
+"Text25" = " کنگ عبدالعزیز گیٹ 1";
+"Text26" = "کنگ فہد گیٹ 79" ;
+"Text27" = " کنگ عبداللہ گیٹ 100" ;
+"Text28" = "عمرہ گیٹ 40" ;
+"Text29" = "اسماعیل  گیٹ 5";
 "Text30" = "As-Salam Gate";
 "Text31" = "Fateh Gate 30" ;
-"Text32" = "Ajyad Gate 3";
+"Text32" = "اجیاد  گیٹ 3";
 "Text33" = "Al-Nabi Bridge 15" ;
-"Text34" = "Muzdalifah Gate 36" ;
+"Text34" = "مزدلفہ گیٹ 36" ;
 "Text35" = "Al-Mudaa Gate 25";
 
 //MARK: Al-Sahan
-"Text36" = "Holy Kaaba" ;
-"Text37" = "Maqaam Ibrahim" ;
+"Text36" = "کعبہ" ;
+"Text37" = "مقام ابراہیم" ;
 
 //MARK: Al-Safa & Al-Marwah
-"Text38" = "Al-Safa" ;
-"Text39" = "Al-Marwah";
+"Text38" = "صفا" ;
+"Text39" = "مروه";
 
 //MARK: Wheelchair Store
-"Text40" = "Wheelchair Store";
+"Text40" = "وہیل چیئر آفس";
 
 //MARK: Restrooms
-"Text41" = "WC Woman" ;
-"Text42" = "WC Men";
+"Text41" = "باتھ روم برائے خواتین" ;
+"Text42" = "باتھ روم برائے حضرات";
 
 //MARK: Ablution
-"Text43" = "Ablution Woman" ;
-"Text44" = "Ablution  Men" ;
+"Text43" = "وضوخانہ برائے خواتین" ;
+"Text44" = "وضوخانہ برائے حضرات" ;
 
 //MARK: Vertical Transportation
-"Text45" = "Elevator";
-"Text46" = "Escalator" ;
-"Text47" = "Staircase" ;
+"Text45" = "لفٹ";
+"Text46" = "الیکٹرانک سیڑھیاں" ;
+"Text47" = "سیڑھی" ;
 
 //MARK: Bus Station
-"Text48" = "Bus Station" ;
+"Text48" = "بس اسٹاپ" ;
 
 //MARK: Lost & Found Office
-"Text49" = "Lost & Found Office";
+"Text49" = "آفس برائے گمشده اشياء";
 
 //MARK: Search
-"Text50" = "Recent searches";
-"Text51" = "Cancel" ;
-"Text52" = "No results found";
-"Text53" = "Search";
+"Text50" = "حالیہ تلاشیں";
+"Text51" = "منسوخ" ;
+"Text52" = "کوئی نتیجہ نہیں ملا";
+"Text53" = "تلاش";
 
 //MARK: Selected destination
 "Text54" = "Min" ;
@@ -94,24 +94,24 @@ your location?" ;
 
 //MARK: Camera access
 "Text57" = "“Wejha / وجهة” Would Like to Access to the Camera" ;
-"Text58" = "To use the AR map and show the directions" ;
-"Text59" = "Allow";
-"Text60" = "Don’t Allow";
+"Text58" = "اے آر نقشہ استعمال کرنے اور ہدایات دکھانے کے لئے" ;
+"Text59" = "اجازت دینا";
+"Text60" = "اجازت نہ دیں";
 
 //MARK: Camera Access is not given
-"Text61" = "Unable to access the camera" ;
-"Text62" = "Camera access is required to use AR map" ;
-"Text63" = "Allow access to the camera from settings or";
-"Text64" = "Switch to the 2D map" ;
+"Text61" = "کیمرے تک رسائی حاصل کرنے سے قاصر" ;
+"Text62" = "اے آر نقشہ استعمال کرنے کے لئے کیمرے تک رسائی کی ضرورت ہے" ;
+"Text63" = "يرجى السماح بالوصول إلى الكاميرا من الإعدادات أوبراہ کرم ترتیبات سے کیمرے تک رسائی کی اجازت دیں یا";
+"Text64" = "دو جہتی نقشے پر سوئچ کریں" ;
 
 //MARK: Map directions
-"Text65" = "Estimated time" ;
-"Text66" = "Exit";
-"Text67" = "Arrived at your destination" ;
-"Text68" = "Moving forward" ;
-"Text69" = "Turn Right" ;
-"Text70" = "Go straight";
-"Text71" = "U-Turn";
-"Text72" = "Your destination is on the left";
-"Text73" = "Your destination is on the right" ;
-"Text74" = "Turn Left" ;
+"Text65" = "تخمینہ وقت" ;
+"Text66" = "ختم کرنا";
+"Text67" = "اپنی منزل پر پہنچ گیا" ;
+"Text68" = "آگے بڑھنا" ;
+"Text69" = "دائیں طرف کی سمت" ;
+"Text70" = "سیدھے آگے بڑھو";
+"Text71" = "پیچھے کی طرف گردش";
+"Text72" = "آپ کی منزل بائیں طرف ہے";
+"Text73" = "آپ کی منزل دائیں طرف ہے" ;
+"Text74" = "بائیں طرف مڑ جاؤ" ;
