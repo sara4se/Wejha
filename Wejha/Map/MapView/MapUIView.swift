@@ -20,7 +20,7 @@ struct MapUIView: View {
     @State var ShowAR: Bool = true
     @State var selectedPlace: String? = ""
     @StateObject private var viewModels = FirebaseModel()
-    @ObservedObject private var locationViewModel = LocationViewModel()
+   @ObservedObject private var locationViewModel = LocationViewModel()
     @ObservedObject var locationHandler = PlaceSearch()
     @State var isARViewActive = false // New state variable
     @State var isMapActive = false
@@ -48,6 +48,7 @@ struct MapUIView: View {
                             print("i am here")
                             isMapActive.toggle()
                         } label: {
+                            
                             if(isARViewActive){
                                 Image("MapButtonActive").resizable()
                             }else{
@@ -58,8 +59,10 @@ struct MapUIView: View {
                             print("i am here")
                             isARViewActive.toggle()
                         } label: {
-                            //                        Text("width:\(geo.frame(in: .global).width) height:\(geo.frame(in: .global).height) maxX:\(geo.frame(in: .global).maxX) midX:\(geo.frame(in: .global).midX) midY:\(geo.frame(in: .global).midY) maxY:\(geo.frame(in: .global).maxY) startLocation.y:\(startLocationY) translation.width:\(translationWidth) translation.height:\(translationHeight) offset:\(offset)")
                             
+                            //                        Text("width:\(geo.frame(in: .global).width) height:\(geo.frame(in: .global).height) maxX:\(geo.frame(in: .global).maxX) midX:\(geo.frame(in: .global).midX) midY:\(geo.frame(in: .global).midY) maxY:\(geo.frame(in: .global).maxY) startLocation.y:\(startLocationY) translation.width:\(translationWidth) translation.height:\(translationHeight) offset:\(offset)")
+                            Text(tDistance)
+                            Text(time)
                             if(isARViewActive){
                              Image("ArButtonDisable").resizable()
                             }else{
@@ -149,6 +152,7 @@ struct BottomSheet: View {
     @State private var documentIDs: [String] = []
     @State var currentItem : Places?
      var body: some View {
+         
         NavigationView {
             VStack {
                 HStack(spacing: 15) {

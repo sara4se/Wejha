@@ -9,19 +9,19 @@
 import Foundation
 import CoreLocation
 
-class MapRouteTasks: NSObject {
+class MapRouteTasks: NSObject, ObservableObject {
     
     let baseURLDirections = "https://maps.googleapis.com/maps/api/directions/json?"
-    var selectedRoute: NSDictionary!
-    var overviewPolyline: NSDictionary!
-    var originCoordinate: CLLocationCoordinate2D!
-    var destinationCoordinate: CLLocationCoordinate2D!
-    var originAddress: String!
-    var destinationAddress: String!
-    var totalDistanceInMeters: UInt = 0
-    var totalDistance: String!
-    var totalDurationInSeconds: UInt = 0
-    var totalDuration: String!
+   @Published var selectedRoute: NSDictionary!
+    @Published var overviewPolyline: NSDictionary!
+    @Published var originCoordinate: CLLocationCoordinate2D!
+    @Published var destinationCoordinate: CLLocationCoordinate2D!
+    @Published var originAddress: String!
+    @Published var destinationAddress: String!
+    @Published var totalDistanceInMeters: UInt = 0
+    @Published var totalDistance: String!
+    @Published var totalDurationInSeconds: UInt = 0
+    @Published var totalDuration: String!
     override init() {
         super.init()
     }
@@ -103,7 +103,7 @@ class MapRouteTasks: NSObject {
         let remainingHours = hours % 24
         let remainingMins = mins % 60
         let remainingSecs = totalDurationInSeconds % 60
-        
+        print(distanceInKilometers)
         totalDuration = "Duration: \(days) d, \(remainingHours) h, \(remainingMins) mins, \(remainingSecs) secs"
     }
     

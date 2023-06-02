@@ -12,11 +12,12 @@ import GoogleMaps
 import UIKit
 import CoreLocation
 import GooglePlaces
- 
+import Firebase
 
 struct MapViewRepresentable: UIViewRepresentable  {
     @ObservedObject var locationManager = LocationManager()
     @ObservedObject private var locationViewModel = LocationViewModel()
+    @ObservedObject private var vmMapRouteTasks = MapRouteTasks()
     @ObservedObject var locationHandler = PlaceSearch()
     @StateObject private var viewModels = FirebaseModel()
     let mapView = GMSMapView(frame: .zero)
@@ -24,46 +25,68 @@ struct MapViewRepresentable: UIViewRepresentable  {
     @Binding var time: String
     @Binding var places: [Places]
     let googleApiKey = "AIzaSyDgXEpiATw1IAcW1T2gYLcwhM8S1v0IHOI"
-
-    
-//    var coordinates: [CLLocationCoordinate2D]
-
+    @State var plasesArray = [Places]()
+    var db = Firestore.firestore()
     //24.814339, 46.720124
     //24.729377, 46.716325
     //24.741268, 46.749721
     //24.726353, 46.773846
     let destination1 = CLLocationCoordinate2D(latitude: 24.741268, longitude: 46.749721)
     let destination2 = CLLocationCoordinate2D(latitude: 24.726353, longitude: 46.773846)
-    // Method to add a marker to the map
-    func addMarker(position: CLLocationCoordinate2D, markers: Binding<[GMSMarker]>) {
-        let marker = GMSMarker(position: position)
-        markers.wrappedValue.append(marker)
-        marker.map = mapView
-    }
-//    init(firebaseViewModel: FirebaseModel) {
-//            self.viewModels = firebaseViewModel
-//        }
-        
-    private func updateMarkers(mapView: GMSMapView) {
-           mapView.clear()
-        if (viewModels.places.isEmpty){
-            print("i'm empty")
-        }
-        for place in viewModels.places {
-               let marker = GMSMarker()
-               marker.position = CLLocationCoordinate2D(latitude: place.Lat, longitude: place.Lang)
-               marker.map = mapView
-           }
-       }
+
+   
 class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
     var mapView: GMSMapView?
+    var listenerRegistration: ListenerRegistration?
     //@Binding var currentLocation : CLLocationCoordinate2D
     var parent: MapViewRepresentable
     init(_ parent: MapViewRepresentable){
         self.parent = parent
     }
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        mapView.clear()
+           let marker = GMSMarker(position: coordinate)
+           marker.map = mapView
+        guard let currentLocation = mapView.myLocation?.coordinate else {
+                   return
+               }
+        parent.getRouteSteps(from: currentLocation, to: coordinate)
+        parent.getTotalDistance(from: currentLocation, to: coordinate)
+       }
+    func updateMarkers(mapView: GMSMapView) {
+//        mapView.clear()
+
+        if  listenerRegistration == nil {
+            listenerRegistration = parent.db.collection("Gate").addSnapshotListener { [self]
+                (querySnapshot, error) in
+                guard let documents = querySnapshot?.documents else {
+                    print("No documents")
+                    return  }
+                    self.parent.places = documents.compactMap { document in
+                        let documentData = document.data()
+                        let id = document.documentID
+                        let Lat = documentData["Lat"] as? Double ?? 0.0
+                        let Lang = documentData["Lang"] as? Double ?? 0.0
+                        let Name = documentData["Name"] as? String ?? ""
+                        // Extract and assign other properties as needed
+                        for place in  parent.places {
+                            let marker = GMSMarker()
+                            marker.position = CLLocationCoordinate2D(latitude: place.Lat, longitude: place.Lang)
+                            marker.map = mapView
+                        }
+                        if parent.places.isEmpty {
+                            print("I'm empty")
+                        }
+                        return Places(id: id, Lang: Lang ,Lat: Lat, Name: Name)
+                    }
+            }
+
+        }
+    }
 }
     
+       
+//    var coordinates: [CLLocationCoordinate2D]
     func makeUIView(context: Context) -> GMSMapView {
         mapView.delegate = context.coordinator
         self.mapView.isMyLocationEnabled = true
@@ -76,17 +99,13 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
         self.mapView.settings.zoomGestures = true
         self.mapView.isIndoorEnabled = true
         self.mapView.settings.indoorPicker = true
-        self.mapView.delegate = context.coordinator as? any GMSMapViewDelegate
-      
-            updateMarkers(mapView: mapView)
-      
-        // Observe the changes in the receivedData property
-            
-        if let locationcoordinate =  locationManager.lastKnownLocation?.coordinate{
-            print("locationcoordinate\(locationcoordinate)")
-            getRouteSteps(from: locationcoordinate, to: destination2)
-        }
-       
+        self.mapView.delegate = context.coordinator as? GMSMapViewDelegate
+        context.coordinator.updateMarkers(mapView: mapView)
+//        if let locationcoordinate =  locationManager.lastKnownLocation?.coordinate{
+//            print("locationcoordinate\(locationcoordinate)")
+//            getRouteSteps(from: locationcoordinate, to: destination2)
+//        }
+//
         return mapView
     }
     func makeCoordinator() -> Coordinator {
@@ -95,40 +114,21 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
     
     func updateUIView(_ mapView: GMSMapView, context: Context) {
         //mapView.clear()
-        DispatchQueue.main.async {
-            updateMarkers(mapView: mapView)}
-        mapView.clear() // Clear any existing markers
-
-           // Iterate through each coordinate in the list
-//        ForEach(viewModels.places) { place in
-//
-//
-////            CLLocationCoordinate2D(latitude: place.Lat, longitude: place.Lang)
-//
-//            var marker = GMSMarker().position
-////            marker.latitude = CLLocationDegrees(place.Lat)
-////            marker.longitude = CLLocationDegrees(place.Lang)
-////            CLLocationCoordinate2DMake(CLLocationDegrees(place.Lat) , CLLocationDegrees(place.Lang))
-////               marker.map = mapView
-//           }
+     
+            if let selectedPlace = locationViewModel.selectedPlace {
+                locationHandler.searchLocation(selectedPlace)
+            }
+            //        let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleMapTap(_:)))
+            //            mapView.addGestureRecognizer(tapGesture)
+          //  getRouteSteps(from: destination1, to: destination2)
+            // vmMapRouteTasks.calculateTotalDistanceAndDuration()
         
-       
-        if let selectedPlace = locationViewModel.selectedPlace {
-            locationHandler.searchLocation(selectedPlace)
-        }
-//        let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleMapTap(_:)))
-//            mapView.addGestureRecognizer(tapGesture)
-      //  getRouteSteps(from: destination1, to: destination2)
-            
-            
-
     }
-
     func getRouteSteps(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
-        
+//        mapView.clear()
         let session = URLSession.shared
         
-        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=true&mode=walking&key=\(googleApiKey)")!
+        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=true&mode=walking&alternatives=true&key=\(googleApiKey)")!
         
         let task = session.dataTask(with: url, completionHandler: {
             (data, response, error) in
@@ -193,65 +193,78 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
     func drawPath(from polyStr: String){
         let path = GMSPath(fromEncodedPath: polyStr)
         let polyline = GMSPolyline(path: path)
-        polyline.strokeWidth = 3.0
+        polyline.strokeWidth = 4.0
+        polyline.strokeColor = .green
         polyline.map = mapView // Google MapView
-        let cameraUpdate = GMSCameraUpdate.fit(GMSCoordinateBounds(coordinate: destination1, coordinate: destination2))
-        mapView.moveCamera(cameraUpdate)
+   //     let cameraUpdate = GMSCameraUpdate.fit(GMSCoordinateBounds(coordinate: destination1, coordinate: destination2))
+        //mapView.moveCamera(cameraUpdate)
         let currentZoom = mapView.camera.zoom
-        mapView.animate(toZoom: currentZoom - 1.4)
+        mapView.animate(toZoom: currentZoom)
     }
-    func getTotalDistance(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {        //google Distanse api
-        
-//        let orgigin = "\(24.861191),\(46.725490)"
-//        let destination = "\(24.861762),\(46.724032)"
-//
+    func getTotalDistance(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
         let session = URLSession.shared
-        let urlString = URL(string: "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=\(destination)&origins=\(source)&units=imperial&mode=driving&language=en-EN&sensor=false&key=\(googleApiKey)")!
         
-        let task = session.dataTask(with: urlString , completionHandler: {
-            (data, response, error) in
-            
+        guard let encodedSource = "\(source.latitude),\(source.longitude)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+              let encodedDestination = "\(destination.latitude),\(destination.longitude)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            print("Invalid coordinate encoding")
+            return
+        }
+        
+        let urlString = "https://maps.googleapis.com/maps/api/distancematrix/json"
+        let parameters: [String: String] = [
+            "origins": encodedSource,
+            "destinations": encodedDestination,
+            "units": "imperial",
+            "mode": "walking",
+            "language": "en-EN",
+            "sensor": "false",
+            "key": googleApiKey
+        ]
+        
+        guard var urlComponents = URLComponents(string: urlString) else {
+            print("Invalid URL")
+            return
+        }
+        urlComponents.queryItems = parameters.map { URLQueryItem(name: $0, value: $1) }
+        
+        guard let url = urlComponents.url else {
+            print("Invalid URL")
+            return
+        }
+        
+        let task = session.dataTask(with: url) { (data, response, error) in
             guard error == nil else {
                 print(error!.localizedDescription)
                 return
             }
-            if let data = data {
-                do {
-                    let jsonResult = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
-                    if let json = jsonResult,
-                       let url = json["url"],
-                       let explanation = json["explanation"] {
-                        let rows = json["rows"] as! NSArray
-                        print("rows\(rows)")
-                        let dic = rows[0] as! Dictionary<String, Any>
-                        let elements = dic["elements"] as! NSArray
-                        let dis = elements[0] as! Dictionary<String, Any>
-                        let distanceMiles = dis["distance"] as! Dictionary<String, Any>
-                        let miles = distanceMiles["text"]! as! String
-                        let TimeRide = dis["duration"] as! Dictionary<String, Any>
-                        let finalTime = TimeRide["text"]! as! String
+            
+            guard let data = data else {
+                print("No data received")
+                return
+            }
+            
+            do {
+                if let jsonResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
+                    if let rows = jsonResult["rows"] as? [[String: Any]], let row = rows.first,
+                       let elements = row["elements"] as? [[String: Any]], let element = elements.first,
+                       let distance = element["distance"] as? [String: Any], let distanceText = distance["text"] as? String,
+                       let duration = element["duration"] as? [String: Any], let durationText = duration["text"] as? String {
                         DispatchQueue.main.async {
-                            self.tDistance = miles.replacingOccurrences(of: "mi", with: "")
-                            print("Distance: \(tDistance)")
-                            self.time = finalTime
-                            print("time: \(time)")
+                            self.tDistance = distanceText.replacingOccurrences(of: "mi", with: "")
+                            print("Distance here: \(self.tDistance)")
+                            self.time = durationText
+                            print("Time: \(self.time)")
                         }
                     }
                 }
-                catch let error as NSError {
-                    print(error.localizedDescription)
-                }
-            }  else if let error = error {
-                    print(error.localizedDescription)
-                }
-                
-                print("error in JSONSerialization")
-                return
-                
-            })
-    
+            } catch {
+                print("Error parsing JSON response: \(error.localizedDescription)")
+            }
+        }
+        
         task.resume()
     }
+
     
     func addSourceDestinationMarkers(){
         let markerSource = GMSMarker()
@@ -261,7 +274,7 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
          */
         //markerSource.position = CLLocationCoordinate2D(latitude: 24.9216774, longitude: 67.0914983)
         markerSource.position = CLLocationCoordinate2D(latitude: 24.861191, longitude: 46.725490)
-        markerSource.icon = UIImage(named: "markerb")
+        markerSource.icon = UIImage(named: "Pin")
         markerSource.title = "Point A"
         //markerSource.snippet = "Desti"
         
@@ -270,7 +283,7 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
         let markertDestination = GMSMarker()
         //markertDestination.position = CLLocationCoordinate2D(latitude: 24.9623483, longitude: 67.0463966)
         markertDestination.position = CLLocationCoordinate2D(latitude: 24.861762, longitude: 46.724032)
-        markertDestination.icon = UIImage(named: "markerb")
+        markertDestination.icon = UIImage(named: "Pin")
         markertDestination.title = "Point B"
         //markertDestination.snippet = "General Store"
         markertDestination.map = mapView
