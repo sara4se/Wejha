@@ -27,10 +27,12 @@
 		5663F9B92A24BF400054AD54 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5663F9B82A24BF400054AD54 /* FirebaseFirestoreSwift */; };
 		567BEEBE2A10E58F00861FA3 /* MapIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567BEEBD2A10E58F00861FA3 /* MapIView.swift */; };
 		5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6A2A0B9682004F021E /* WejhaApp.swift */; };
-		5683BE6D2A0B9682004F021E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6C2A0B9682004F021E /* ContentView.swift */; };
 		5683BE6F2A0B9683004F021E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5683BE6E2A0B9683004F021E /* Assets.xcassets */; };
 		5683BE722A0B9683004F021E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5683BE712A0B9683004F021E /* Preview Assets.xcassets */; };
+		569CABA62A27130400A521F7 /* Lists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569CABA52A27130400A521F7 /* Lists.swift */; };
 		56E6AD6E2A1155C800006719 /* ARUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E6AD6D2A1155C800006719 /* ARUIView.swift */; };
+		56E71F5B2A2A2E3700A2D591 /* OnboradingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E71F5A2A2A2E3700A2D591 /* OnboradingView.swift */; };
+		56E71F5D2A2A2E6C00A2D591 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E71F5C2A2A2E6C00A2D591 /* ContentView.swift */; };
 		99E625DE2A1223760075734A /* MapModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E625DD2A1223760075734A /* MapModelView.swift */; };
 		99F805D92A13944400C859DF /* RoutesModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F805D82A13944400C859DF /* RoutesModelView.swift */; };
 /* End PBXBuildFile section */
@@ -55,10 +57,12 @@
 		567BEEBD2A10E58F00861FA3 /* MapIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapIView.swift; sourceTree = "<group>"; };
 		5683BE672A0B9682004F021E /* Wejha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wejha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5683BE6A2A0B9682004F021E /* WejhaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WejhaApp.swift; sourceTree = "<group>"; };
-		5683BE6C2A0B9682004F021E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5683BE6E2A0B9683004F021E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5683BE712A0B9683004F021E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		569CABA52A27130400A521F7 /* Lists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lists.swift; sourceTree = "<group>"; };
 		56E6AD6D2A1155C800006719 /* ARUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ARUIView.swift; path = Wejha/AR/ARView/ARUIView.swift; sourceTree = SOURCE_ROOT; };
+		56E71F5A2A2A2E3700A2D591 /* OnboradingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboradingView.swift; sourceTree = "<group>"; };
+		56E71F5C2A2A2E6C00A2D591 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		902E51E6998828EDAC3D310A /* Pods-Wejha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wejha.debug.xcconfig"; path = "Target Support Files/Pods-Wejha/Pods-Wejha.debug.xcconfig"; sourceTree = "<group>"; };
 		99E625DD2A1223760075734A /* MapModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModelView.swift; sourceTree = "<group>"; };
 		99F805D82A13944400C859DF /* RoutesModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesModelView.swift; sourceTree = "<group>"; };
@@ -83,7 +87,6 @@
 		5605E7882A0F82B90027F2D8 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
-				565F94CE2A1CB85100121125 /* sheetExtension.swift */,
 				567BEEBD2A10E58F00861FA3 /* MapIView.swift */,
 				565F94D22A1E22AB00121125 /* MapUIView.swift */,
 			);
@@ -97,7 +100,6 @@
 				565F94C52A1A240400121125 /* PlaceSearch.swift */,
 				99E625DD2A1223760075734A /* MapModelView.swift */,
 				99F805D82A13944400C859DF /* RoutesModelView.swift */,
-				565F94D42A1F5FD400121125 /* Helper.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -115,9 +117,9 @@
 		5605E78C2A0F83380027F2D8 /* AR */ = {
 			isa = PBXGroup;
 			children = (
+				5605E78D2A0F835A0027F2D8 /* Model */,
 				5605E78F2A0F83810027F2D8 /* ARView */,
 				5605E78E2A0F836A0027F2D8 /* ModelView */,
-				5605E78D2A0F835A0027F2D8 /* Model */,
 			);
 			path = AR;
 			sourceTree = "<group>";
@@ -208,17 +210,19 @@
 		5683BE692A0B9682004F021E /* Wejha */ = {
 			isa = PBXGroup;
 			children = (
-				565F94C72A1A99C200121125 /* AR+Map */,
-				565F94C12A17F6C400121125 /* GoogleService-Info.plist */,
 				5683BE6A2A0B9682004F021E /* WejhaApp.swift */,
+				565F94D42A1F5FD400121125 /* Helper.swift */,
+				561735A62A0BA942009A7D53 /* Info.plist */,
+				5683BE6E2A0B9683004F021E /* Assets.xcassets */,
+				5605E7622A0EA3290027F2D8 /* Media.xcassets */,
+				565F94C12A17F6C400121125 /* GoogleService-Info.plist */,
+				56E71F5E2A2A2EF100A2D591 /* Onborading */,
+				569CAB9F2A2711C400A521F7 /* Sheet */,
+				565F94C72A1A99C200121125 /* AR+Map */,
 				5605E78C2A0F83380027F2D8 /* AR */,
 				5605E78B2A0F83310027F2D8 /* Map */,
-				561735A62A0BA942009A7D53 /* Info.plist */,
-				5683BE6C2A0B9682004F021E /* ContentView.swift */,
-				5683BE6E2A0B9683004F021E /* Assets.xcassets */,
 				5683BE702A0B9683004F021E /* Preview Content */,
 				5605E7602A0EA0C60027F2D8 /* SwiftUIView.swift */,
-				5605E7622A0EA3290027F2D8 /* Media.xcassets */,
 			);
 			path = Wejha;
 			sourceTree = "<group>";
@@ -229,6 +233,32 @@
 				5683BE712A0B9683004F021E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		569CAB9F2A2711C400A521F7 /* Sheet */ = {
+			isa = PBXGroup;
+			children = (
+				569CABA02A2711CE00A521F7 /* SheetView */,
+			);
+			path = Sheet;
+			sourceTree = "<group>";
+		};
+		569CABA02A2711CE00A521F7 /* SheetView */ = {
+			isa = PBXGroup;
+			children = (
+				565F94CE2A1CB85100121125 /* sheetExtension.swift */,
+				569CABA52A27130400A521F7 /* Lists.swift */,
+			);
+			path = SheetView;
+			sourceTree = "<group>";
+		};
+		56E71F5E2A2A2EF100A2D591 /* Onborading */ = {
+			isa = PBXGroup;
+			children = (
+				56E71F5C2A2A2E6C00A2D591 /* ContentView.swift */,
+				56E71F5A2A2A2E3700A2D591 /* OnboradingView.swift */,
+			);
+			path = Onborading;
 			sourceTree = "<group>";
 		};
 		5FA314352D501CA9831AFA9A /* Pods */ = {
@@ -391,14 +421,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5683BE6D2A0B9682004F021E /* ContentView.swift in Sources */,
 				565F94D52A1F5FD400121125 /* Helper.swift in Sources */,
 				565F94CF2A1CB85100121125 /* sheetExtension.swift in Sources */,
 				560EAE7F2A116F7800D8D659 /* SceneLocation.swift in Sources */,
 				5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */,
 				565F94C92A1A99DD00121125 /* CompineAR+MapView.swift in Sources */,
+				56E71F5D2A2A2E6C00A2D591 /* ContentView.swift in Sources */,
 				565F94D32A1E22AB00121125 /* MapUIView.swift in Sources */,
 				565F94DE2A21EE1D00121125 /* Category.swift in Sources */,
+				56E71F5B2A2A2E3700A2D591 /* OnboradingView.swift in Sources */,
 				565F94D82A1FE76300121125 /* MapRouteTasks.swift in Sources */,
 				5605E7612A0EA0C60027F2D8 /* SwiftUIView.swift in Sources */,
 				99F805D92A13944400C859DF /* RoutesModelView.swift in Sources */,
@@ -408,6 +439,7 @@
 				56E6AD6E2A1155C800006719 /* ARUIView.swift in Sources */,
 				565F94CD2A1A9A4000121125 /* CompineAR_MapModelView.swift in Sources */,
 				567BEEBE2A10E58F00861FA3 /* MapIView.swift in Sources */,
+				569CABA62A27130400A521F7 /* Lists.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

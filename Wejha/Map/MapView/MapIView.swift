@@ -139,3 +139,17 @@ import MapKit
 //            MapView()
 //        }
 //    }
+
+
+//                                        ForEach(documentIDs, id: \.self) { documentID in
+//                                            NavigationLink(destination: categoryContent()) {
+//                                                VStack {
+//                                                    Circle()
+//                                                        .frame(width: 69, height: 69)
+//                                                        .cornerRadius(8)
+//                                                    Text(documentID)
+//                                                }
+//                                            }
+//                                            if (documentID.elementsEqual("Gates")){]
+                                        //here you can add the icons
+                                               

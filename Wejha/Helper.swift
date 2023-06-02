@@ -138,6 +138,9 @@
 //    }
 //}
 
+import SwiftUI
+import Foundation
+
 ///this code will be used never delete it
 /*
  
@@ -490,3 +493,178 @@
 //
 //            }
 //        }).resume()
+
+
+struct BlurView: UIViewRepresentable {
+    var style: UIBlurEffect.Style
+    
+    func makeUIView(context: Context) -> some UIVisualEffectView {
+        let view = UIVisualEffectView(effect: UIBlurEffect(style: style))
+        
+        return view
+    }
+    
+    func updateUIView(_ uiView: UIViewType, context: Context) {
+        //
+    }
+}
+struct categoryContent: View {
+    @StateObject private var viewModels = FirebaseModel()
+    var body: some View{
+        VStack{
+            
+            Text("this is category content")}
+        .onAppear() {
+            print("PostsListView appears. and data updates.")
+            // self.viewModels.subscribeFireAblutionW()
+            //   self.viewModels.FireGate()}
+        }
+    }
+}
+
+
+
+
+
+
+
+
+//        func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
+//             //Creating Marker
+//             let marker = GMSMarker(position: coordinate)
+//             let decoder = CLGeocoder()
+//            //This method is used to get location details from coordinates
+////             decoder.reverseGeocodeLocation(CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)){ placemarks, err in
+////                if let placeMark = placemarks?.first {
+////                    let placeName = placeMark.name ?? placeMark.subThoroughfare ?? placeMark.thoroughfare!   ///Title of Marker
+////                    //Formatting for Marker Snippet/Subtitle
+////                    var address : String! = ""
+////                    if let subLocality = placeMark.subLocality ?? placeMark.name {
+////                        address.append(subLocality)
+////                        address.append(", ")
+////                    }
+////                    if let city = placeMark.locality ?? placeMark.subAdministrativeArea {
+////                        address.append(city)
+////                        address.append(", ")
+////                    }
+////                    if let state = placeMark.administrativeArea, let country = placeMark.country {
+////                        address.append(state)
+////                        address.append(", ")
+////                        address.append(country)
+////                    }
+////                    // Adding Marker Details
+////                    marker.title = placeName
+////                    marker.snippet = address
+////                    marker.appearAnimation = .pop
+////                    marker.map = mapView
+////                }
+////            }
+//        }
+//        @objc func handleMapTap(_ gestureRecognizer: UITapGestureRecognizer) {
+//            let mapView = gestureRecognizer.view as! GMSMapView
+//            let coordinate = mapView.projection.coordinate(for: gestureRecognizer.location(in: mapView))
+//
+//            // Get the current user's location
+//            if let userLocation = mapView.myLocation?.coordinate {
+//                // Draw the route from userLocation to the tapped coordinate
+//                parent.getRouteSteps(from: userLocation, to: coordinate)
+//            }
+//
+//            // Add a marker at the tapped coordinate
+//            parent.addMarker(position: coordinate, markers: parent.$markers)
+//        }
+//        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//            if let location = locations.first {
+//                //                currentLocation = location.coordinate
+//                mapView?.animate(toLocation: location.coordinate)
+//                let cameraUpdate = GMSCameraPosition(target: location.coordinate, zoom: 10)
+//                let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
+//                                                                longitude: location.coordinate.longitude,
+//                                                                zoom: 12.0)
+//                mapView?.animate(to: camera)
+//
+//            }
+//        }
+//        func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+//            if status == .authorizedWhenInUse {
+//                manager.startUpdatingLocation()
+//                mapView?.isMyLocationEnabled = true
+//                mapView?.settings.myLocationButton = true
+//                mapView?.settings.compassButton = true
+//                mapView?.settings.rotateGestures = true
+//                mapView?.settings.scrollGestures = true
+//                mapView?.settings.tiltGestures = true
+//                mapView?.settings.zoomGestures = true
+//                //                mapView?.camera = GMSCameraPosition(target: manager.location!.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+//            }
+//        }
+
+//import LocationBasedAR
+import ARKit
+import RealityKit
+//24.793416, 46.746357
+//import ARCL
+
+//struct ARViewContainer: UIViewControllerRepresentable {
+//    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+//
+//    }
+//
+//
+//    func makeUIViewController(context: Context) -> UIViewController {
+//        let arView = LBARView(frame: .zero)
+//        let configuration: ARWorldTrackingConfiguration = LBARView.defaultConfiguration()
+//        let options: ARSession.RunOptions = [
+//        ]
+//        let location = CLLocation(latitude: 24.793416, longitude: 46.746357)
+//        arView.add(location: location)
+//
+//        let coordinate = CLLocationCoordinate2D(latitude: 24.793416, longitude: 46.746357)
+//        let accuracy = CLLocationAccuracy(10) // Set the accuracy to 10 meters
+//        let placemark = Placemark(coordinate: coordinate, accuracy: accuracy)
+//        let altitude = CLLocationDistance(0)
+//        arView.add(placemark: placemark)
+//        let transform = simd_float4x4.distanceTransform(Float(2))
+//        let name = "My Anchor"
+//        let anchor = LBAnchor(name: name, transform: transform, coordinate: coordinate, accuracy: accuracy, altitude: altitude)
+//        arView.add(anchor: anchor)
+//        let anchorEntity = AnchorEntity(world: SIMD3<Float>(0, 0, -1))
+//        arView.scene.addAnchor(anchorEntity)
+//
+//
+//        arView.session.run(configuration, options: options)
+//
+//        // perform view's configuration
+//
+////        return arView
+//
+//
+//        let viewController = UIViewController()
+//        viewController.view = arView
+//        return viewController
+//    }
+//
+//}
+////
+//struct ContentView: View {
+//
+//  // options to run session
+//
+//
+//    var body: some View {
+//        VStack{
+//          //  ARViewContainer()
+//            HStack{
+//                Text("hi")
+//            }
+//        }
+//    }
+//}
+//
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View
+//    {
+//        ContentView()
+//    }
+//}
+//

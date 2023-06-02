@@ -10,8 +10,11 @@ import GoogleMaps
 struct ARUIView: View {
     @Binding var selectedPlace: String?
     var body: some View {
-        SceneLocationViewWrapper(selectedPlace: $selectedPlace)
-                //   .edgesIgnoringSafeArea(.all)
+        NavigationView {
+//            Text("hello")
+            SceneLocationViewWrapper(selectedPlace: $selectedPlace)
+               .edgesIgnoringSafeArea(.all)
+        }
     }
 }
 

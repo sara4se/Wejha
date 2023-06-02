@@ -47,7 +47,8 @@ class ViewController: UIViewController {
       super.viewDidLoad()
         sceneLocationView.run()
         view.addSubview(sceneLocationView)
-        ARINIT(selectedPlace: selectedPlace ?? "")
+//        ARINIT(selectedPlace: selectedPlace ?? "")
+        ARINITWithMarked()
     }
 
     
@@ -94,39 +95,39 @@ class ViewController: UIViewController {
     }
 
     
-//    func ARINIT()  { // Test locations around me. you can also plot these using google place API
-//
-//            var location = CLLocation(coordinate: CLLocationCoordinate2D(latitude: 28.610497, longitude: 77.360733), altitude: 0) // ISKPRO
-//            let image = UIImage(named: "Pin")!
-//            var annotationNode = LocationAnnotationNode(location: location, image: image)
-//            annotationNode.annotationNode.name = "ISKPRO"
-//            sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
-//
-//            location  = CLLocation(coordinate: CLLocationCoordinate2D(latitude: 28.610413, longitude: 77.358863), altitude: 100) // Un named next to ISKPRO
-//            annotationNode = LocationAnnotationNode(location: location, image: image)
-//            annotationNode.annotationNode.name = "Next to ISKPRO"
-//            sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
-//
-//            location  = CLLocation(coordinate: CLLocationCoordinate2D(latitude: 28.6101371, longitude: 77.3433248), altitude: 100) // R Systems
-//            annotationNode = LocationAnnotationNode(location: location, image: image)
-//            annotationNode.annotationNode.name = "R Systems"
-//            sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
-//
-//            location  = CLLocation(coordinate: CLLocationCoordinate2D(latitude: 28.604624, longitude: 77.3717694), altitude: 100) // Mamura
-//            annotationNode = LocationAnnotationNode(location: location, image: image)
-//            sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
-//
-//            location  = CLLocation(coordinate: CLLocationCoordinate2D(latitude: 28.6191904, longitude: 77.4209194), altitude: 100) // Gaur City
-//            annotationNode = LocationAnnotationNode(location: location, image: image)
-//            annotationNode.annotationNode.name = "Gaur City"
-//            sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
-//
-//
-//            annotationNode = LocationAnnotationNode(location: nil, image: image)
-//            sceneLocationView.addLocationNodeForCurrentPosition(locationNode:annotationNode) // Current location
-//            annotationNode.annotationNode.name = "My location"
-//
-//        }
+    func ARINITWithMarked()  { // Test locations around me. you can also plot these using google place API
+
+            var location = CLLocation(coordinate: CLLocationCoordinate2D(latitude: 28.610497, longitude: 77.360733), altitude: 0) // ISKPRO
+            let image = UIImage(named: "Pin")!
+            var annotationNode = LocationAnnotationNode(location: location, image: image)
+            annotationNode.annotationNode.name = "ISKPRO"
+            sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
+
+            location  = CLLocation(coordinate: CLLocationCoordinate2D(latitude: 28.610413, longitude: 77.358863), altitude: 100) // Un named next to ISKPRO
+            annotationNode = LocationAnnotationNode(location: location, image: image)
+            annotationNode.annotationNode.name = "Next to ISKPRO"
+            sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
+
+            location  = CLLocation(coordinate: CLLocationCoordinate2D(latitude: 28.6101371, longitude: 77.3433248), altitude: 100) // R Systems
+            annotationNode = LocationAnnotationNode(location: location, image: image)
+            annotationNode.annotationNode.name = "R Systems"
+            sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
+
+            location  = CLLocation(coordinate: CLLocationCoordinate2D(latitude: 28.604624, longitude: 77.3717694), altitude: 100) // Mamura
+            annotationNode = LocationAnnotationNode(location: location, image: image)
+            sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
+
+            location  = CLLocation(coordinate: CLLocationCoordinate2D(latitude: 28.6191904, longitude: 77.4209194), altitude: 100) // Gaur City
+            annotationNode = LocationAnnotationNode(location: location, image: image)
+            annotationNode.annotationNode.name = "Gaur City"
+            sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
+
+
+            annotationNode = LocationAnnotationNode(location: nil, image: image)
+            sceneLocationView.addLocationNodeForCurrentPosition(locationNode:annotationNode) // Current location
+            annotationNode.annotationNode.name = "My location"
+
+        }
     
     
     // MARK: - SceneLocationViewDelegate

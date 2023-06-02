@@ -20,10 +20,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 }
 @main
 struct WejhaApp: App {
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            MapUIView()
+            ContentView()
+            
         }
     }
      
