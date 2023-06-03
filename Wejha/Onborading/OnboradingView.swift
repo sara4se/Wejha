@@ -30,7 +30,7 @@ struct OnboradingView: View {
                         Button(action: {
                             //                        shouldShoOnboarding.toggle()
                         }, label: {
-                            Text("تخطي")
+                            Text("Skip")
                                 .fontWeight(.semibold)
                                 .kerning(1.2)
                         }).padding(.trailing)
@@ -46,8 +46,8 @@ struct OnboradingView: View {
                     
                     TabView {
                         PageView(
-                            title: "أحدث التقنيات",
-                            subtitle: "إفتح الكاميرا و تمتع بإستخدام تقنية الواقع المعزز للوصول إلى وجهتك",
+                            title: "Latest Technologies",
+                            subtitle: "Open the camera and enjoy using AR map to reach your destination",
                             imageName: "Icon",
                             //ImageName2: "Group",
                             showsDismisButton: false,
@@ -55,8 +55,8 @@ struct OnboradingView: View {
                         )
                         
                         PageView(
-                            title: "خدمات متنوعة",
-                            subtitle: "تعرّف على الخدمات المقدمة في الحرم المكي لتسهيل زيارتك",
+                            title: "Various Services",
+                            subtitle: "Find out about the services offered at the Holy Mosque to facilitate your visit",
                             imageName: "Icon(1)",
                             //ImageName2: "Group",
                             showsDismisButton: false,
@@ -65,8 +65,8 @@ struct OnboradingView: View {
                         
                         
                         PageView(
-                            title: "وصول أسرع",
-                            subtitle: "إستكشف أقرب الأماكن من حولك",
+                            title: "Quick Access",
+                            subtitle: "Explore the nearest places around you",
                             imageName: "Icon(2)",
                             //ImageName2: "Group",
                             showsDismisButton: true,
