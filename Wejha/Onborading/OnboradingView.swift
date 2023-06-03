@@ -30,7 +30,7 @@ struct OnboradingView: View {
                         Button(action: {
                             shouldShoOnboarding.toggle()
                         }, label: {
-                            Text("تخطي")
+                            Text(LocalizedStringKey("Text0"))
                                 .fontWeight(.semibold)
                                 .kerning(1.2)
                         }).padding(.trailing)

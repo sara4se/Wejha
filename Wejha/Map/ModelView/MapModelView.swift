@@ -17,13 +17,15 @@ import Firebase
 struct MapViewRepresentable: UIViewRepresentable  {
     @ObservedObject var locationManager = LocationManager()
     @ObservedObject private var locationViewModel = LocationViewModel()
+    @ObservedObject var focusPlace : FocusPlace = FocusPlace()
     @ObservedObject private var vmMapRouteTasks = MapRouteTasks()
     @ObservedObject var locationHandler = PlaceSearch()
     @StateObject private var viewModels = FirebaseModel()
+//   
     let mapView = GMSMapView(frame: .zero)
     @Binding var tDistance: String
     @Binding var time: String
-    @Binding var places: [Places]
+    @Binding var places: [Spical]
     let googleApiKey = "AIzaSyDgXEpiATw1IAcW1T2gYLcwhM8S1v0IHOI"
    // @State var plasesArray = [Places]()
     var db = Firestore.firestore()
@@ -49,82 +51,76 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
            marker.map = mapView
         guard let currentLocation = mapView.myLocation?.coordinate else {
                    return
-               }
+        }
         parent.getRouteSteps(from: currentLocation, to: coordinate)
         parent.getTotalDistance(from: currentLocation, to: coordinate)
        }
     func updateMarkers2(mapView: GMSMapView) {
-     //   mapView.clear()
-        
+        // mapView.clear()
         if listenerRegistration == nil {
-            listenerRegistration = parent.db.collection("test").addSnapshotListener {
-                (querySnapshot, error) in
+            listenerRegistration = parent.db.collection("test").addSnapshotListener { (querySnapshot, error) in
                 guard let documents = querySnapshot?.documents else {
                     print("No documents")
                     return
                 }
-                
-                let places = documents.compactMap { document in
+                self.parent.places = documents.compactMap { document in
                     let id = document.documentID
-                    let point1 = document.get("point1") as? GeoPoint
-                    let name = document.get("Name") as? String ?? ""
+                    let mapData = document.get("point1") as? [String: Any]
+                    let latitude = mapData?["latitude"] as? Double ?? 0.0
+                    let longitude = mapData?["longitude"] as? Double ?? 0.0
+                    print("Found documents")
                     
-                    if let point1 = point1 {
-                        let place = Spical(id: id, document: document)
-                        return place
-                    } else {
-                        print("nil point")
-                    }
-                    return Spical(id: id, document: document)
+                    return Spical(id: id, coordinates: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
                 }
                 
-                for place in places {
+                for place in self.parent.places {
+                    print("Markers from documents")
                     let marker = GMSMarker()
-                    marker.position = CLLocationCoordinate2D(latitude: place.coordinates.latitude, longitude: place.coordinates.longitude)
+                    marker.position = place.coordinates
+                    print("Marker position \(marker.position.latitude) and \(marker.position.longitude)")
                     marker.map = mapView
-                    print("I'm for place")
+                    print("Processing place")
                 }
                 
-                if places.isEmpty {
-                    print("I'm empty")
+                if self.parent.places.isEmpty {
+                    print("Empty")
                 }
             }
         }
     }
-
-    func updateMarkers(mapView: GMSMapView) {
-//        mapView.clear()
-
-        if  listenerRegistration == nil {
-            listenerRegistration = parent.db.collection("Gate").addSnapshotListener { [self]
-                (querySnapshot, error) in
-                guard let documents = querySnapshot?.documents else {
-                    print("No documents")
-                    return  }
-                self.parent.places = documents.compactMap { document in
-                    let documentData = document.data()
-                    let id = document.documentID
-                    let Lat = documentData["Lat"] as? Double ?? 0.0
-                    let Lang = documentData["Lang"] as? Double ?? 0.0
-                    let Name = documentData["Name"] as? String ?? ""
-                    // Extract and assign other properties as needed
-                    return Places(id: id, Lang: Lang ,Lat: Lat, Name: Name)
-                }
-                        for place in  parent.places {
-                            let marker = GMSMarker()
-                            marker.position = CLLocationCoordinate2D(latitude: place.Lat, longitude: place.Lang)
-                            marker.map = mapView
-                            print("I'm for place ")
-                        }
-                        if parent.places.isEmpty {
-                            print("I'm empty")
-                        }
-                      //  return Places(id: id, Lang: Lang ,Lat: Lat, Name: Name)
-                    }
-            
-
-        }
-    }
+//    func updateMarkers(mapView: GMSMapView) {
+////        mapView.clear()
+//
+//        if  listenerRegistration == nil {
+//            listenerRegistration = parent.db.collection("Gate").addSnapshotListener { [self]
+//                (querySnapshot, error) in
+//                guard let documents = querySnapshot?.documents else {
+//                    print("No documents")
+//                    return  }
+//                self.parent.places = documents.compactMap { document in
+//                    let documentData = document.data()
+//                    let id = document.documentID
+//                    let Lat = documentData["Lat"] as? Double ?? 0.0
+//                    let Lang = documentData["Lang"] as? Double ?? 0.0
+//                    let Name = documentData["Name"] as? String ?? ""
+//                    // Extract and assign other properties as needed
+//                    return Places(id: id, Lang: Lang ,Lat: Lat, Name: Name)
+//                }
+//                        for place in  parent.places {
+//                            let marker = GMSMarker()
+//                            marker.position = CLLocationCoordinate2D(latitude: place.Lat, longitude: place.Lang)
+//                            marker.map = mapView
+//                            print("I'm for place ")
+//                        }
+//                        if parent.places.isEmpty {
+//                            print("I'm empty")
+//                        }
+//                      //  return Places(id: id, Lang: Lang ,Lat: Lat, Name: Name)
+//                    }
+//
+//
+//        }
+//    }
 }
     
        
@@ -144,11 +140,6 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
         self.mapView.delegate = context.coordinator as? GMSMapViewDelegate
       //  context.coordinator.updateMarkers(mapView: mapView)
         context.coordinator.updateMarkers2(mapView: mapView)
-//        if let locationcoordinate =  locationManager.lastKnownLocation?.coordinate{
-//            print("locationcoordinate\(locationcoordinate)")
-//            getRouteSteps(from: locationcoordinate, to: destination2)
-//        }
-//
         return mapView
     }
     func makeCoordinator() -> Coordinator {
@@ -157,15 +148,10 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
     
     func updateUIView(_ mapView: GMSMapView, context: Context) {
         //mapView.clear()
-     
-            if let selectedPlace = locationViewModel.selectedPlace {
-                locationHandler.searchLocation(selectedPlace)
-            }
-            //        let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleMapTap(_:)))
-            //            mapView.addGestureRecognizer(tapGesture)
-          //  getRouteSteps(from: destination1, to: destination2)
-            // vmMapRouteTasks.calculateTotalDistanceAndDuration()
-        
+        context.coordinator.updateMarkers2(mapView: mapView)
+//            if let focusPlace = focusPlace.focusPlace {
+                print("i enter to focus")
+        locationHandler.focusOnPlace(placeID: focusPlace.focusPlace, mapView: mapView)
     }
     func getRouteSteps(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
 //        mapView.clear()

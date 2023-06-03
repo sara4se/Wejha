@@ -10,7 +10,9 @@ import SwiftUI
 class LocationViewModel: ObservableObject {
     @Published var selectedPlace: String?
 }
-
+class FocusPlace: ObservableObject {
+    @Published var focusPlace: String = ""
+}
 struct MapUIView: View {
     @State var offset: CGFloat = 0
     @State var locationQuery : String = ""
@@ -29,7 +31,8 @@ struct MapUIView: View {
     @State private var tDistance: String = ""
     @State private var time: String = ""
     @State private var markers: [GMSMarker] = []
-    @State private var placesView: [Places] = []
+//    @State private var placesView: [Places] = []
+    @State private var places: [Spical] = []
     
 //    init() {
 //        _mapViewModel = StateObject(wrappedValue:MapViewRepresentable(firebaseViewModel: viewModels))
@@ -39,16 +42,13 @@ struct MapUIView: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
-                MapViewRepresentable(tDistance: $tDistance, time: $time, places: $placesView ).edgesIgnoringSafeArea(.all)
+                MapViewRepresentable(tDistance: $tDistance, time: $time, places: $places ).edgesIgnoringSafeArea(.all)
                 
                 GeometryReader { geo in
                     VStack(spacing: 0){
-                    
-                        Button {
-                            print("i am here")
+                      Button {
                             isMapActive.toggle()
                         } label: {
-                            
                             if(isARViewActive){
                                 Image("MapButtonActive").resizable()
                             }else{
@@ -56,7 +56,6 @@ struct MapUIView: View {
                             }
                         }.disabled(isMapActive ? false  : true)
                         Button {
-                            print("i am here")
                             isARViewActive.toggle()
                         } label: {
                             
@@ -113,7 +112,7 @@ struct MapUIView: View {
                                 }
                             }))
                 }.ignoresSafeArea(.all, edges: .bottom)
-            }
+            } 
             .onAppear{
                 //placesView = viewModels.places
                 viewModels.FireGate()
@@ -139,7 +138,8 @@ struct MapUIView: View {
 
 struct MapUIView_Previews: PreviewProvider {
     static var previews: some View {
-        MapUIView()
+        MapUIView().environment(\.locale, .init(identifier: "ar"))
+        MapUIView().environment(\.locale, .init(identifier: "en"))
     }
 }
 //

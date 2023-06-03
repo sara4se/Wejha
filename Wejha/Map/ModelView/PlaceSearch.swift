@@ -14,9 +14,9 @@ final class PlaceSearch : ObservableObject {
     /// `GMSAutocompleteSessionToken.init()` : allow create session token to uniquely identify queries to the Google Places API Services for fetching place predictions
     let token = GMSAutocompleteSessionToken.init()
     let client = GMSPlacesClient()
-    
+//    let mapView = GMSMapView(frame: .zero)
     @Published var searchedLocation = [String]()
-    func searchLocation(_ query:String) {
+    func searchLocation(_ query:String) { //, mapView : GMSMapView
         searchedLocation = []
         let filter = createSearchFilter()
         client.findAutocompletePredictions(fromQuery: query, filter: filter, sessionToken: token) { results, error in
@@ -25,10 +25,13 @@ final class PlaceSearch : ObservableObject {
             }
            guard let results = results else {return}
             for result in results {
+              
                 self.searchedLocation.append(result.attributedFullText.string)
+                
                 print("Result \(result.attributedFullText) with placeID \(result.placeID)")
             }
         }
+       
     }
 
 /// https://developers.google.com/maps/documentation/places/ios-sdk/supported_types
@@ -52,4 +55,22 @@ func createSearchFilter() -> GMSAutocompleteFilter {
     
     return filter
 }
+    func focusOnPlace(placeID: String, mapView: GMSMapView) {
+        let placeFields: GMSPlaceField = [.coordinate]
+        
+        GMSPlacesClient.shared().fetchPlace(fromPlaceID: placeID, placeFields: placeFields, sessionToken: token) { place, error in
+            if let error = error {
+                print("Error fetching place details: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let coordinate = place?.coordinate else { return }
+            
+            let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 15)
+            mapView.animate(to: camera)
+        }
+    }
+
+
+     
 }

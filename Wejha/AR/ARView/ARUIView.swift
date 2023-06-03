@@ -9,9 +9,11 @@ import SwiftUI
 import GoogleMaps
 struct ARUIView: View {
     @Binding var selectedPlace: String?
+    @State var permissionHandler : PermissionHandler = PermissionHandler(cantOpenCamera: .constant(true))
     var body: some View {
         NavigationView {
 //            Text("hello")
+            let _ = permissionHandler.requestCameraPermission()
             SceneLocationViewWrapper(selectedPlace: $selectedPlace)
                .edgesIgnoringSafeArea(.all)
         }

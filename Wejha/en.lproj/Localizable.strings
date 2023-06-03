@@ -1,0 +1,116 @@
+/* 
+  Localizable.strings
+  Wejha
+
+  Created by Sara Alhumidi on 14/11/1444 AH.
+  
+*/
+//MARK: Onboarding
+"Text0" = "Skip" ;
+"Text1" = "Wejha" ;
+"Text2" = "Latest Technologies" ;
+"Text3" = "Open the camera and enjoy using AR map to reach your destination" ;
+"Text4" = "Various Services" ;
+"Text5" = "Find out about the services offered at the Holy Mosque to facilitate your visit" ;
+"Text6" = "Quick Access" ;
+"Text7" = "Explore the nearest places around you" ;
+"Text8" = "Start" ;
+
+//MARK: Allow access location
+"Text9" = "Allow “Wejha / وجهة” to use
+your location?" ;
+"Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results" = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results" ;
+"Text11" = "Precise: On" ;
+"Text12" = "Allow Once" ;
+"Text13" = "Allow While Using the App" ;
+"Text14" = "Don’t Allow" ;
+
+//MARK: Categories sheet
+"Text15" = "Select your destination" ;
+"Text16" = "Gates" ;
+"Text17" = "Al-Sahan" ;
+"Text18" = "Al-Safa & Al-Marwah";
+"Text19" = "Wheelchair Store";
+"Text20" = "Restrooms" ;
+"Text21" = "Ablution" ;
+"Text22" = "Vertical Transportation ";
+"Text23" = "Bus Station" ;
+"Text24" = "Lost & Found Office" ;
+
+//MARK: Gates
+"Text25" = "King Abdulaziz Gate 1";
+"Text26" = "King Fahad Gate 79" ;
+"Text27" = "King Abdullah Gate 100" ;
+"Text28" = "Umra Gate 40" ;
+"Text29" = "Ismail Gate 5";
+"Text30" = "As-Salam Gate";
+"Text31" = "Fateh Gate 30" ;
+"Text32" = "Ajyad Gate 3";
+"Text33" = "Al-Nabi Bridge 15" ;
+"Text34" = "Muzdalifah Gate 36" ;
+"Text35" = "Al-Mudaa Gate 25";
+
+//MARK: Al-Sahan
+"Text36" = "Holy Kaaba" ;
+"Text37" = "Maqaam Ibrahim" ;
+
+//MARK: Al-Safa & Al-Marwah
+"Text38" = "Al-Safa" ;
+"Text39" = "Al-Marwah";
+
+//MARK: Wheelchair Store
+"Text40" = "Wheelchair Store";
+
+//MARK: Restrooms
+"Text41" = "WC Woman" ;
+"Text42" = "WC Men";
+
+//MARK: Ablution
+"Text43" = "Ablution Woman" ;
+"Text44" = "Ablution  Men" ;
+
+//MARK: Vertical Transportation
+"Text45" = "Elevator";
+"Text46" = "Escalator" ;
+"Text47" = "Staircase" ;
+
+//MARK: Bus Station
+"Text48" = "Bus Station" ;
+
+//MARK: Lost & Found Office
+"Text49" = "Lost & Found Office";
+
+//MARK: Search
+"Text50" = "Recent searches";
+"Text51" = "Cancel" ;
+"Text52" = "No results found";
+"Text53" = "Search";
+
+//MARK: Selected destination
+"Text54" = "Min" ;
+"Text55" = "Km" ;
+"Text56" = "Unknown";
+
+//MARK: Camera access
+"Text57" = "“Wejha / وجهة” Would Like to Access to the Camera" ;
+"Text58" = "To use the AR map and show the directions" ;
+"Text59" = "Allow";
+"Text60" = "Don’t Allow";
+
+//MARK: Camera Access is not given
+"Text61" = "Unable to access the camera" ;
+"Text62" = "Camera access is required to use AR map" ;
+"Text63" = "Allow access to the camera from settings or";
+"Text64" = "Switch to the 2D map" ;
+
+//MARK: Map directions
+"Text65" = "Estimated time" ;
+"Text66" = "Exit";
+"Text67" = "Arrived at your destination" ;
+"Text68" = "Moving forward" ;
+"Text69" = "Turn Right" ;
+"Text70" = "Go straight";
+"Text71" = "U-Turn";
+"Text72" = "Your destination is on the left";
+"Text73" = "Your destination is on the right" ;
+"Text74" = "Turn Left" ;

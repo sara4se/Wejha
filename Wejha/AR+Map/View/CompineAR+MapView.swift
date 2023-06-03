@@ -7,18 +7,6 @@
 
 import SwiftUI
 
-//struct CompineAR_MapView: View {
-//    var body: some View {
-//        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-//    }
-//}
-//
-//struct CompineAR_MapView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CompineAR_MapView()
-//    }
-//}
- 
 struct MapJourney: View {
     @State private var searchText :String? = ""
     @State private var tDistance: String = ""

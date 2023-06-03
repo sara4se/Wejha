@@ -15,21 +15,22 @@ struct BottomSheet: View {
     @ObservedObject var locationViewModel: LocationViewModel
     @ObservedObject var locationHandler: PlaceSearch
     var categories : Categories = Categories()
+    @ObservedObject var focusPlace: FocusPlace = FocusPlace()
     @StateObject private var viewModels = FirebaseModel()
     @State private var documentIDs: [String] = []
     @State var currentItem : Places?
     var body: some View {
-        
         NavigationView {
             VStack {
                 HStack(spacing: 15) {
                     Image(systemName: "magnifyingglass")
                         .font(.system(size: 22))
                         .foregroundColor(.gray)
-                    TextField("Search Place", text: $locationQuery)
+                    TextField(LocalizedStringKey("Text53"), text: $locationQuery)
                         .onChange(of: locationQuery) { newValue in
                             locationViewModel.selectedPlace = locationQuery
                             locationHandler.searchLocation(newValue)
+                            
                         }
                 } //categories
                 if(locationQuery.isEmpty){
@@ -53,7 +54,7 @@ struct BottomSheet: View {
                                                     .aspectRatio(contentMode: .fill)
                                                 //                                                                       .frame(width: 62, height: 100)
                                             )
-                                        Text("AlSafa & Almarwah Gate").foregroundColor(Color("DarkGreen"))
+                                        Text(LocalizedStringKey("Text18")).foregroundColor(Color("DarkGreen"))
                                     }
                                 }
                                 NavigationLink(destination: AlSahanList()) {
@@ -63,10 +64,8 @@ struct BottomSheet: View {
                                             .foregroundColor(Color("DarkGreen"))
                                             .overlay(
                                                 Image("Al-Sahan")
-                                                    .aspectRatio(contentMode: .fill)
-                                                //                                                                       .frame(width: 62, height: 100)
-                                            )
-                                        Text("Al Sahan").foregroundColor(Color("DarkGreen"))
+                                                    .aspectRatio(contentMode: .fill) )
+                                        Text(LocalizedStringKey("Text17")).foregroundColor(Color("DarkGreen"))
                                     }
                                 }
                                 NavigationLink(destination: GateLists()) {
@@ -76,10 +75,8 @@ struct BottomSheet: View {
                                             .foregroundColor(Color("DarkGreen"))
                                             .overlay(
                                                 Image("Gates")
-                                                    .aspectRatio(contentMode: .fill)
-                                                //                                                                       .frame(width: 62, height: 100)
-                                            )
-                                        Text("Gates").foregroundColor(Color("DarkGreen"))
+                                                    .aspectRatio(contentMode: .fill))
+                                        Text(LocalizedStringKey("Text16")).foregroundColor(Color("DarkGreen"))
                                     }
                                 }
                                 NavigationLink(destination: AblutionLists()) {
@@ -91,7 +88,7 @@ struct BottomSheet: View {
                                                 Image("Ablution")
                                                     .aspectRatio(contentMode: .fill)
                                             )
-                                        Text("Ablution").foregroundColor(Color("DarkGreen"))
+                                        Text(LocalizedStringKey("Text21")).foregroundColor(Color("DarkGreen"))
                                     }
                                 }
                                 NavigationLink(destination: RestRoomLists()) {
@@ -103,7 +100,7 @@ struct BottomSheet: View {
                                                 Image("Restroom")
                                                     .aspectRatio(contentMode: .fill)
                                            )
-                                        Text("Rest Rooms").foregroundColor(Color("DarkGreen"))
+                                        Text(LocalizedStringKey("Text20")).foregroundColor(Color("DarkGreen"))
                                     }
                                 }
                                 
@@ -116,7 +113,7 @@ struct BottomSheet: View {
                                                 Image("WheelchairStore")
                                                     .aspectRatio(contentMode: .fill)
                                             )
-                                        Text("Wheelchair Place").foregroundColor(Color("DarkGreen"))
+                                        Text(LocalizedStringKey("Text19")).foregroundColor(Color("DarkGreen"))
                                     }
                                 }
                                 
@@ -129,7 +126,7 @@ struct BottomSheet: View {
                                                 Image("LostAndFoundOffice")
                                                     .aspectRatio(contentMode: .fill)
                                            )
-                                        Text("Lost and Found Office").foregroundColor(Color("DarkGreen"))
+                                        Text(LocalizedStringKey("Text24")).foregroundColor(Color("DarkGreen"))
                                     }
                                 }
                                 NavigationLink(destination:  BusStationList()) {
@@ -141,7 +138,7 @@ struct BottomSheet: View {
                                                 Image("BusStation")
                                                     .aspectRatio(contentMode: .fill)
                                             )
-                                        Text("Bus Station").foregroundColor(Color("DarkGreen"))
+                                        Text(LocalizedStringKey("Text23")).foregroundColor(Color("DarkGreen"))
                                     }
                                 }
                                 NavigationLink(destination:  VerticalTransportationsList()) {
@@ -152,9 +149,8 @@ struct BottomSheet: View {
                                             .overlay(
                                                 Image("VerticalTransportation")
                                                     .aspectRatio(contentMode: .fill)
-                                                //                                                                       .frame(width: 62, height: 100)
                                             )
-                                        Text("Vertical Transportations").foregroundColor(Color("DarkGreen"))
+                                        Text(LocalizedStringKey("Text22")).foregroundColor(Color("DarkGreen"))
                                     }
                                 }
                                 
@@ -174,7 +170,8 @@ struct BottomSheet: View {
                                 ForEach(locationHandler.searchedLocation, id: \.self) { place in
                                     Text(place)
                                         .onTapGesture {
-                                            //  locationViewModel.selectedPlace = place
+                                            focusPlace.focusPlace = place
+                                            print("i enter to focus2 : \(focusPlace.focusPlace.description)")
                                             print("i give locationViewModel.selectedPlace = place")
                                             locationQuery = "" // Clear the search query
                                             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil) // Dismiss the keyboard
@@ -186,17 +183,10 @@ struct BottomSheet: View {
                             }//lazyVGrid
                         }//scrollview
                     }
-                }.onAppear() {
-                    print("PostsListView appears. and data updates.")
-                    // self.viewModels.subscribeFireAblutionW()
-                    
-                    //                    self.viewModels.retrieveAllGate(completion:  { documentIDs in
-                    //                        self.documentIDs = documentIDs
-                    //                })
-                    self.viewModels.retrieveAllDocumentIDs(colliction: "") { documentIDs in
+                }.onAppear() {   self.viewModels.retrieveAllDocumentIDs(colliction: "") { documentIDs in
                         self.documentIDs = documentIDs}
                 }
-                .navigationTitle("حدد وجهتك")
+                .navigationTitle(LocalizedStringKey("Text15"))
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarBackButtonHidden(true)
             }
@@ -260,6 +250,8 @@ struct BottomSheet: View {
 //}
 struct BottomSheet_Previews: PreviewProvider {
     static var previews: some View {
-        BottomSheet(locationQuery: .constant(""), locationViewModel: LocationViewModel(), locationHandler: PlaceSearch())
+        BottomSheet(locationQuery: .constant(""), locationViewModel: LocationViewModel(), locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "ar"))
+        BottomSheet(locationQuery: .constant(""), locationViewModel: LocationViewModel(), locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "en"))
+        BottomSheet(locationQuery: .constant(""), locationViewModel: LocationViewModel(), locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "fr"))
     }
 }
