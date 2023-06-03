@@ -25,7 +25,7 @@ struct MapViewRepresentable: UIViewRepresentable  {
     @Binding var time: String
     @Binding var places: [Places]
     let googleApiKey = "AIzaSyDgXEpiATw1IAcW1T2gYLcwhM8S1v0IHOI"
-    @State var plasesArray = [Places]()
+   // @State var plasesArray = [Places]()
     var db = Firestore.firestore()
     //24.814339, 46.720124
     //24.729377, 46.716325
@@ -53,6 +53,45 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
         parent.getRouteSteps(from: currentLocation, to: coordinate)
         parent.getTotalDistance(from: currentLocation, to: coordinate)
        }
+    func updateMarkers2(mapView: GMSMapView) {
+     //   mapView.clear()
+        
+        if listenerRegistration == nil {
+            listenerRegistration = parent.db.collection("test").addSnapshotListener {
+                (querySnapshot, error) in
+                guard let documents = querySnapshot?.documents else {
+                    print("No documents")
+                    return
+                }
+                
+                let places = documents.compactMap { document in
+                    let id = document.documentID
+                    let point1 = document.get("point1") as? GeoPoint
+                    let name = document.get("Name") as? String ?? ""
+                    
+                    if let point1 = point1 {
+                        let place = Spical(id: id, document: document)
+                        return place
+                    } else {
+                        print("nil point")
+                    }
+                    return Spical(id: id, document: document)
+                }
+                
+                for place in places {
+                    let marker = GMSMarker()
+                    marker.position = CLLocationCoordinate2D(latitude: place.coordinates.latitude, longitude: place.coordinates.longitude)
+                    marker.map = mapView
+                    print("I'm for place")
+                }
+                
+                if places.isEmpty {
+                    print("I'm empty")
+                }
+            }
+        }
+    }
+
     func updateMarkers(mapView: GMSMapView) {
 //        mapView.clear()
 
@@ -62,24 +101,27 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
                 guard let documents = querySnapshot?.documents else {
                     print("No documents")
                     return  }
-                    self.parent.places = documents.compactMap { document in
-                        let documentData = document.data()
-                        let id = document.documentID
-                        let Lat = documentData["Lat"] as? Double ?? 0.0
-                        let Lang = documentData["Lang"] as? Double ?? 0.0
-                        let Name = documentData["Name"] as? String ?? ""
-                        // Extract and assign other properties as needed
+                self.parent.places = documents.compactMap { document in
+                    let documentData = document.data()
+                    let id = document.documentID
+                    let Lat = documentData["Lat"] as? Double ?? 0.0
+                    let Lang = documentData["Lang"] as? Double ?? 0.0
+                    let Name = documentData["Name"] as? String ?? ""
+                    // Extract and assign other properties as needed
+                    return Places(id: id, Lang: Lang ,Lat: Lat, Name: Name)
+                }
                         for place in  parent.places {
                             let marker = GMSMarker()
                             marker.position = CLLocationCoordinate2D(latitude: place.Lat, longitude: place.Lang)
                             marker.map = mapView
+                            print("I'm for place ")
                         }
                         if parent.places.isEmpty {
                             print("I'm empty")
                         }
-                        return Places(id: id, Lang: Lang ,Lat: Lat, Name: Name)
+                      //  return Places(id: id, Lang: Lang ,Lat: Lat, Name: Name)
                     }
-            }
+            
 
         }
     }
@@ -100,7 +142,8 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
         self.mapView.isIndoorEnabled = true
         self.mapView.settings.indoorPicker = true
         self.mapView.delegate = context.coordinator as? GMSMapViewDelegate
-        context.coordinator.updateMarkers(mapView: mapView)
+      //  context.coordinator.updateMarkers(mapView: mapView)
+        context.coordinator.updateMarkers2(mapView: mapView)
 //        if let locationcoordinate =  locationManager.lastKnownLocation?.coordinate{
 //            print("locationcoordinate\(locationcoordinate)")
 //            getRouteSteps(from: locationcoordinate, to: destination2)

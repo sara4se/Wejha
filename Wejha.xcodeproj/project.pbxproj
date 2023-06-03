@@ -33,6 +33,7 @@
 		56E6AD6E2A1155C800006719 /* ARUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E6AD6D2A1155C800006719 /* ARUIView.swift */; };
 		56E71F5B2A2A2E3700A2D591 /* OnboradingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E71F5A2A2A2E3700A2D591 /* OnboradingView.swift */; };
 		56E71F5D2A2A2E6C00A2D591 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E71F5C2A2A2E6C00A2D591 /* ContentView.swift */; };
+		56E71F612A2B531C00A2D591 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E71F602A2B531C00A2D591 /* SplashScreen.swift */; };
 		99E625DE2A1223760075734A /* MapModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E625DD2A1223760075734A /* MapModelView.swift */; };
 		99F805D92A13944400C859DF /* RoutesModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F805D82A13944400C859DF /* RoutesModelView.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		56E6AD6D2A1155C800006719 /* ARUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ARUIView.swift; path = Wejha/AR/ARView/ARUIView.swift; sourceTree = SOURCE_ROOT; };
 		56E71F5A2A2A2E3700A2D591 /* OnboradingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboradingView.swift; sourceTree = "<group>"; };
 		56E71F5C2A2A2E6C00A2D591 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		56E71F602A2B531C00A2D591 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		902E51E6998828EDAC3D310A /* Pods-Wejha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wejha.debug.xcconfig"; path = "Target Support Files/Pods-Wejha/Pods-Wejha.debug.xcconfig"; sourceTree = "<group>"; };
 		99E625DD2A1223760075734A /* MapModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModelView.swift; sourceTree = "<group>"; };
 		99F805D82A13944400C859DF /* RoutesModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutesModelView.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 			children = (
 				56E71F5C2A2A2E6C00A2D591 /* ContentView.swift */,
 				56E71F5A2A2A2E3700A2D591 /* OnboradingView.swift */,
+				56E71F602A2B531C00A2D591 /* SplashScreen.swift */,
 			);
 			path = Onborading;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56E71F612A2B531C00A2D591 /* SplashScreen.swift in Sources */,
 				565F94D52A1F5FD400121125 /* Helper.swift in Sources */,
 				565F94CF2A1CB85100121125 /* sheetExtension.swift in Sources */,
 				560EAE7F2A116F7800D8D659 /* SceneLocation.swift in Sources */,
@@ -575,10 +579,10 @@
 				INFOPLIST_FILE = Wejha/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSCameraUsageDescription = location;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = location;
-				INFOPLIST_KEY_NSLocationUsageDescription = location;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = location;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To use the AR map and show the directions";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -615,10 +619,10 @@
 				INFOPLIST_FILE = Wejha/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSCameraUsageDescription = location;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = location;
-				INFOPLIST_KEY_NSLocationUsageDescription = location;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = location;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To use the AR map and show the directions";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

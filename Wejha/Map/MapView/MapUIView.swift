@@ -61,8 +61,8 @@ struct MapUIView: View {
                         } label: {
                             
                             //                        Text("width:\(geo.frame(in: .global).width) height:\(geo.frame(in: .global).height) maxX:\(geo.frame(in: .global).maxX) midX:\(geo.frame(in: .global).midX) midY:\(geo.frame(in: .global).midY) maxY:\(geo.frame(in: .global).maxY) startLocation.y:\(startLocationY) translation.width:\(translationWidth) translation.height:\(translationHeight) offset:\(offset)")
-                            Text(tDistance)
-                            Text(time)
+//                            Text(tDistance)
+//                            Text(time)
                             if(isARViewActive){
                              Image("ArButtonDisable").resizable()
                             }else{
@@ -71,10 +71,9 @@ struct MapUIView: View {
                         }
                     }.frame(width: 50,height: 100).padding(.leading, 330)
                     // to read frame height
-                    BottomSheet(offset: $offset, value: (-geo.frame(in: .global).height + 150), locationQuery: $locationQuery, locationViewModel: locationViewModel, locationHandler: locationHandler)
-                    
+                
+                    BottomSheet(locationQuery: $locationQuery, locationViewModel: locationViewModel, locationHandler: locationHandler)
                         .offset(y: geo.frame(in: .global).height - 140)
-                    // adding Gesture
                         .offset(y: offset)
                         .gesture(DragGesture().onChanged({ value in
                             startLocationY = value.startLocation.y
@@ -82,16 +81,12 @@ struct MapUIView: View {
                             translationWidth = value.translation.width
                             
                             withAnimation {
-                                // checking Scroll direction
-                                // scrolling upwards
-                                // usingstartLocation because translation will change when we drag up and down
-                                if value.startLocation.y > geo.frame(in: .global).midX {
+                               if value.startLocation.y > geo.frame(in: .global).midX {
                                     if value.translation.height < 0 && offset > (-geo.frame(in: .global).height + 150) {
                                         offset = value.translation.height
                                     }
                                 }
-                                
-                                if value.startLocation.y < geo.frame(in: .global).midX {
+                                 if value.startLocation.y < geo.frame(in: .global).midX {
                                     if value.translation.height > 0 && offset < 0 {
                                         offset = (-geo.frame(in: .global).height + 150) + value.translation.height
                                     }
@@ -104,8 +99,7 @@ struct MapUIView: View {
                                     if value.startLocation.y > geo.frame(in: .global).midX {
                                         if -value.translation.height > geo.frame(in: .global).midX {
                                             offset = (-geo.frame(in: .global).height + 150)
-                                            
-                                            return
+                                             return
                                         }
                                         offset = 0
                                     }
@@ -121,7 +115,7 @@ struct MapUIView: View {
                 }.ignoresSafeArea(.all, edges: .bottom)
             }
             .onAppear{
-                placesView = viewModels.places
+                //placesView = viewModels.places
                 viewModels.FireGate()
             }
             .fullScreenCover(isPresented: $isARViewActive, content: {
@@ -141,165 +135,7 @@ struct MapUIView: View {
     }
 }
 
-struct BottomSheet: View {
-    @Binding var offset: CGFloat
-    var value: CGFloat
-    @Binding var locationQuery: String
-    @ObservedObject var locationViewModel: LocationViewModel
-    @ObservedObject var locationHandler: PlaceSearch
-    var categories : Categories = Categories()
-    @StateObject private var viewModels = FirebaseModel()
-    @State private var documentIDs: [String] = []
-    @State var currentItem : Places?
-     var body: some View {
-         
-        NavigationView {
-            VStack {
-                HStack(spacing: 15) {
-                    Image(systemName: "magnifyingglass")
-                        .font(.system(size: 22))
-                        .foregroundColor(.gray)
-                      TextField("Search Place", text: $locationQuery)
-                        .onChange(of: locationQuery) { newValue in
-                            locationViewModel.selectedPlace = locationQuery
-                            locationHandler.searchLocation(newValue)
-                         }
-                } //categories
-                 if(locationQuery.isEmpty){
-//                        ScrollView() {
-//                            LazyVGrid(columns: [
-//                                GridItem(.flexible()),
-//                                GridItem(.flexible()),
-//                                GridItem(.flexible())])
-//                            {
-//                                    let _ = print("helllokeo")
-                            NavigationView {
-                                ScrollView {
-                                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                                        NavigationLink(destination: GateLists()) {
-                                                    VStack {
-                                                        Circle()
-                                                            .frame(width: 69, height: 69)
-                                                            .cornerRadius(8)
-                                                        Text("Gates")
-                                                    }
-                                                }
-                                                NavigationLink(destination: RestRoomLists()) {
-                                                    VStack {
-                                                        Circle()
-                                                            .frame(width: 69, height: 69)
-                                                            .cornerRadius(8)
-                                                        Text("Rest Rooms")
-                                                    }
-                                                }
-                                        NavigationLink(destination: AblutionLists()) {
-                                            VStack {
-                                                Circle()
-                                                    .frame(width: 69, height: 69)
-                                                    .cornerRadius(8)
-                                                Text("Ablution")
-                                            }
-                                        }
-                                        NavigationLink(destination: AlSahanList()) {
-                                                    VStack {
-                                                        Circle()
-                                                            .frame(width: 69, height: 69)
-                                                            .cornerRadius(8)
-                                                        Text("Al Sahan")
-                                                    }
-                                                }
-                                        NavigationLink(destination:  LostFoundOfficeList()) {
-                                                    VStack {
-                                                        Circle()
-                                                            .frame(width: 69, height: 69)
-                                                            .cornerRadius(8)
-                                                        Text("Lost and Found Office")
-                                                    }
-                                                }
-                                        NavigationLink(destination:  BusStationList()) {
-                                                    VStack {
-                                                        Circle()
-                                                            .frame(width: 69, height: 69)
-                                                            .cornerRadius(8)
-                                                        Text("Bus Station")
-                                                    }
-                                                }
-                                        NavigationLink(destination:  VerticalTransportationsList()) {
-                                                    VStack {
-                                                        Circle()
-                                                            .frame(width: 69, height: 69)
-                                                            .cornerRadius(8)
-                                                        Text("Vertical Transportations")
-                                                    }
-                                                }
-                                        NavigationLink(destination:   WheelchairPlaceList()) {
-                                                    VStack {
-                                                        Circle()
-                                                            .frame(width: 69, height: 69)
-                                                            .cornerRadius(8)
-                                                        Text("Wheelchair Place")
-                                                    }
-                                                }
-                                        NavigationLink(destination:  AlSafaAlmarwahList()) {
-                                                    VStack {
-                                                        Circle()
-                                                            .frame(width: 69, height: 69)
-                                                            .cornerRadius(8)
-                                                        Text("AlSafa & Almarwah Gate")
-                                                    }
-                                                }
-                                    }
-                                    .padding()
-                                }
-                       
-                            }
-//                        }//lazyVGrid
-//                    }//scrollview
-              }
-                VStack(spacing: 10){
-     if(!locationQuery.isEmpty){
-                        ScrollView(.vertical, showsIndicators: false) {
-                            LazyVStack(alignment: .leading, spacing: 15) {
-                                
-                                ForEach(locationHandler.searchedLocation, id: \.self) { place in
-                                    Text(place)
-                                        .onTapGesture {
-                                            //  locationViewModel.selectedPlace = place
-                                            print("i give locationViewModel.selectedPlace = place")
-                                            locationQuery = "" // Clear the search query
-                                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil) // Dismiss the keyboard
-                                        }
-                                    Divider()
-                                        .padding(.top, 10)
-                                }
-                                
-                            }//lazyVGrid
-                        }//scrollview
-                    }
-                }.onAppear() {
-                    print("PostsListView appears. and data updates.")
-                   // self.viewModels.subscribeFireAblutionW()
-                     
-//                    self.viewModels.retrieveAllGate(completion:  { documentIDs in
-//                        self.documentIDs = documentIDs
-//                })
-                    self.viewModels.retrieveAllDocumentIDs(colliction: "") { documentIDs in
-                        self.documentIDs = documentIDs}
-                }
-                .navigationTitle("حدد وجهتك")
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarBackButtonHidden(true)
-            }
-//            .background(BlurView(style: .systemMaterial))
-//                .cornerRadius(15)
-            
-            
-        }
-         
-    }
-}
-
-
+ 
 
 struct MapUIView_Previews: PreviewProvider {
     static var previews: some View {

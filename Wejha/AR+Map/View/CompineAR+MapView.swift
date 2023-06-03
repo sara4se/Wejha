@@ -20,6 +20,8 @@ import SwiftUI
 //}
  
 struct MapJourney: View {
+    @State private var searchText :String? = ""
+    @State private var tDistance: String = ""
     var body: some View {
         ZStack {
             Color.white // Set the background color to white
@@ -41,9 +43,10 @@ struct MapJourney: View {
                             .foregroundColor(Color.clear)
                             .background(Color.clear)
                             .overlay(
-                                Text("Hello,flf")
+                                
+                                Text(tDistance)
                                     .foregroundColor(.black)
-                            )
+                                  )
                     )
                     .position(x: geo.size.width / 2, y: geo.size.height / 2)
             }
