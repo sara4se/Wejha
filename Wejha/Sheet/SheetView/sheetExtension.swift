@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 //MARK: costume bottom sheet
 struct BottomSheet: View {
-//    @Binding var offset: CGFloat
-//    var value: CGFloat
+    //    @Binding var offset: CGFloat
+    //    var value: CGFloat
     @Binding var locationQuery: String
     @ObservedObject var locationViewModel: LocationViewModel
     @ObservedObject var locationHandler: PlaceSearch
@@ -18,113 +18,156 @@ struct BottomSheet: View {
     @StateObject private var viewModels = FirebaseModel()
     @State private var documentIDs: [String] = []
     @State var currentItem : Places?
-     var body: some View {
-         
+    var body: some View {
+        
         NavigationView {
             VStack {
                 HStack(spacing: 15) {
                     Image(systemName: "magnifyingglass")
                         .font(.system(size: 22))
                         .foregroundColor(.gray)
-                      TextField("Search Place", text: $locationQuery)
+                    TextField("Search Place", text: $locationQuery)
                         .onChange(of: locationQuery) { newValue in
                             locationViewModel.selectedPlace = locationQuery
                             locationHandler.searchLocation(newValue)
-                         }
+                        }
                 } //categories
-                 if(locationQuery.isEmpty){
-//                        ScrollView() {
-//                            LazyVGrid(columns: [
-//                                GridItem(.flexible()),
-//                                GridItem(.flexible()),
-//                                GridItem(.flexible())])
-//                            {
-//                                    let _ = print("helllokeo")
-                            NavigationView {
-                                ScrollView {
-                                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
-                                        NavigationLink(destination: GateLists()) {
-                                                    VStack {
-                                                        Circle()
-                                                            .frame(width: 69, height: 69)
-                                                            .cornerRadius(8)
-                                                        Text("Gates")
-                                                    }
-                                                }
-                                                NavigationLink(destination: RestRoomLists()) {
-                                                    VStack {
-                                                        Circle()
-                                                            .frame(width: 69, height: 69)
-                                                            .cornerRadius(8)
-                                                        Text("Rest Rooms")
-                                                    }
-                                                }
-                                        NavigationLink(destination: AblutionLists()) {
-                                            VStack {
-                                                Circle()
-                                                    .frame(width: 69, height: 69)
-                                                    .cornerRadius(8)
-                                                Text("Ablution")
-                                            }
-                                        }
-                                        NavigationLink(destination: AlSahanList()) {
-                                                    VStack {
-                                                        Circle()
-                                                            .frame(width: 69, height: 69)
-                                                            .cornerRadius(8)
-                                                        Text("Al Sahan")
-                                                    }
-                                                }
-                                        NavigationLink(destination:  LostFoundOfficeList()) {
-                                                    VStack {
-                                                        Circle()
-                                                            .frame(width: 69, height: 69)
-                                                            .cornerRadius(8)
-                                                        Text("Lost and Found Office")
-                                                    }
-                                                }
-                                        NavigationLink(destination:  BusStationList()) {
-                                                    VStack {
-                                                        Circle()
-                                                            .frame(width: 69, height: 69)
-                                                            .cornerRadius(8)
-                                                        Text("Bus Station")
-                                                    }
-                                                }
-                                        NavigationLink(destination:  VerticalTransportationsList()) {
-                                                    VStack {
-                                                        Circle()
-                                                            .frame(width: 69, height: 69)
-                                                            .cornerRadius(8)
-                                                        Text("Vertical Transportations")
-                                                    }
-                                                }
-                                        NavigationLink(destination:   WheelchairPlaceList()) {
-                                                    VStack {
-                                                        Circle()
-                                                            .frame(width: 69, height: 69)
-                                                            .cornerRadius(8)
-                                                        Text("Wheelchair Place")
-                                                    }
-                                                }
-                                        NavigationLink(destination:  AlSafaAlmarwahList()) {
-                                                    VStack {
-                                                        Circle()
-                                                            .frame(width: 69, height: 69)
-                                                            .cornerRadius(8)
-                                                        Text("AlSafa & Almarwah Gate")
-                                                    }
-                                                }
+                if(locationQuery.isEmpty){
+                    //                        ScrollView() {
+                    //                            LazyVGrid(columns: [
+                    //                                GridItem(.flexible()),
+                    //                                GridItem(.flexible()),
+                    //                                GridItem(.flexible())])
+                    //                            {
+                    //                                    let _ = print("helllokeo")
+                    NavigationView {
+                        ScrollView {
+                            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
+                                NavigationLink(destination:  AlSafaAlmarwahList()) {
+                                    VStack {
+                                        Circle()
+                                            .frame(width: 69, height: 69)
+                                            .foregroundColor(Color("DarkGreen"))
+                                            .overlay(
+                                                Image("safaAndMarwa")
+                                                    .aspectRatio(contentMode: .fill)
+                                                //                                                                       .frame(width: 62, height: 100)
+                                            )
+                                        Text("AlSafa & Almarwah Gate").foregroundColor(Color("DarkGreen"))
                                     }
-                                    .padding()
                                 }
-                       
+                                NavigationLink(destination: AlSahanList()) {
+                                    VStack {
+                                        Circle()
+                                            .frame(width: 69, height: 69)
+                                            .foregroundColor(Color("DarkGreen"))
+                                            .overlay(
+                                                Image("Al-Sahan")
+                                                    .aspectRatio(contentMode: .fill)
+                                                //                                                                       .frame(width: 62, height: 100)
+                                            )
+                                        Text("Al Sahan").foregroundColor(Color("DarkGreen"))
+                                    }
+                                }
+                                NavigationLink(destination: GateLists()) {
+                                    VStack {
+                                        Circle()
+                                            .frame(width: 69, height: 69)
+                                            .foregroundColor(Color("DarkGreen"))
+                                            .overlay(
+                                                Image("Gates")
+                                                    .aspectRatio(contentMode: .fill)
+                                                //                                                                       .frame(width: 62, height: 100)
+                                            )
+                                        Text("Gates").foregroundColor(Color("DarkGreen"))
+                                    }
+                                }
+                                NavigationLink(destination: AblutionLists()) {
+                                    VStack {
+                                        Circle()
+                                            .frame(width: 69, height: 69)
+                                            .foregroundColor(Color("DarkGreen"))
+                                            .overlay(
+                                                Image("Ablution")
+                                                    .aspectRatio(contentMode: .fill)
+                                            )
+                                        Text("Ablution").foregroundColor(Color("DarkGreen"))
+                                    }
+                                }
+                                NavigationLink(destination: RestRoomLists()) {
+                                    VStack {
+                                        Circle()
+                                            .frame(width: 69, height: 69)
+                                            .foregroundColor(Color("DarkGreen"))
+                                            .overlay(
+                                                Image("Restroom")
+                                                    .aspectRatio(contentMode: .fill)
+                                           )
+                                        Text("Rest Rooms").foregroundColor(Color("DarkGreen"))
+                                    }
+                                }
+                                
+                                NavigationLink(destination:   WheelchairPlaceList()) {
+                                    VStack {
+                                        Circle()
+                                            .frame(width: 69, height: 69)
+                                            .foregroundColor(Color("DarkGreen"))
+                                            .overlay(
+                                                Image("WheelchairStore")
+                                                    .aspectRatio(contentMode: .fill)
+                                            )
+                                        Text("Wheelchair Place").foregroundColor(Color("DarkGreen"))
+                                    }
+                                }
+                                
+                                NavigationLink(destination:  LostFoundOfficeList()) {
+                                    VStack {
+                                        Circle()
+                                            .frame(width: 69, height: 69)
+                                            .foregroundColor(Color("DarkGreen"))
+                                            .overlay(
+                                                Image("LostAndFoundOffice")
+                                                    .aspectRatio(contentMode: .fill)
+                                           )
+                                        Text("Lost and Found Office").foregroundColor(Color("DarkGreen"))
+                                    }
+                                }
+                                NavigationLink(destination:  BusStationList()) {
+                                    VStack {
+                                        Circle()
+                                            .frame(width: 69, height: 69)
+                                            .foregroundColor(Color("DarkGreen"))
+                                            .overlay(
+                                                Image("BusStation")
+                                                    .aspectRatio(contentMode: .fill)
+                                            )
+                                        Text("Bus Station").foregroundColor(Color("DarkGreen"))
+                                    }
+                                }
+                                NavigationLink(destination:  VerticalTransportationsList()) {
+                                    VStack {
+                                        Circle()
+                                            .frame(width: 69, height: 69)
+                                            .foregroundColor(Color("DarkGreen"))
+                                            .overlay(
+                                                Image("VerticalTransportation")
+                                                    .aspectRatio(contentMode: .fill)
+                                                //                                                                       .frame(width: 62, height: 100)
+                                            )
+                                        Text("Vertical Transportations").foregroundColor(Color("DarkGreen"))
+                                    }
+                                }
+                                
                             }
-//                        }//lazyVGrid
-//                    }//scrollview
-              }
+                            .padding()
+                        }
+                        
+                    }
+                    //                        }//lazyVGrid
+                    //                    }//scrollview
+                }
                 VStack(spacing: 10){
-     if(!locationQuery.isEmpty){
+                    if(!locationQuery.isEmpty){
                         ScrollView(.vertical, showsIndicators: false) {
                             LazyVStack(alignment: .leading, spacing: 15) {
                                 
@@ -145,11 +188,11 @@ struct BottomSheet: View {
                     }
                 }.onAppear() {
                     print("PostsListView appears. and data updates.")
-                   // self.viewModels.subscribeFireAblutionW()
-                     
-//                    self.viewModels.retrieveAllGate(completion:  { documentIDs in
-//                        self.documentIDs = documentIDs
-//                })
+                    // self.viewModels.subscribeFireAblutionW()
+                    
+                    //                    self.viewModels.retrieveAllGate(completion:  { documentIDs in
+                    //                        self.documentIDs = documentIDs
+                    //                })
                     self.viewModels.retrieveAllDocumentIDs(colliction: "") { documentIDs in
                         self.documentIDs = documentIDs}
                 }
@@ -157,12 +200,12 @@ struct BottomSheet: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarBackButtonHidden(true)
             }
-//            .background(BlurView(style: .systemMaterial))
-//                .cornerRadius(15)
+            //            .background(BlurView(style: .systemMaterial))
+            //                .cornerRadius(15)
             
             
         }
-         
+        
     }
 }
 
@@ -215,3 +258,8 @@ struct BottomSheet: View {
 //
 //
 //}
+struct BottomSheet_Previews: PreviewProvider {
+    static var previews: some View {
+        BottomSheet(locationQuery: .constant(""), locationViewModel: LocationViewModel(), locationHandler: PlaceSearch())
+    }
+}

@@ -1,0 +1,114 @@
+/* 
+  Localizable.strings
+  Wejha
+
+  Created by Sara Alhumidi on 14/11/1444 AH.
+  
+*/
+"Text0" = "Atlamak" ;
+"Text1" = "Wejha" ;
+"Text2" = "En Son Teknolojiler" ;
+"Text3" = "Kamerayı açın ve hedefinize ulaşmak için AR haritasını kullanmanın keyfini çıkarın" ;
+"Text4" = "Çeşitli Hizmetler" ;
+"Text5" = "Ziyaretinizi kolaylaştırmak için Kutsal Cami'de sunulan hizmetler hakkında bilgi edinin" ;
+"Text6" = "Daha Hızlı Erişim" ;
+"Text7" = "Çevrenizdeki en yakın yerleri keşfedin" ;
+"Text8" = "Başlat" ;
+
+//MARK: Allow access location
+"Text9" = "İzin “Wejha / وجهة” konumunuzu kullanmak için?" ;
+"Text10" = "Geçerli konumunuz haritada görüntülenir ve yol tariflerini, yakınınızdaki yerleri aramak için sonuçları ve tahmini erişim sürelerini tanımlamak için kullanılır." ;
+"Text11" = "Denetim:Açık" ;
+"Text12" = "Bir kez izin ver" ;
+"Text13" = "Uygulamayı Kullanırken İzin Ver" ;
+"Text14" = "İzin verme" ;
+
+//MARK: Categories sheet
+"Text15" = "Varış noktanızı seçin" ;
+"Text16" = "Kapilar" ;
+"Text17" = "Al-Sahan" ;
+"Text18" = "Safa & Merve";
+"Text19" = "Tekerlekli Sandalye Temin noktası";
+"Text20" = "Tuvaleti" ;
+"Text21" = "Abdesthane" ;
+"Text22" = "Düşey Taşıma";
+"Text23" = "Otobüs Durağı" ;
+"Text24" = "Kayıp Eşya Bürosu" ;
+
+//MARK: Gates
+"Text25" = "Kral Abdulaziz Kapısı 1";
+"Text26" = "Kral Fahd Kapısı 79" ;
+"Text27" = "Kral Abdullah Kapısı 100" ;
+"Text28" = "Umra Kapısı 40" ;
+"Text29" = "İsmail Kapısı 5";
+"Text30" = "El-Salam Kapısı";
+"Text31" = "Fateh Kapısı 30" ;
+"Text32" = "Ajyad Kapısı 3";
+"Text33" = "El-Nabi Köprüsü 15" ;
+"Text34" = "Muzdalifah Kapısı 36" ;
+"Text35" = "Mudaa Kapısı 25";
+
+//MARK: Al-Sahan
+"Text36" = "Kabe" ;
+"Text37" = "ibrahim'in makamı" ;
+
+//MARK: Al-Safa & Al-Marwah
+"Text38" = "Al-Safa" ;
+"Text39" = "Al-Marwah";
+
+//MARK: Wheelchair Store
+"Text40" = "Tekerlekli Sandalye Temin noktası";
+
+//MARK: Restrooms
+"Text41" = "Kadın Tuvaleti" ;
+"Text42" = "Erkek Tuvaleti";
+
+//MARK: Ablution
+"Text43" = "Abdesthane - Kadın" ;
+"Text44" = "Abdesthane - Erkek" ;
+
+//MARK: Vertical Transportation
+"Text45" = "Asansör";
+"Text46" = "Yürüyen Merdiven" ;
+"Text47" = "Merdiven" ;
+
+//MARK: Bus Station
+"Text48" = "Otobüs Durağı" ;
+
+//MARK: Lost & Found Office
+"Text49" = "Kayıp Eşya Bürosu";
+
+//MARK: Search
+"Text50" = "Son aramalar";
+"Text51" = "İptal" ;
+"Text52" = "Sonuç bulunamadı";
+"Text53" = "Aramak";
+
+//MARK: Selected destination
+"Text54" = "Dakika" ;
+"Text55" = "Km" ;
+"Text56" = "Bilinmeyen";
+
+//MARK: Camera access
+"Text57" = "“Wejha | وجهة” Dilekler Kameraya erişimde" ;
+"Text58" = "AR haritasını kullanmak ve talimatları göstermek için" ;
+"Text59" = "İzin";
+"Text60" = "İzin verme";
+
+//MARK: Camera Access is not given
+"Text61" = "Kameraya erişilemezlik" ;
+"Text62" = "AR haritasını kullanmak için kamera erişimi gerekiyor" ;
+"Text63" = "Ayarlardan kameraya erişime izin ver veya";
+"Text64" = "2B haritaya geç" ;
+
+//MARK: Map directions
+"Text65" = "Kalan süre" ;
+"Text66" = "fesih";
+"Text67" = "Varış noktanıza geldi" ;
+"Text68" = "Trend İleri" ;
+"Text69" = "Sağa yön" ;
+"Text70" = "Dümdüz git";
+"Text71" = "Geri dönüş";
+"Text72" = "Hedefiniz solda";
+"Text73" = "Hedefiniz sağda" ;
+"Text74" = "Sola dön" ;

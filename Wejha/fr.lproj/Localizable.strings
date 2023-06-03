@@ -1,0 +1,116 @@
+/* 
+  Localizable.strings
+  Wejha
+
+  Created by Sara Alhumidi on 14/11/1444 AH.
+  
+*/
+
+"Text0" = "Sautiller" ;
+"Text1" = "Wejha" ;
+"Text2" = "Dernières Technologies" ;
+"Text3" = "Déverrouillez la caméra et profitez de la technologie de réalité augmentée pour atteindre votre destination" ;
+"Text4" = "Services Divers" ;
+"Text5" = "Découvrez  Services Offerts à la Mosquée de la Mecque pour faciliter votre visite" ;
+"Text6" = "Accès plus Rapide" ;
+"Text7" = "Explorez l’endroit le plus près de chez vous" ;
+"Text8" = "Commencer" ;
+
+//MARK: Allow access location
+"Text9" = "Permettre à “Wejha | وجهة” d’accéder à votre emplacement actuel?" ;
+"Text10" = "Votre emplacement actuel sera affiché sur la carte et servira à déterminer les directions et les résultats de la recherche.
+A propos des endroits près de chez vous, capacité d’accès aux temps." ;
+"Text11" = "Précis : Activé" ;
+"Text12" = "Accorder une seule fois" ;
+"Text13" = "Autoriser l’utilisation de l’application" ;
+"Text14" = "Refus" ;
+
+//MARK: Categories sheet
+"Text15" = "Sélectionnez votre Destination" ;
+"Text16" = "Portes" ;
+"Text17" = "Sahan" ;
+"Text18" = "Safa & Marwa";
+"Text19" = "Bureau de distribution des Fauteuil Roulant";
+"Text20" = "Toilettes" ;
+"Text21" = "Ablution" ;
+"Text22" = "Transport Vertical";
+"Text23" = "Station de Bus" ;
+"Text24" = " Bureau des Objets Trouves" ;
+
+//MARK: Gates
+"Text25" = "Porte du Roi Abdulaziz 1";
+"Text26" = "Porte du Roi Fahd 79" ;
+"Text27" = "King Abdullah Gate 100" ;
+"Text28" = "Porte Al-Umrah 40" ;
+"Text29" = "Porte Ismail 5";
+"Text30" = "Porte de la paix";
+"Text31" = "Porte Al Fath 30" ;
+"Text32" = "Porte Ajyad 3";
+"Text33" = "Pont Nabi 15" ;
+"Text34" = "Porte Mozdalifa 36" ;
+"Text35" = "Porte Al-Mudaa  25";
+
+//MARK: Al-Sahan
+"Text36" = "Kaaba" ;
+"Text37" = "Le maqam du Abraham" ;
+
+//MARK: Al-Safa & Al-Marwah
+"Text38" = "Safa" ;
+"Text39" = "Marwa";
+
+//MARK: Wheelchair Store
+"Text40" = "Bureau de distribution des Fauteuil Roulant";
+
+//MARK: Restrooms
+"Text41" = "Toilettes pour femmes" ;
+"Text42" = "Toilettes pour hommes";
+
+//MARK: Ablution
+"Text43" = "Ablution pour femmes" ;
+"Text44" = "Ablution pour hommes" ;
+
+//MARK: Vertical Transportation
+"Text45" = "Ascenseur";
+"Text46" = "Échelle électrique" ;
+"Text47" = "Escaliers" ;
+
+//MARK: Bus Station
+"Text48" = "Station de Bus" ;
+
+//MARK: Lost & Found Office
+"Text49" = "Bureau des Objets Trouves";
+
+//MARK: Search
+"Text50" = "Recherches récentes";
+"Text51" = "Annulation" ;
+"Text52" = "Aucun résultat trouvé";
+"Text53" = "Recherche";
+
+//MARK: Selected destination
+"Text54" = "Minute" ;
+"Text55" = "Km" ;
+"Text56" = "Inconnu";
+
+//MARK: Camera access
+"Text57" = "“Wejha | وجهة” Souhaite accéder à la caméra" ;
+"Text58" = "Utiliser la technologie de réalité augmentée et visualiser les tendances" ;
+"Text59" = "Permettre";
+"Text60" = "Refus";
+
+//MARK: Camera Access is not given
+"Text61" = "Impossible d’accéder à la caméra" ;
+"Text62" = "L’accès à la caméra est nécessaire pour utiliser la technologie de réalité augmentée." ;
+"Text63" = "euillez autoriser l’accès à la caméra à partir des comptoirs ou";
+"Text64" = "Passer à une carte bidimensionnelle" ;
+
+//MARK: Map directions
+"Text65" = "Temps restant" ;
+"Text66" = "Fin";
+"Text67" = "Votre destination est arrivée" ;
+"Text68" = "Aller de l’avant" ;
+"Text69" = "Allez à droite" ;
+"Text70" = "Vers l’avant";
+"Text71" = "Rotation arrière";
+"Text72" = "Votre Destination en gauche";
+"Text73" = "Votre Destination à Droite" ;
+"Text74" = "Tournez à Gauche" ;

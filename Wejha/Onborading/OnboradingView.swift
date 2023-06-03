@@ -28,7 +28,7 @@ struct OnboradingView: View {
                     HStack{
                         Spacer()
                         Button(action: {
-                            //                        shouldShoOnboarding.toggle()
+                            shouldShoOnboarding.toggle()
                         }, label: {
                             Text("تخطي")
                                 .fontWeight(.semibold)

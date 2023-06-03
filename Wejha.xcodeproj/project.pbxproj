@@ -10,6 +10,7 @@
 		5605E7612A0EA0C60027F2D8 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5605E7602A0EA0C60027F2D8 /* SwiftUIView.swift */; };
 		5605E7632A0EA3290027F2D8 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5605E7622A0EA3290027F2D8 /* Media.xcassets */; };
 		560EAE7F2A116F7800D8D659 /* SceneLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560EAE7E2A116F7800D8D659 /* SceneLocation.swift */; };
+		562532B62A2B7991003913A8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 562532B82A2B7991003913A8 /* Localizable.strings */; };
 		56543D3BCCE5A71EBB0AF8C2 /* Pods_Wejha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C7ACEF13A1306A51C3F17A /* Pods_Wejha.framework */; };
 		565F94BA2A17F62900121125 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 565F94B92A17F62900121125 /* FirebaseDatabase */; };
 		565F94BC2A17F62900121125 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 565F94BB2A17F62900121125 /* FirebaseDatabaseSwift */; };
@@ -45,6 +46,11 @@
 		5605E7622A0EA3290027F2D8 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		560EAE7E2A116F7800D8D659 /* SceneLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneLocation.swift; sourceTree = "<group>"; };
 		561735A62A0BA942009A7D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		562532B72A2B7991003913A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		562532BB2A2B79B0003913A8 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		562532BC2A2B7A06003913A8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		562532BD2A2B7A09003913A8 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		562532BE2A2B7A70003913A8 /* ur */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ur; path = ur.lproj/Localizable.strings; sourceTree = "<group>"; };
 		565F94C12A17F6C400121125 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		565F94C52A1A240400121125 /* PlaceSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceSearch.swift; sourceTree = "<group>"; };
 		565F94C82A1A99DD00121125 /* CompineAR+MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompineAR+MapView.swift"; sourceTree = "<group>"; };
@@ -119,18 +125,10 @@
 		5605E78C2A0F83380027F2D8 /* AR */ = {
 			isa = PBXGroup;
 			children = (
-				5605E78D2A0F835A0027F2D8 /* Model */,
 				5605E78F2A0F83810027F2D8 /* ARView */,
 				5605E78E2A0F836A0027F2D8 /* ModelView */,
 			);
 			path = AR;
-			sourceTree = "<group>";
-		};
-		5605E78D2A0F835A0027F2D8 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		5605E78E2A0F836A0027F2D8 /* ModelView */ = {
@@ -225,6 +223,7 @@
 				5605E78B2A0F83310027F2D8 /* Map */,
 				5683BE702A0B9683004F021E /* Preview Content */,
 				5605E7602A0EA0C60027F2D8 /* SwiftUIView.swift */,
+				562532B82A2B7991003913A8 /* Localizable.strings */,
 			);
 			path = Wejha;
 			sourceTree = "<group>";
@@ -332,6 +331,10 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
+				fr,
+				tr,
+				ur,
 			);
 			mainGroup = 5683BE5E2A0B9682004F021E;
 			packageReferences = (
@@ -351,6 +354,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				562532B62A2B7991003913A8 /* Localizable.strings in Resources */,
 				5683BE722A0B9683004F021E /* Preview Assets.xcassets in Resources */,
 				565F94C22A17F6C400121125 /* GoogleService-Info.plist in Resources */,
 				5605E7632A0EA3290027F2D8 /* Media.xcassets in Resources */,
@@ -448,6 +452,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		562532B82A2B7991003913A8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				562532B72A2B7991003913A8 /* en */,
+				562532BB2A2B79B0003913A8 /* tr */,
+				562532BC2A2B7A06003913A8 /* fr */,
+				562532BD2A2B7A09003913A8 /* ar */,
+				562532BE2A2B7A70003913A8 /* ur */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5683BE732A0B9683004F021E /* Debug */ = {
