@@ -143,13 +143,20 @@ struct BusStationList: View {
     }
 }
 struct VerticalTransportationsList: View {
+    @ObservedObject private var locationViewModel = LocationViewModel()
     @StateObject private var viewModels = FirebaseModel()
     var body: some View{
         VStack{
             List {
                 ForEach(viewModels.places) { place in
-                    
-                    Text(place.Name).padding(12)
+                    Button {
+                        locationViewModel.selectedPlace = place.Name
+                       
+                    } label: {
+                        let _ =  print(locationViewModel.selectedPlace ?? "it is nil ")
+                        Text(place.Name).padding(12)
+                    }
+
                 }
             }.listStyle(.plain)
             Spacer()

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import ARCL
+import ARKit_CoreLocation
 import CoreLocation
 import UIKit
 import SceneKit

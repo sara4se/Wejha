@@ -31,14 +31,9 @@ struct MapUIView: View {
     @State private var tDistance: String = ""
     @State private var time: String = ""
     @State private var markers: [GMSMarker] = []
+//    @Binding var directions: [String]
 //    @State private var placesView: [Places] = []
     @State private var places: [Spical] = []
-    
-//    init() {
-//        _mapViewModel = StateObject(wrappedValue:MapViewRepresentable(firebaseViewModel: viewModels))
-//    }
-    //    @ObservedObject
-    //    @State var MVR = MapViewRepresentable( selectedPlace:  .constant(""), tDistance:  .constant(""), time: .constant(""))
     var body: some View {
         NavigationView {
             ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
@@ -46,7 +41,7 @@ struct MapUIView: View {
                 
                 GeometryReader { geo in
                     VStack(spacing: 0){
-                      Button {
+                        Button {
                             isMapActive.toggle()
                         } label: {
                             if(isARViewActive){
@@ -58,19 +53,16 @@ struct MapUIView: View {
                         Button {
                             isARViewActive.toggle()
                         } label: {
-                            
-                            //                        Text("width:\(geo.frame(in: .global).width) height:\(geo.frame(in: .global).height) maxX:\(geo.frame(in: .global).maxX) midX:\(geo.frame(in: .global).midX) midY:\(geo.frame(in: .global).midY) maxY:\(geo.frame(in: .global).maxY) startLocation.y:\(startLocationY) translation.width:\(translationWidth) translation.height:\(translationHeight) offset:\(offset)")
-//                            Text(tDistance)
-//                            Text(time)
-                            if(isARViewActive){
-                             Image("ArButtonDisable").resizable()
+                          if(isARViewActive){
+                                Image("ArButtonDisable").resizable()
                             }else{
-                             Image("ArButtonActive").resizable()
+                                Image("ArButtonActive").resizable()
                             }
                         }
                     }.frame(width: 50,height: 100).padding(.leading, 330)
                     // to read frame height
-                
+                    
+                    if(tDistance.isEmpty){
                     BottomSheet(locationQuery: $locationQuery, locationViewModel: locationViewModel, locationHandler: locationHandler)
                         .offset(y: geo.frame(in: .global).height - 140)
                         .offset(y: offset)
@@ -80,12 +72,12 @@ struct MapUIView: View {
                             translationWidth = value.translation.width
                             
                             withAnimation {
-                               if value.startLocation.y > geo.frame(in: .global).midX {
+                                if value.startLocation.y > geo.frame(in: .global).midX {
                                     if value.translation.height < 0 && offset > (-geo.frame(in: .global).height + 150) {
                                         offset = value.translation.height
                                     }
                                 }
-                                 if value.startLocation.y < geo.frame(in: .global).midX {
+                                if value.startLocation.y < geo.frame(in: .global).midX {
                                     if value.translation.height > 0 && offset < 0 {
                                         offset = (-geo.frame(in: .global).height + 150) + value.translation.height
                                     }
@@ -98,11 +90,11 @@ struct MapUIView: View {
                                     if value.startLocation.y > geo.frame(in: .global).midX {
                                         if -value.translation.height > geo.frame(in: .global).midX {
                                             offset = (-geo.frame(in: .global).height + 150)
-                                             return
+                                            return
                                         }
                                         offset = 0
                                     }
-                                     if value.startLocation.y < geo.frame(in: .global).midX {
+                                    if value.startLocation.y < geo.frame(in: .global).midX {
                                         if value.translation.height < geo.frame(in: .global).midX {
                                             offset = (-geo.frame(in: .global).height + 150)
                                             return
@@ -111,6 +103,12 @@ struct MapUIView: View {
                                     }
                                 }
                             }))
+                }
+                    if(!tDistance.isEmpty){
+                        MapCardView(tDistance: $tDistance, time: $time)
+                           // .offset(y: geo.size.height - 140 + offset)
+                            .padding([.leading,.trailing],24).padding(.top,600).padding(.bottom,72)
+                    }
                 }.ignoresSafeArea(.all, edges: .bottom)
             } 
             .onAppear{

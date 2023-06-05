@@ -839,3 +839,159 @@ import RealityKit
 
 
  */
+/**
+ func retrieveAllDocumentIDs(colliction :String,completion: @escaping ([String]) -> Void) {
+     let db = Firestore.firestore()
+     let collection = db.collection("Category")
+     
+     collection.getDocuments { (querySnapshot, error) in
+         if let error = error {
+             print("Error retrieving documents: \(error)")
+             completion([])
+         } else {
+             guard let documents = querySnapshot?.documents else {
+                 print("No documents found")
+                 completion([])
+                 return
+             }
+             
+             let documentIDs = documents.map { $0.documentID }
+             completion(documentIDs)
+         }
+     }
+ }
+
+ */
+
+//    func updateMarkers(mapView: GMSMapView) {
+////        mapView.clear()
+//
+//        if  listenerRegistration == nil {
+//            listenerRegistration = parent.db.collection("Gate").addSnapshotListener { [self]
+//                (querySnapshot, error) in
+//                guard let documents = querySnapshot?.documents else {
+//                    print("No documents")
+//                    return  }
+//                self.parent.places = documents.compactMap { document in
+//                    let documentData = document.data()
+//                    let id = document.documentID
+//                    let Lat = documentData["Lat"] as? Double ?? 0.0
+//                    let Lang = documentData["Lang"] as? Double ?? 0.0
+//                    let Name = documentData["Name"] as? String ?? ""
+//                    // Extract and assign other properties as needed
+//                    return Places(id: id, Lang: Lang ,Lat: Lat, Name: Name)
+//                }
+//                        for place in  parent.places {
+//                            let marker = GMSMarker()
+//                            marker.position = CLLocationCoordinate2D(latitude: place.Lat, longitude: place.Lang)
+//                            marker.map = mapView
+//                            print("I'm for place ")
+//                        }
+//                        if parent.places.isEmpty {
+//                            print("I'm empty")
+//                        }
+//                      //  return Places(id: id, Lang: Lang ,Lat: Lat, Name: Name)
+//                    }
+//
+//
+//        }
+//    }
+
+// Other properties
+//    init(){
+//        self.id = id
+//        self.coordinates =  GeoPoint(latitude: 0, longitude: 0)
+//        self.Name =  ""
+//        // Initialize other properties as needed
+//    }
+// Initialize the struct with a document snapshot
+
+
+
+//struct c : Identifiable,Codable{
+//
+//    @DocumentID var id: String?
+//    var  Lang : Double
+//    var Lat : Double
+//    var Name : String
+//}
+
+//        $directions.calculate { response, error in
+//            guard let route = response?.routes.first else { return }
+//
+//            // Add markers to the map
+//            let marker1 = GMSMarker(position: destination1)
+//            marker1.map = mapView
+//
+//            let marker2 = GMSMarker(position: destination2)
+//            marker2.map = mapView
+//
+//            // Add polyline to the map
+//            let path = GMSPath(fromEncodedPath: route.polyline) // Assuming route.polyline is a string-encoded polyline
+//            let polyline = GMSPolyline(path: path)
+//            polyline.map = mapView
+//
+//            // Adjust camera position to fit the route
+//            let bounds = GMSCoordinateBounds(path: path)
+//            let update = GMSCameraUpdate.fit(bounds, with: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
+//            mapView.animate(with: update)
+//
+//            // Set directions instructions
+//            self.directions = route.steps.map { $0.instructions }.filter { !$0.isEmpty }
+//        }
+
+//        $directions.calculate{ response, error in
+//          guard let route = response?.routes.first else { return }
+//          mapView.addAnnotations([destination2, destination1])
+//          mapView.addOverlay(route.polyline)
+//          mapView.setVisibleMapRect(
+//            route.polyline.boundingMapRect,
+//            edgePadding: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),
+//            animated: true)
+//          self.directions = route.steps.map { $0.instructions }.filter { !$0.isEmpty }
+//        }
+
+//
+//func addSourceDestinationMarkers(){
+//    let markerSource = GMSMarker()
+//    /*
+//     let orgigin = "\(24.861191),\(46.725490)"
+//     let destination = "\(24.861762),\(46.724032)"
+//     */
+//    //markerSource.position = CLLocationCoordinate2D(latitude: 24.9216774, longitude: 67.0914983)
+//    markerSource.position = CLLocationCoordinate2D(latitude: 24.861191, longitude: 46.725490)
+//    markerSource.icon = UIImage(named: "Pin")
+//    markerSource.title = "Point A"
+//    //markerSource.snippet = "Desti"
+//    
+//    markerSource.map = mapView
+//    
+//    let markertDestination = GMSMarker()
+//    //markertDestination.position = CLLocationCoordinate2D(latitude: 24.9623483, longitude: 67.0463966)
+//    markertDestination.position = CLLocationCoordinate2D(latitude: 24.861762, longitude: 46.724032)
+//    markertDestination.icon = UIImage(named: "Pin")
+//    markertDestination.title = "Point B"
+//    //markertDestination.snippet = "General Store"
+//    markertDestination.map = mapView
+//}
+//    class ViewController: UIViewController ,CLLocationManagerDelegate {
+//
+//        var lm:CLLocationManager!
+//
+//        override func viewDidLoad() {
+//            super.viewDidLoad()
+//
+//            lm = CLLocationManager()
+//            lm.delegate = self
+//
+//            lm.startUpdatingHeading()
+//        }
+//
+//        override func didReceiveMemoryWarning() {
+//            super.didReceiveMemoryWarning()
+//        }
+//
+//        func locationManager(manager: CLLocationManager!, didUpdateHeading newHeading: CLHeading!) {
+//            print("heading to : \(newHeading.magneticHeading)")
+//        }
+//    }

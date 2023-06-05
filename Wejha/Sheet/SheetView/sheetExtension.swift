@@ -183,9 +183,8 @@ struct BottomSheet: View {
                             }//lazyVGrid
                         }//scrollview
                     }
-                }.onAppear() {   self.viewModels.retrieveAllDocumentIDs(colliction: "") { documentIDs in
-                        self.documentIDs = documentIDs}
                 }
+                
                 .navigationTitle(LocalizedStringKey("Text15"))
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarBackButtonHidden(true)

@@ -202,27 +202,6 @@ class FirebaseModel: ObservableObject {
             }
         }
     }
-    func retrieveAllDocumentIDs(colliction :String,completion: @escaping ([String]) -> Void) {
-        let db = Firestore.firestore()
-        let collection = db.collection("Category")
-        
-        collection.getDocuments { (querySnapshot, error) in
-            if let error = error {
-                print("Error retrieving documents: \(error)")
-                completion([])
-            } else {
-                guard let documents = querySnapshot?.documents else {
-                    print("No documents found")
-                    completion([])
-                    return
-                }
-                
-                let documentIDs = documents.map { $0.documentID }
-                completion(documentIDs)
-            }
-        }
-    }
-   
     func unsubscribe() {
         if listenerRegistration != nil {
             listenerRegistration?.remove()

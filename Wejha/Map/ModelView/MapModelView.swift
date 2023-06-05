@@ -21,7 +21,7 @@ struct MapViewRepresentable: UIViewRepresentable  {
     @ObservedObject private var vmMapRouteTasks = MapRouteTasks()
     @ObservedObject var locationHandler = PlaceSearch()
     @StateObject private var viewModels = FirebaseModel()
-//   
+//    @Binding var directions: [String]
     let mapView = GMSMapView(frame: .zero)
     @Binding var tDistance: String
     @Binding var time: String
@@ -38,13 +38,18 @@ struct MapViewRepresentable: UIViewRepresentable  {
 
    
 class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
-    var mapView: GMSMapView?
+    var mapView: GMSMapView
+    var parent: MapViewRepresentable
     var listenerRegistration: ListenerRegistration?
     //@Binding var currentLocation : CLLocationCoordinate2D
-    var parent: MapViewRepresentable
-    init(_ parent: MapViewRepresentable){
-        self.parent = parent
-    }
+  
+       init(_ parent: MapViewRepresentable,mapView: GMSMapView) {
+           self.mapView = mapView
+           self.parent = parent
+           super.init()
+           mapView.delegate = self
+       }
+  
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         mapView.clear()
            let marker = GMSMarker(position: coordinate)
@@ -54,31 +59,34 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
         }
         parent.getRouteSteps(from: currentLocation, to: coordinate)
         parent.getTotalDistance(from: currentLocation, to: coordinate)
-       }
-    func updateMarkers2(mapView: GMSMapView) {
+        
+    }
+    func updateMarkers2() {
         // mapView.clear()
         if listenerRegistration == nil {
-            listenerRegistration = parent.db.collection("test").addSnapshotListener { (querySnapshot, error) in
+            listenerRegistration = parent.db.collection("WheelchairStore").addSnapshotListener { (querySnapshot, error) in
                 guard let documents = querySnapshot?.documents else {
                     print("No documents")
                     return
                 }
-                self.parent.places = documents.compactMap { document in
-                    let id = document.documentID
-                    let mapData = document.get("point1") as? [String: Any]
-                    let latitude = mapData?["latitude"] as? Double ?? 0.0
-                    let longitude = mapData?["longitude"] as? Double ?? 0.0
+                self.parent.places = documents.compactMap { queryDocumentSnapshot in
+                    let documentData = queryDocumentSnapshot.data()
+                    let id = queryDocumentSnapshot.documentID
+                    let latitude = documentData["Lat"] as? Double ?? 0.0
+                    let longitude = documentData["Lang"] as? Double ?? 0.0
                     print("Found documents")
-                    
                     return Spical(id: id, coordinates: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
                 }
                 
                 for place in self.parent.places {
-                    print("Markers from documents")
-                    let marker = GMSMarker()
-                    marker.position = place.coordinates
-                    print("Marker position \(marker.position.latitude) and \(marker.position.longitude)")
-                    marker.map = mapView
+                    print("Markers from documents\(place)")
+                    let marker = GMSMarker(position: place.coordinates)
+                    print("Marker position \(place.coordinates.latitude) and \(place.coordinates.longitude)")
+                    marker.title = "Marker Title"
+                       marker.snippet = "Marker Snippet"
+                       marker.icon = UIImage(named: "marker_icon")
+                       marker.opacity = 0.8
+                    marker.map = self.mapView
                     print("Processing place")
                 }
                 
@@ -88,48 +96,13 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
             }
         }
     }
-//    func updateMarkers(mapView: GMSMapView) {
-////        mapView.clear()
-//
-//        if  listenerRegistration == nil {
-//            listenerRegistration = parent.db.collection("Gate").addSnapshotListener { [self]
-//                (querySnapshot, error) in
-//                guard let documents = querySnapshot?.documents else {
-//                    print("No documents")
-//                    return  }
-//                self.parent.places = documents.compactMap { document in
-//                    let documentData = document.data()
-//                    let id = document.documentID
-//                    let Lat = documentData["Lat"] as? Double ?? 0.0
-//                    let Lang = documentData["Lang"] as? Double ?? 0.0
-//                    let Name = documentData["Name"] as? String ?? ""
-//                    // Extract and assign other properties as needed
-//                    return Places(id: id, Lang: Lang ,Lat: Lat, Name: Name)
-//                }
-//                        for place in  parent.places {
-//                            let marker = GMSMarker()
-//                            marker.position = CLLocationCoordinate2D(latitude: place.Lat, longitude: place.Lang)
-//                            marker.map = mapView
-//                            print("I'm for place ")
-//                        }
-//                        if parent.places.isEmpty {
-//                            print("I'm empty")
-//                        }
-//                      //  return Places(id: id, Lang: Lang ,Lat: Lat, Name: Name)
-//                    }
-//
-//
-//        }
-//    }
-}
-    
-       
+}       
 //    var coordinates: [CLLocationCoordinate2D]
     func makeUIView(context: Context) -> GMSMapView {
         mapView.delegate = context.coordinator
         self.mapView.isMyLocationEnabled = true
         self.mapView.settings.myLocationButton = true
-        mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+        mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 170, right: 0)
         self.mapView.settings.compassButton = true
         self.mapView.settings.rotateGestures = true
         self.mapView.settings.scrollGestures = true
@@ -139,20 +112,18 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
         self.mapView.settings.indoorPicker = true
         self.mapView.delegate = context.coordinator as? GMSMapViewDelegate
       //  context.coordinator.updateMarkers(mapView: mapView)
-        context.coordinator.updateMarkers2(mapView: mapView)
+      context.coordinator.updateMarkers2()
+      
         return mapView
     }
     func makeCoordinator() -> Coordinator {
-        Coordinator(self)
+        Coordinator(self, mapView: mapView)
     }
     
     func updateUIView(_ mapView: GMSMapView, context: Context) {
         //mapView.clear()
-        context.coordinator.updateMarkers2(mapView: mapView)
-//            if let focusPlace = focusPlace.focusPlace {
-                print("i enter to focus")
-        locationHandler.focusOnPlace(placeID: focusPlace.focusPlace, mapView: mapView)
-    }
+        context.coordinator.updateMarkers2()
+  }
     func getRouteSteps(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
 //        mapView.clear()
         let session = URLSession.shared
@@ -173,12 +144,19 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
                 return
                 
             }
-            print("jsonResult :\(jsonResult)")
+          //  print("jsonResult :\(jsonResult)")
             
-            
-            guard let routes = jsonResult["routes"] as? [Any] else {
+            guard let routes = jsonResult["routes"] as? [Any], !routes.isEmpty else {
+                print("No routes found.")
                 return
             }
+
+            guard routes[0] is [String: Any] else {
+                print("Invalid route data.")
+                return
+            }
+
+            
             
             guard let route = routes[0] as? [String: Any] else {
                 return
@@ -208,12 +186,10 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
                 guard let polyLineString = polyline["points"] as? String else {
                     return
                 }
-                
                 //Call this method to draw path on map
                 DispatchQueue.main.async {
                     self.drawPath(from: polyLineString)
                 }
-                
             }
         })
         task.resume()
@@ -225,8 +201,6 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
         polyline.strokeWidth = 4.0
         polyline.strokeColor = .green
         polyline.map = mapView // Google MapView
-   //     let cameraUpdate = GMSCameraUpdate.fit(GMSCoordinateBounds(coordinate: destination1, coordinate: destination2))
-        //mapView.moveCamera(cameraUpdate)
         let currentZoom = mapView.camera.zoom
         mapView.animate(toZoom: currentZoom)
     }
@@ -260,7 +234,8 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
             print("Invalid URL")
             return
         }
-        
+        let taskIdentifier: UIBackgroundTaskIdentifier
+        taskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: nil)
         let task = session.dataTask(with: url) { (data, response, error) in
             guard error == nil else {
                 print(error!.localizedDescription)
@@ -289,34 +264,12 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
             } catch {
                 print("Error parsing JSON response: \(error.localizedDescription)")
             }
+            UIApplication.shared.endBackgroundTask(taskIdentifier)
         }
         
         task.resume()
     }
 
-    
-    func addSourceDestinationMarkers(){
-        let markerSource = GMSMarker()
-        /*
-         let orgigin = "\(24.861191),\(46.725490)"
-         let destination = "\(24.861762),\(46.724032)"
-         */
-        //markerSource.position = CLLocationCoordinate2D(latitude: 24.9216774, longitude: 67.0914983)
-        markerSource.position = CLLocationCoordinate2D(latitude: 24.861191, longitude: 46.725490)
-        markerSource.icon = UIImage(named: "Pin")
-        markerSource.title = "Point A"
-        //markerSource.snippet = "Desti"
-        
-        markerSource.map = mapView
-        
-        let markertDestination = GMSMarker()
-        //markertDestination.position = CLLocationCoordinate2D(latitude: 24.9623483, longitude: 67.0463966)
-        markertDestination.position = CLLocationCoordinate2D(latitude: 24.861762, longitude: 46.724032)
-        markertDestination.icon = UIImage(named: "Pin")
-        markertDestination.title = "Point B"
-        //markertDestination.snippet = "General Store"
-        markertDestination.map = mapView
-    }
 }
 
 class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
@@ -325,12 +278,21 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var lastKnownLocation: CLLocation? = nil
     private let manager = CLLocationManager()
     
+    var lm:CLLocationManager!
+    
     override init() {
         super.init()
         self.manager.delegate = self
         self.manager.startUpdatingLocation()
+        lm = CLLocationManager()
+        lm.delegate = self
+        
+        lm.startUpdatingHeading()
     }
-    
+   
+    func locationManager(manager: CLLocationManager!, didUpdateHeading newHeading: CLHeading!) {
+        print("heading to : \(newHeading.magneticHeading)")
+    }
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
             self.manager.startUpdatingLocation()
@@ -341,5 +303,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
         // Notify listeners that the user has a new location
         self.lastKnownLocation = locations.last
     }
+
 }
 
