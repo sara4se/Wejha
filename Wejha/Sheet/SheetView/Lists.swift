@@ -126,6 +126,7 @@ struct LostFoundOfficeList: View {
     }
 }
 struct BusStationList: View {
+    
     @StateObject private var viewModels = FirebaseModel()
     var body: some View{
         VStack{
@@ -135,6 +136,9 @@ struct BusStationList: View {
                     Text(place.Name).padding(12)
                 }
             }.listStyle(.plain)
+                .onAppear{
+                    
+                }
             Spacer()
         }
         .onAppear() {

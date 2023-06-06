@@ -33,6 +33,9 @@ struct MapViewRepresentable: UIViewRepresentable  {
     //24.729377, 46.716325
     //24.741268, 46.749721
     //24.726353, 46.773846
+    
+    //24.8707681,46.7227661
+    //24.849621, 46.739755
     let destination1 = CLLocationCoordinate2D(latitude: 24.741268, longitude: 46.749721)
     let destination2 = CLLocationCoordinate2D(latitude: 24.726353, longitude: 46.773846)
 
@@ -48,6 +51,8 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
            self.parent = parent
            super.init()
            mapView.delegate = self
+           parent.locationManager.startUpdatingHeading()
+        
        }
   
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
@@ -59,12 +64,39 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
         }
         parent.getRouteSteps(from: currentLocation, to: coordinate)
         parent.getTotalDistance(from: currentLocation, to: coordinate)
-        
+         
     }
+    func takePlaces(lat: CLLocationCoordinate2D, lang:CLLocationCoordinate2D) {
+        for place in self.parent.places {
+            print("Markers from documents\(place)")
+            let marker = GMSMarker(position: place.coordinates)
+            print("Marker position \(place.coordinates.latitude) and \(place.coordinates.longitude)")
+            marker.title = "Marker Title"
+               marker.snippet = "Marker Snippet"
+               marker.icon = UIImage(named: "marker_icon")
+               marker.opacity = 0.8
+            marker.map = self.mapView
+            print("Processing place")
+        }
+        
+        if self.parent.places.isEmpty {
+            print("Empty")
+        }
+    }
+    
+    
     func updateMarkers2() {
         // mapView.clear()
+        // Add a subscriber to the lastKnownLocation property
+        self.parent.locationManager.$lastKnownLocation.sink { location in
+            if let heading = location?.course {
+                print("Current heading: \(heading) degrees")
+            } else {
+                print("Heading information not available")
+            }
+        }
         if listenerRegistration == nil {
-            listenerRegistration = parent.db.collection("WheelchairStore").addSnapshotListener { (querySnapshot, error) in
+            listenerRegistration = parent.db.collection("BusStation").addSnapshotListener { (querySnapshot, error) in
                 guard let documents = querySnapshot?.documents else {
                     print("No documents")
                     return
@@ -77,7 +109,6 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
                     print("Found documents")
                     return Spical(id: id, coordinates: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
                 }
-                
                 for place in self.parent.places {
                     print("Markers from documents\(place)")
                     let marker = GMSMarker(position: place.coordinates)
@@ -271,28 +302,29 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
     }
 
 }
-
 class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     
     // Publish the user's location so subscribers can react to updates
     @Published var lastKnownLocation: CLLocation? = nil
-    private let manager = CLLocationManager()
-    
-    var lm:CLLocationManager!
+    let manager = CLLocationManager()
     
     override init() {
         super.init()
         self.manager.delegate = self
         self.manager.startUpdatingLocation()
-        lm = CLLocationManager()
-        lm.delegate = self
-        
-        lm.startUpdatingHeading()
+        manager.delegate = self
+        manager.startUpdatingHeading()
     }
-   
-    func locationManager(manager: CLLocationManager!, didUpdateHeading newHeading: CLHeading!) {
-        print("heading to : \(newHeading.magneticHeading)")
+    
+    func startUpdatingHeading() {
+        manager.startUpdatingHeading()
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        let heading = newHeading.trueHeading
+        print("Current heading: \(heading) degrees")
+    }
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
             self.manager.startUpdatingLocation()
@@ -303,6 +335,12 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
         // Notify listeners that the user has a new location
         self.lastKnownLocation = locations.last
     }
-
 }
-
+ 
+/**
+ func updateArrowRotation(withHeading heading: Double) {
+     let headingInRadians = heading.degreesToRadians
+     let rotation = SCNVector3(0, headingInRadians, 0) // Adjust the axis and values based on your arrow's orientation
+     arrowNode.eulerAngles = rotation
+ }
+ */

@@ -1,10 +1,9 @@
 //
-//  File.swift
+//  PlacesModel.swift
 //  Wejha
 //
-//  Created by Sara Alhumidi on 09/11/1444 AH.
+//  Created by Sara Alhumidi on 17/11/1444 AH.
 //
-
 import Foundation
 import FirebaseFirestoreSwift
 import UIKit

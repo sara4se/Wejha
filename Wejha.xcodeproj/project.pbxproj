@@ -28,12 +28,13 @@
 		565F94D52A1F5FD400121125 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94D42A1F5FD400121125 /* Helper.swift */; };
 		565F94D82A1FE76300121125 /* MapRouteTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94D72A1FE76300121125 /* MapRouteTasks.swift */; };
 		565F94DE2A21EE1D00121125 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94DD2A21EE1D00121125 /* Category.swift */; };
-		5663F9B72A24BEFF0054AD54 /* file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5663F9B62A24BEFF0054AD54 /* file.swift */; };
 		5663F9B92A24BF400054AD54 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5663F9B82A24BF400054AD54 /* FirebaseFirestoreSwift */; };
 		567BEEBE2A10E58F00861FA3 /* MapIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567BEEBD2A10E58F00861FA3 /* MapIView.swift */; };
 		5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6A2A0B9682004F021E /* WejhaApp.swift */; };
 		5683BE6F2A0B9683004F021E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5683BE6E2A0B9683004F021E /* Assets.xcassets */; };
 		5683BE722A0B9683004F021E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5683BE712A0B9683004F021E /* Preview Assets.xcassets */; };
+		568EEFDA2A2E8990006D1D75 /* SwiftUIView202.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568EEFD92A2E8990006D1D75 /* SwiftUIView202.swift */; };
+		568EEFDC2A2EF9A3006D1D75 /* PlacesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568EEFDB2A2EF9A3006D1D75 /* PlacesModel.swift */; };
 		569CABA62A27130400A521F7 /* Lists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569CABA52A27130400A521F7 /* Lists.swift */; };
 		56E6AD6E2A1155C800006719 /* ARUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E6AD6D2A1155C800006719 /* ARUIView.swift */; };
 		56E71F5B2A2A2E3700A2D591 /* OnboradingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E71F5A2A2A2E3700A2D591 /* OnboradingView.swift */; };
@@ -67,12 +68,13 @@
 		565F94D42A1F5FD400121125 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		565F94D72A1FE76300121125 /* MapRouteTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRouteTasks.swift; sourceTree = "<group>"; };
 		565F94DD2A21EE1D00121125 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		5663F9B62A24BEFF0054AD54 /* file.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = file.swift; sourceTree = "<group>"; };
 		567BEEBD2A10E58F00861FA3 /* MapIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapIView.swift; sourceTree = "<group>"; };
 		5683BE672A0B9682004F021E /* Wejha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wejha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5683BE6A2A0B9682004F021E /* WejhaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WejhaApp.swift; sourceTree = "<group>"; };
 		5683BE6E2A0B9683004F021E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5683BE712A0B9683004F021E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		568EEFD92A2E8990006D1D75 /* SwiftUIView202.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView202.swift; sourceTree = "<group>"; };
+		568EEFDB2A2EF9A3006D1D75 /* PlacesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesModel.swift; sourceTree = "<group>"; };
 		569CABA52A27130400A521F7 /* Lists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lists.swift; sourceTree = "<group>"; };
 		56E6AD6D2A1155C800006719 /* ARUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ARUIView.swift; path = Wejha/AR/ARView/ARUIView.swift; sourceTree = SOURCE_ROOT; };
 		56E71F5A2A2A2E3700A2D591 /* OnboradingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboradingView.swift; sourceTree = "<group>"; };
@@ -204,7 +206,7 @@
 		5663F9B52A24BEF40054AD54 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5663F9B62A24BEFF0054AD54 /* file.swift */,
+				568EEFDB2A2EF9A3006D1D75 /* PlacesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,6 +273,7 @@
 			children = (
 				565F94CE2A1CB85100121125 /* sheetExtension.swift */,
 				569CABA52A27130400A521F7 /* Lists.swift */,
+				568EEFD92A2E8990006D1D75 /* SwiftUIView202.swift */,
 			);
 			path = SheetView;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				565F94C92A1A99DD00121125 /* CompineAR+MapView.swift in Sources */,
 				56E71F5D2A2A2E6C00A2D591 /* ContentView.swift in Sources */,
 				565F94D32A1E22AB00121125 /* MapUIView.swift in Sources */,
+				568EEFDA2A2E8990006D1D75 /* SwiftUIView202.swift in Sources */,
 				565F94DE2A21EE1D00121125 /* Category.swift in Sources */,
 				56E71F5B2A2A2E3700A2D591 /* OnboradingView.swift in Sources */,
 				565F94D82A1FE76300121125 /* MapRouteTasks.swift in Sources */,
@@ -443,13 +447,13 @@
 				5605E7612A0EA0C60027F2D8 /* SwiftUIView.swift in Sources */,
 				99F805D92A13944400C859DF /* RoutesModelView.swift in Sources */,
 				562532C02A2B9418003913A8 /* PermissionHandler.swift in Sources */,
-				5663F9B72A24BEFF0054AD54 /* file.swift in Sources */,
 				99E625DE2A1223760075734A /* MapModelView.swift in Sources */,
 				565F94C62A1A240500121125 /* PlaceSearch.swift in Sources */,
 				56E6AD6E2A1155C800006719 /* ARUIView.swift in Sources */,
 				565F94CD2A1A9A4000121125 /* CompineAR_MapModelView.swift in Sources */,
 				567BEEBE2A10E58F00861FA3 /* MapIView.swift in Sources */,
 				569CABA62A27130400A521F7 /* Lists.swift in Sources */,
+				568EEFDC2A2EF9A3006D1D75 /* PlacesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
