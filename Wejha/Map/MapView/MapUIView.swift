@@ -8,7 +8,7 @@ import GoogleMaps
 
 import SwiftUI
 class LocationViewModel: ObservableObject {
-    @Published var selectedPlace: String?
+    @Published var selectedPlace: String  = ""
 }
 class FocusPlace: ObservableObject {
     @Published var focusPlace: String = ""
@@ -20,9 +20,9 @@ struct MapUIView: View {
     @State var translationHeight: CGFloat = 0
     @State var translationWidth: CGFloat = 0
     @State var ShowAR: Bool = true
-    @State var selectedPlace: String? = ""
+    @State var selectedPlace: String = ""//not work
     @StateObject private var viewModels = FirebaseModel()
-   @ObservedObject private var locationViewModel = LocationViewModel()
+//   @ObservedObject private var locationViewModel = LocationViewModel()
     @ObservedObject var locationHandler = PlaceSearch()
     @State var isARViewActive = false // New state variable
     @State var isMapActive = false
@@ -38,7 +38,7 @@ struct MapUIView: View {
         NavigationView {
             ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
                 MapViewRepresentable(tDistance: $tDistance, time: $time, places: $places ).edgesIgnoringSafeArea(.all)
-                
+                let _ = print("selectedPlace : \(locationQuery)")
                 GeometryReader { geo in
                     VStack(spacing: 0){
                         Button {
@@ -63,7 +63,7 @@ struct MapUIView: View {
                     // to read frame height
                     
                     if(tDistance.isEmpty){
-                    BottomSheet(locationQuery: $locationQuery, locationViewModel: locationViewModel, locationHandler: locationHandler)
+                        BottomSheet(locationQuery: $selectedPlace, locationHandler: locationHandler)
                         .offset(y: geo.frame(in: .global).height - 140)
                         .offset(y: offset)
                         .gesture(DragGesture().onChanged({ value in
@@ -116,7 +116,11 @@ struct MapUIView: View {
                 viewModels.FireGate()
             }
             .fullScreenCover(isPresented: $isARViewActive, content: {
-                ARUIView(selectedPlace: $selectedPlace)
+               // ARUIView(selectedPlace: $selectedPlace)
+//                ARViewControllerWrapper(place: "Dr. cafe coffee").edgesIgnoringSafeArea(.all)
+//                let _ = print("this is query \(locationQuery)")
+               SceneLocationViewWrapper(valueToReceive: $selectedPlace)
+            
             })
             .fullScreenCover(isPresented: $isMapActive, content: {
                 MapUIView()
@@ -143,3 +147,4 @@ struct MapUIView_Previews: PreviewProvider {
 //
 
 
+ 

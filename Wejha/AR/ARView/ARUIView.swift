@@ -14,8 +14,8 @@ struct ARUIView: View {
         NavigationView {
 //            Text("hello")
             let _ = permissionHandler.requestCameraPermission()
-            SceneLocationViewWrapper(selectedPlace: $selectedPlace)
-               .edgesIgnoringSafeArea(.all)
+//            SceneLocationViewWrapper(valueToPass: selectedPlace)
+//               .edgesIgnoringSafeArea(.all)
         }
     }
 }

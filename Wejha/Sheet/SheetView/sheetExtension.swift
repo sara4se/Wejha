@@ -11,8 +11,8 @@ import SwiftUI
 struct BottomSheet: View {
     //    @Binding var offset: CGFloat
     //    var value: CGFloat
-    @Binding var locationQuery: String
-    @ObservedObject var locationViewModel: LocationViewModel
+    
+    @Binding var locationQuery: String 
     @ObservedObject var locationHandler: PlaceSearch
     var categories : Categories = Categories()
     @ObservedObject var focusPlace: FocusPlace = FocusPlace()
@@ -28,9 +28,9 @@ struct BottomSheet: View {
                         .foregroundColor(.gray)
                     TextField(LocalizedStringKey("Text53"), text: $locationQuery)
                         .onChange(of: locationQuery) { newValue in
-                            locationViewModel.selectedPlace = locationQuery
+//                            locationViewModel.selectedPlace = locationQuery
                             locationHandler.searchLocation(newValue)
-                            
+                           // locationQuery = newValue
                         }
                 } //categories
                 if(locationQuery.isEmpty){
@@ -249,8 +249,8 @@ struct BottomSheet: View {
 //}
 struct BottomSheet_Previews: PreviewProvider {
     static var previews: some View {
-        BottomSheet(locationQuery: .constant(""), locationViewModel: LocationViewModel(), locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "ar"))
-        BottomSheet(locationQuery: .constant(""), locationViewModel: LocationViewModel(), locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "en"))
-        BottomSheet(locationQuery: .constant(""), locationViewModel: LocationViewModel(), locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "fr"))
+        BottomSheet(locationQuery: .constant(""), locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "ar"))
+        BottomSheet(locationQuery: .constant(""),locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "en"))
+        BottomSheet(locationQuery: .constant(""), locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "fr"))
     }
 }

@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "Gates.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Gates.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },

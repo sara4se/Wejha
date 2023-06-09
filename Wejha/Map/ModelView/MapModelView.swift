@@ -64,8 +64,17 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
         }
         parent.getRouteSteps(from: currentLocation, to: coordinate)
         parent.getTotalDistance(from: currentLocation, to: coordinate)
-         
+        // Calculate the heading between the points using HeadingCalculator
+        let heading = HeadingCalculator.calculateHeading(cor: currentLocation, cor2: coordinate)
+        // Use the heading value to move the arrow in AR (pass it to ARViewController)
+        let arViewController = ARViewController()
+        
+//        arViewController.moveRightAction(angle: Float(heading))
+//        print("angel :\(heading)")
     }
+//    func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
+//
+//    }
     func takePlaces(lat: CLLocationCoordinate2D, lang:CLLocationCoordinate2D) {
         for place in self.parent.places {
             print("Markers from documents\(place)")
@@ -90,7 +99,7 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
         // Add a subscriber to the lastKnownLocation property
         self.parent.locationManager.$lastKnownLocation.sink { location in
             if let heading = location?.course {
-                print("Current heading: \(heading) degrees")
+             //   print("Current heading: \(heading) degrees")
             } else {
                 print("Heading information not available")
             }
@@ -156,12 +165,13 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
         context.coordinator.updateMarkers2()
   }
     func getRouteSteps(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
-//        mapView.clear()
+//        mapView.clea r()
         let session = URLSession.shared
         
+    
+//        arViewController.moveArrowWithHeading(heading: heading)
         let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=true&mode=walking&alternatives=true&key=\(googleApiKey)")!
-        
-        let task = session.dataTask(with: url, completionHandler: {
+         let task = session.dataTask(with: url, completionHandler: {
             (data, response, error) in
             
             guard error == nil else {
@@ -307,7 +317,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     // Publish the user's location so subscribers can react to updates
     @Published var lastKnownLocation: CLLocation? = nil
     let manager = CLLocationManager()
-    
+    let heading = CLLocationDirection()
     override init() {
         super.init()
         self.manager.delegate = self
@@ -322,7 +332,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         let heading = newHeading.trueHeading
-        print("Current heading: \(heading) degrees")
+         //print("Current heading in map: \(heading) degrees")
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -344,3 +354,25 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
      arrowNode.eulerAngles = rotation
  }
  */
+
+ 
+struct HeadingCalculator {
+    static func calculateHeading(cor: CLLocationCoordinate2D, cor2: CLLocationCoordinate2D) -> Double {
+        let lat1 = cor.latitude
+        let lon1 = cor.longitude
+        let lat2 = cor2.latitude
+        let lon2 = cor2.longitude
+        
+        let dLon = lon2 - lon1
+        
+        let y = sin(dLon) * cos(lat2)
+        let x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon)
+        
+        let heading = atan2(y, x)
+        
+        // Convert heading from radians to degrees
+        let headingDegrees = heading * 180 / .pi
+        
+        return headingDegrees
+    }
+}

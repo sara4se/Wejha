@@ -29,6 +29,9 @@
 		565F94D82A1FE76300121125 /* MapRouteTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94D72A1FE76300121125 /* MapRouteTasks.swift */; };
 		565F94DE2A21EE1D00121125 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565F94DD2A21EE1D00121125 /* Category.swift */; };
 		5663F9B92A24BF400054AD54 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5663F9B82A24BF400054AD54 /* FirebaseFirestoreSwift */; };
+		5674BD632A2F03620022051A /* ArViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674BD622A2F03620022051A /* ArViewController.swift */; };
+		5674BD652A2F03D70022051A /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674BD642A2F03D70022051A /* PlaceAnnotation.swift */; };
+		5674BD892A3064550022051A /* ArrowNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5674BD882A3064550022051A /* ArrowNode.swift */; };
 		567BEEBE2A10E58F00861FA3 /* MapIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567BEEBD2A10E58F00861FA3 /* MapIView.swift */; };
 		5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5683BE6A2A0B9682004F021E /* WejhaApp.swift */; };
 		5683BE6F2A0B9683004F021E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5683BE6E2A0B9683004F021E /* Assets.xcassets */; };
@@ -68,6 +71,9 @@
 		565F94D42A1F5FD400121125 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		565F94D72A1FE76300121125 /* MapRouteTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRouteTasks.swift; sourceTree = "<group>"; };
 		565F94DD2A21EE1D00121125 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		5674BD622A2F03620022051A /* ArViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArViewController.swift; sourceTree = "<group>"; };
+		5674BD642A2F03D70022051A /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
+		5674BD882A3064550022051A /* ArrowNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowNode.swift; sourceTree = "<group>"; };
 		567BEEBD2A10E58F00861FA3 /* MapIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapIView.swift; sourceTree = "<group>"; };
 		5683BE672A0B9682004F021E /* Wejha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wejha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5683BE6A2A0B9682004F021E /* WejhaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WejhaApp.swift; sourceTree = "<group>"; };
@@ -156,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				560EAE7E2A116F7800D8D659 /* SceneLocation.swift */,
+				5674BD622A2F03620022051A /* ArViewController.swift */,
+				5674BD642A2F03D70022051A /* PlaceAnnotation.swift */,
 			);
 			path = ModelView;
 			sourceTree = "<group>";
@@ -164,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				56E6AD6D2A1155C800006719 /* ARUIView.swift */,
+				5674BD882A3064550022051A /* ArrowNode.swift */,
 			);
 			path = ARView;
 			sourceTree = "<group>";
@@ -434,6 +443,8 @@
 				565F94D52A1F5FD400121125 /* Helper.swift in Sources */,
 				565F94CF2A1CB85100121125 /* sheetExtension.swift in Sources */,
 				560EAE7F2A116F7800D8D659 /* SceneLocation.swift in Sources */,
+				5674BD652A2F03D70022051A /* PlaceAnnotation.swift in Sources */,
+				5674BD892A3064550022051A /* ArrowNode.swift in Sources */,
 				5683BE6B2A0B9682004F021E /* WejhaApp.swift in Sources */,
 				562532C22A2BCEAD003913A8 /* CameraAccess.swift in Sources */,
 				565F94C92A1A99DD00121125 /* CompineAR+MapView.swift in Sources */,
@@ -454,6 +465,7 @@
 				567BEEBE2A10E58F00861FA3 /* MapIView.swift in Sources */,
 				569CABA62A27130400A521F7 /* Lists.swift in Sources */,
 				568EEFDC2A2EF9A3006D1D75 /* PlacesModel.swift in Sources */,
+				5674BD632A2F03620022051A /* ArViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

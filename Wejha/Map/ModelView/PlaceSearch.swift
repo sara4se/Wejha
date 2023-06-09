@@ -14,6 +14,7 @@ final class PlaceSearch : ObservableObject {
     /// `GMSAutocompleteSessionToken.init()` : allow create session token to uniquely identify queries to the Google Places API Services for fetching place predictions
     let token = GMSAutocompleteSessionToken.init()
     let client = GMSPlacesClient()
+    
 //    let mapView = GMSMapView(frame: .zero)
     @Published var searchedLocation = [String]()
     func searchLocation(_ query:String) { //, mapView : GMSMapView

@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "Vertical transportation.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Vertical transportation.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },

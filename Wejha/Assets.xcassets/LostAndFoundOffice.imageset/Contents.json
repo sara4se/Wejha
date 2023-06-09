@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "Lost and found office.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Lost and found office.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },

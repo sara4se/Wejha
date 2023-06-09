@@ -1,5 +1,100 @@
-//
-//
+/*
+ DispatchQueue.main.asyncAfter(deadline: .now()
+                               + 2.0){
+     arrowNode.eulerAngles.z += .pi / 2
+     
+ }
+ DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+ arrowNode.eulerAngles.z += .pi
+ }
+ DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
+ arrowNode.eulerAngles.z += 2 + .pi
+ }
+ // Rotate arrowNode by 360 degrees after 20 seconds (5-second delay + 5-second rotation + 5-second delay + 5-second rotation)
+ DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
+ arrowNode.eulerAngles.z += 2 + .pi
+ }
+ 
+ let moveLeftAction = SCNAction.move(by: SCNVector3(-1, 0, 0), duration: 2.0)
+ let moveRightAction = SCNAction.move(by: SCNVector3(1, 0, 0), duration: 2.0)
+ let moveSequence = SCNAction.sequence([moveLeftAction, moveRightAction])
+ let moveForeverAction = SCNAction.repeatForever(moveSequence)
+
+ self.runAction(moveForeverAction)
+ 
+ 
+ 
+ 
+ ////
+ func moveUpAction (angle : Float){
+     DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+         self.arrowNode.eulerAngles.z += angle
+     }
+ }
+ func moveRightAction (angle : Float){
+     DispatchQueue.main.asyncAfter(deadline: .now()
+                                   + 2.0){
+         self.arrowNode.eulerAngles.z += angle
+     }
+ }
+ func moveLeftAction (){
+     DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
+         self.arrowNode.eulerAngles.z += 2 + .pi
+     }
+ }
+ 
+ func moveArrowWithHeading(heading: Double) {
+     // Convert heading from degrees to radians
+     let headingRadians = GLKMathDegreesToRadians(Float(33))
+     
+     // Rotate the arrow node around the y-axis
+     self.arrowNode.eulerAngles.y = 33
+     print("headingRadians : \(headingRadians)")
+ }
+ 
+ 
+ ///
+ 
+ 
+ func moveWithTheLocationOfPath(cor: CLLocationCoordinate2D, cor2: CLLocationCoordinate2D) -> Double {
+     let lat1 = cor.latitude
+     let lon1 = cor.longitude
+     let lat2 = cor2.latitude
+     let lon2 = cor2.longitude
+     
+     let dLon = lon2 - lon1
+     
+     let y = sin(dLon) * cos(lat2)
+     let x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon)
+     
+     let heading = atan2(y, x)
+      
+      // Convert heading from radians to degrees
+      let headingDegrees = heading * 180 / .pi
+      
+      return headingDegrees
+     // Now you have the heading in radians, you can use it to move the arrow in AR.
+     // Update the arrow's orientation or position based on the heading value.
+     // ...
+ }
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //extension ViewControllerOfMap: CLLocationManagerDelegate {
 //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 //        if let location = locations.first {
