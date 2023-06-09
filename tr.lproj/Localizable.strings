@@ -101,11 +101,11 @@
 "Text61" = "Kameraya erişilemezlik" ;
 "Text62" = "AR haritasını kullanmak için kamera erişimi gerekiyor" ;
 "Text63" = "Ayarlardan kameraya erişime izin ver veya";
-"Text64" = "2B haritaya geç" ;
+"Text64" = "2D haritaya geç" ;
 
 //MARK: Map directions
 "Text65" = "Kalan süre" ;
-"Text66" = "fesih";
+"Text66" = "Fesih";
 "Text67" = "Varış noktanıza geldi" ;
 "Text68" = "Trend İleri" ;
 "Text69" = "Sağa yön" ;
