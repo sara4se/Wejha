@@ -23,6 +23,7 @@ struct MapUIView: View {
     @State var selectedPlace: String = ""//not work
     @StateObject private var viewModels = FirebaseModel()
 //   @ObservedObject private var locationViewModel = LocationViewModel()
+    @State var stringAR : String = ""
     @ObservedObject var locationHandler = PlaceSearch()
     @State var isARViewActive = false // New state variable
     @State var isMapActive = false
@@ -31,13 +32,15 @@ struct MapUIView: View {
     @State private var tDistance: String = ""
     @State private var time: String = ""
     @State private var markers: [GMSMarker] = []
-//    @Binding var directions: [String]
-//    @State private var placesView: [Places] = []
     @State private var places: [Spical] = []
+    @State private var nameOfList: String = ""
+    @State private var markList: String = ""
+    @State var placeFromTapped: String = ""
     var body: some View {
         NavigationView {
             ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
-                MapViewRepresentable(tDistance: $tDistance, time: $time, places: $places ).edgesIgnoringSafeArea(.all)
+                MapViewRepresentable(placeFromTapped:$placeFromTapped, tDistance: $tDistance, time: $time, nameOfList: $nameOfList ,places: $places )
+                    .edgesIgnoringSafeArea(.all)
                 let _ = print("selectedPlace : \(locationQuery)")
                 GeometryReader { geo in
                     VStack(spacing: 0){
@@ -63,8 +66,8 @@ struct MapUIView: View {
                     // to read frame height
                     
                     if(tDistance.isEmpty){
-                        BottomSheet(locationQuery: $selectedPlace, locationHandler: locationHandler)
-                        .offset(y: geo.frame(in: .global).height - 140)
+                        BottomSheet(stringAR: $stringAR, placeFromTapped: $placeFromTapped, locationQuery: $selectedPlace, locationHandler: locationHandler)
+                        .offset(y: geo.frame(in: .global).height - 120)
                         .offset(y: offset)
                         .gesture(DragGesture().onChanged({ value in
                             startLocationY = value.startLocation.y
@@ -104,10 +107,10 @@ struct MapUIView: View {
                                 }
                             }))
                 }
-                    if(!tDistance.isEmpty){
-                        MapCardView(tDistance: $tDistance, time: $time)
+                    else{
+                        MapCardView(tDistance: $tDistance, time: $time, stringAR: $stringAR)
                            // .offset(y: geo.size.height - 140 + offset)
-                            .padding([.leading,.trailing],24).padding(.top,600).padding(.bottom,72)
+                            .padding([.leading,.trailing],24).padding(.top,640).padding(.bottom,72)
                     }
                 }.ignoresSafeArea(.all, edges: .bottom)
             } 

@@ -10,16 +10,17 @@ struct MapCardView: View {
     @Binding var tDistance: String
     @Binding var time: String
     @State var End : Bool = false
-    
+    @Binding var stringAR : String
+    @ObservedObject var focusPlace: FocusPlace = FocusPlace()
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 25, style: .continuous)
                 .fill(.white)
                 .shadow(radius: 1)
             VStack {
-                Text("King Fahad Gate")
+                Text(stringAR)
                     .fontWeight(.bold)
-                    .padding(.trailing,50)
+                    .padding(.trailing,10)
                 HStack {
                     Image(systemName: "clock")
                         .resizable()
@@ -61,20 +62,18 @@ struct MapCardView: View {
                     }
                 })
             }
+            
             .padding(.leading,230)
             .padding(.bottom,-180)
             
             
         }
         .frame(width: 343, height: 132)
-        .onTapGesture {
-    
-        }
     }
 }
 
 struct MapCardView_Previews: PreviewProvider {
     static var previews: some View {
-        MapCardView(tDistance: .constant(""), time: .constant(""))
+        MapCardView(tDistance: .constant(""), time: .constant(""), stringAR: .constant(""))
     }
 }

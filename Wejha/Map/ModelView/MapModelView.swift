@@ -21,10 +21,13 @@ struct MapViewRepresentable: UIViewRepresentable  {
     @ObservedObject private var vmMapRouteTasks = MapRouteTasks()
     @ObservedObject var locationHandler = PlaceSearch()
     @StateObject private var viewModels = FirebaseModel()
+    
 //    @Binding var directions: [String]
+    @Binding var placeFromTapped : String
     let mapView = GMSMapView(frame: .zero)
     @Binding var tDistance: String
     @Binding var time: String
+    @Binding var nameOfList: String
     @Binding var places: [Spical]
     let googleApiKey = "AIzaSyDgXEpiATw1IAcW1T2gYLcwhM8S1v0IHOI"
    // @State var plasesArray = [Places]()
@@ -33,28 +36,61 @@ struct MapViewRepresentable: UIViewRepresentable  {
     //24.729377, 46.716325
     //24.741268, 46.749721
     //24.726353, 46.773846
-    
     //24.8707681,46.7227661
     //24.849621, 46.739755
     let destination1 = CLLocationCoordinate2D(latitude: 24.741268, longitude: 46.749721)
     let destination2 = CLLocationCoordinate2D(latitude: 24.726353, longitude: 46.773846)
-
-   
 class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
     var mapView: GMSMapView
     var parent: MapViewRepresentable
-    var listenerRegistration: ListenerRegistration?
     //@Binding var currentLocation : CLLocationCoordinate2D
-  
+     var listenerRegistration: ListenerRegistration?
        init(_ parent: MapViewRepresentable,mapView: GMSMapView) {
            self.mapView = mapView
            self.parent = parent
            super.init()
            mapView.delegate = self
            parent.locationManager.startUpdatingHeading()
-        
-       }
-  
+        }
+     func updateMarkers2(nameOfList : inout String) {
+        parent.locationManager.$lastKnownLocation.sink { location in
+            if let heading = location?.course {
+             } else {
+                print("Heading information not available")
+            }
+        }
+        if listenerRegistration == nil {
+            listenerRegistration = parent.db.collection("nameOfList").addSnapshotListener { [self] (querySnapshot, error) in
+                guard let documents = querySnapshot?.documents else {
+                    print("No documents")
+                    return
+                }
+                parent.places = documents.compactMap { queryDocumentSnapshot in
+                    let documentData = queryDocumentSnapshot.data()
+                    let id = queryDocumentSnapshot.documentID
+                    let latitude = documentData["Lat"] as? Double ?? 0.0
+                    let longitude = documentData["Lang"] as? Double ?? 0.0
+                    print("Found documents")
+                    return Spical(id: id, coordinates: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+                }
+                for place in parent.places {
+                    print("Markers from documents\(place)")
+                    let marker = GMSMarker(position: place.coordinates)
+                    print("Marker position \(place.coordinates.latitude) and \(place.coordinates.longitude)")
+                    marker.title = "Marker Title"
+                       marker.snippet = "Marker Snippet"
+                       marker.icon = UIImage(named: "marker_icon")
+                       marker.opacity = 0.8
+                    marker.map = self.mapView
+                    print("Processing place")
+                }
+                if parent.places.isEmpty {
+                    print("Empty")
+                }
+            }
+        }
+    }
+ 
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         mapView.clear()
            let marker = GMSMarker(position: coordinate)
@@ -62,13 +98,36 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
         guard let currentLocation = mapView.myLocation?.coordinate else {
                    return
         }
+        // Reverse geocode the tapped coordinate to get the place name
+        let geocoder = GMSGeocoder()
+        geocoder.reverseGeocodeCoordinate(coordinate) { response, error in
+            if let error = error {
+                print("Reverse geocoding error: \(error.localizedDescription)")
+                return
+            }
+            
+            if let results = response?.results() {
+                if let place = results.first {
+                    // Access the place name
+                    let placeName = place.administrativeArea
+                    
+                    // Use the place name as needed
+                    print("Tapped place: \(String(describing: placeName))")
+                    
+                    // Assign the place name to a variable or pass it to a parent view controller
+                    self.parent.placeFromTapped = placeName ?? "plece undeifind"
+                }
+            }
+        }
+        
+        
+       // parent.nameOfList = coordinate
         parent.getRouteSteps(from: currentLocation, to: coordinate)
         parent.getTotalDistance(from: currentLocation, to: coordinate)
         // Calculate the heading between the points using HeadingCalculator
         let heading = HeadingCalculator.calculateHeading(cor: currentLocation, cor2: coordinate)
         // Use the heading value to move the arrow in AR (pass it to ARViewController)
-        let arViewController = ARViewController()
-        
+        let arViewController = ARViewController() 
 //        arViewController.moveRightAction(angle: Float(heading))
 //        print("angel :\(heading)")
     }
@@ -92,50 +151,7 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
             print("Empty")
         }
     }
-    
-    
-    func updateMarkers2() {
-        // mapView.clear()
-        // Add a subscriber to the lastKnownLocation property
-        self.parent.locationManager.$lastKnownLocation.sink { location in
-            if let heading = location?.course {
-             //   print("Current heading: \(heading) degrees")
-            } else {
-                print("Heading information not available")
-            }
-        }
-        if listenerRegistration == nil {
-            listenerRegistration = parent.db.collection("BusStation").addSnapshotListener { (querySnapshot, error) in
-                guard let documents = querySnapshot?.documents else {
-                    print("No documents")
-                    return
-                }
-                self.parent.places = documents.compactMap { queryDocumentSnapshot in
-                    let documentData = queryDocumentSnapshot.data()
-                    let id = queryDocumentSnapshot.documentID
-                    let latitude = documentData["Lat"] as? Double ?? 0.0
-                    let longitude = documentData["Lang"] as? Double ?? 0.0
-                    print("Found documents")
-                    return Spical(id: id, coordinates: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
-                }
-                for place in self.parent.places {
-                    print("Markers from documents\(place)")
-                    let marker = GMSMarker(position: place.coordinates)
-                    print("Marker position \(place.coordinates.latitude) and \(place.coordinates.longitude)")
-                    marker.title = "Marker Title"
-                       marker.snippet = "Marker Snippet"
-                       marker.icon = UIImage(named: "marker_icon")
-                       marker.opacity = 0.8
-                    marker.map = self.mapView
-                    print("Processing place")
-                }
-                
-                if self.parent.places.isEmpty {
-                    print("Empty")
-                }
-            }
-        }
-    }
+   
 }       
 //    var coordinates: [CLLocationCoordinate2D]
     func makeUIView(context: Context) -> GMSMapView {
@@ -151,8 +167,8 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
         self.mapView.isIndoorEnabled = true
         self.mapView.settings.indoorPicker = true
         self.mapView.delegate = context.coordinator as? GMSMapViewDelegate
-      //  context.coordinator.updateMarkers(mapView: mapView)
-      context.coordinator.updateMarkers2()
+        context.coordinator.updateMarkers2(nameOfList: &nameOfList)
+       // context.coordinator.updateMarkers2(nameOfList: <#String#>)
       
         return mapView
     }
@@ -162,14 +178,11 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
     
     func updateUIView(_ mapView: GMSMapView, context: Context) {
         //mapView.clear()
-        context.coordinator.updateMarkers2()
+     //   context.coordinator.updateMarkers2()
   }
     func getRouteSteps(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
 //        mapView.clea r()
         let session = URLSession.shared
-        
-    
-//        arViewController.moveArrowWithHeading(heading: heading)
         let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=true&mode=walking&alternatives=true&key=\(googleApiKey)")!
          let task = session.dataTask(with: url, completionHandler: {
             (data, response, error) in
@@ -310,7 +323,7 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
         
         task.resume()
     }
-
+  
 }
 class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     

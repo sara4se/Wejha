@@ -9,24 +9,25 @@ import SwiftUI
 
 
 struct GateLists: View {
-    @StateObject private var viewModels = FirebaseModel()
+    @StateObject private var viewModels = FirebaseModel() 
     var body: some View{
         VStack{
             List {
                 ForEach(viewModels.places) { place in
-                    
-                    Text(place.Name).padding(12)
-                    
+                    Text(place.Name).padding(12)      
                 }
             }.listStyle(.plain)
             Spacer()
         }
         .onAppear() {
             print("GateLists appears. and data updates.")
-            self.viewModels.FireGate()}
+            self.viewModels.FireGate()
+           
+        }
     }
 }
 struct RestRoomLists: View {
+ //   var parent: MapViewRepresentable
     @StateObject private var viewModels = FirebaseModel()
     var body: some View{
         VStack{
@@ -38,7 +39,9 @@ struct RestRoomLists: View {
             Spacer()
         }.onAppear() {
             print("GateLists appears. and data updates.")
-            self.viewModels.FireRestRoom()}
+            self.viewModels.FireRestRoom()
+            
+        }
     }
 }
 struct AblutionLists: View {
@@ -97,8 +100,13 @@ struct AlSahanList: View {
         VStack{
             List {
                 ForEach(viewModels.places) { place in
-                    
-                    Text(place.Name).padding(12)
+                    Button {
+                        
+                    } label: {
+                        Text(place.Name).padding(12)
+                    }
+
+                
                 }
             }.listStyle(.plain)
             Spacer()

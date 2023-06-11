@@ -11,7 +11,8 @@ import SwiftUI
 struct BottomSheet: View {
     //    @Binding var offset: CGFloat
     //    var value: CGFloat
-    
+    @Binding var stringAR : String
+    @Binding var placeFromTapped : String
     @Binding var locationQuery: String 
     @ObservedObject var locationHandler: PlaceSearch
     var categories : Categories = Categories()
@@ -27,21 +28,17 @@ struct BottomSheet: View {
                         .font(.system(size: 22))
                         .foregroundColor(.gray)
                     TextField(LocalizedStringKey("Text53"), text: $locationQuery)
+                    
                         .onChange(of: locationQuery) { newValue in
 //                            locationViewModel.selectedPlace = locationQuery
                             locationHandler.searchLocation(newValue)
                            // locationQuery = newValue
                         }
-                } //categories
+                        
+                }.padding(20) //categories
+                   
                 if(locationQuery.isEmpty){
-                    //                        ScrollView() {
-                    //                            LazyVGrid(columns: [
-                    //                                GridItem(.flexible()),
-                    //                                GridItem(.flexible()),
-                    //                                GridItem(.flexible())])
-                    //                            {
-                    //                                    let _ = print("helllokeo")
-                    NavigationView {
+                   NavigationView {
                         ScrollView {
                             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
                                 NavigationLink(destination:  AlSafaAlmarwahList()) {
@@ -51,9 +48,7 @@ struct BottomSheet: View {
                                             .foregroundColor(Color("DarkGreen"))
                                             .overlay(
                                                 Image("safaAndMarwa")
-                                                    .aspectRatio(contentMode: .fill)
-                                                //                                                                       .frame(width: 62, height: 100)
-                                            )
+                                                    .aspectRatio(contentMode: .fill))
                                         Text(LocalizedStringKey("Text18")).foregroundColor(Color("DarkGreen"))
                                     }
                                 }
@@ -166,13 +161,13 @@ struct BottomSheet: View {
                     if(!locationQuery.isEmpty){
                         ScrollView(.vertical, showsIndicators: false) {
                             LazyVStack(alignment: .leading, spacing: 15) {
-                                
-                                ForEach(locationHandler.searchedLocation, id: \.self) { place in
+                                 ForEach(locationHandler.searchedLocation, id: \.self) { place in
                                     Text(place)
                                         .onTapGesture {
+                                            stringAR = place
                                             focusPlace.focusPlace = place
                                             print("i enter to focus2 : \(focusPlace.focusPlace.description)")
-                                            print("i give locationViewModel.selectedPlace = place")
+                                            print("i give locationViewModel.selectedPlace = \( place)")
                                             locationQuery = "" // Clear the search query
                                             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil) // Dismiss the keyboard
                                         }
@@ -182,6 +177,7 @@ struct BottomSheet: View {
                                 
                             }//lazyVGrid
                         }//scrollview
+                        .padding(20)
                     }
                 }
                 
@@ -189,12 +185,7 @@ struct BottomSheet: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarBackButtonHidden(true)
             }
-            //            .background(BlurView(style: .systemMaterial))
-            //                .cornerRadius(15)
-            
-            
         }
-        
     }
 }
 
@@ -249,8 +240,8 @@ struct BottomSheet: View {
 //}
 struct BottomSheet_Previews: PreviewProvider {
     static var previews: some View {
-        BottomSheet(locationQuery: .constant(""), locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "ar"))
-        BottomSheet(locationQuery: .constant(""),locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "en"))
-        BottomSheet(locationQuery: .constant(""), locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "fr"))
+        BottomSheet(stringAR: .constant(""), placeFromTapped: .constant(""), locationQuery: .constant(""), locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "ar"))
+        BottomSheet(stringAR: .constant(""), placeFromTapped: .constant(""), locationQuery: .constant(""),locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "en"))
+        BottomSheet(stringAR: .constant(""), placeFromTapped: .constant(""),locationQuery: .constant(""), locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "fr"))
     }
 }

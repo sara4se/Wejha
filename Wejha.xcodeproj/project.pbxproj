@@ -491,6 +491,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -551,6 +552,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -616,7 +618,7 @@
 				INFOPLIST_FILE = Wejha/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSCameraUsageDescription = Text57;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To use the AR map and show the directions";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results";
@@ -656,7 +658,7 @@
 				INFOPLIST_FILE = Wejha/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSCameraUsageDescription = Text57;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To use the AR map and show the directions";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results";
 				INFOPLIST_KEY_NSLocationUsageDescription = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your precise location is used to show your position on the map, get directions, estimate travel times and improve search results";
