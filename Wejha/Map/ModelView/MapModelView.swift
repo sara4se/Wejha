@@ -14,14 +14,13 @@ import CoreLocation
 import GooglePlaces
 import Firebase
 
-struct MapViewRepresentable: UIViewRepresentable  {
+struct MapViewRepresentable: UIViewRepresentable{
     @ObservedObject var locationManager = LocationManager()
     @ObservedObject private var locationViewModel = LocationViewModel()
     @ObservedObject var focusPlace : FocusPlace = FocusPlace()
     @ObservedObject private var vmMapRouteTasks = MapRouteTasks()
     @ObservedObject var locationHandler = PlaceSearch()
-    @StateObject private var viewModels = FirebaseModel()
-    
+    @StateObject private var viewModels = FirebaseModel() 
 //    @Binding var directions: [String]
     @Binding var placeFromTapped : String
     let mapView = GMSMapView(frame: .zero)
@@ -29,6 +28,8 @@ struct MapViewRepresentable: UIViewRepresentable  {
     @Binding var time: String
     @Binding var nameOfList: String
     @Binding var places: [Spical]
+//    @Binding var latitude: Double
+//    @Binding var longitude: Double
     let googleApiKey = "AIzaSyDgXEpiATw1IAcW1T2gYLcwhM8S1v0IHOI"
    // @State var plasesArray = [Places]()
     var db = Firestore.firestore()
@@ -36,7 +37,7 @@ struct MapViewRepresentable: UIViewRepresentable  {
     //24.729377, 46.716325
     //24.741268, 46.749721
     //24.726353, 46.773846
-    //24.8707681,46.7227661
+    //24.8707681, 46.7227661
     //24.849621, 46.739755
     let destination1 = CLLocationCoordinate2D(latitude: 24.741268, longitude: 46.749721)
     let destination2 = CLLocationCoordinate2D(latitude: 24.726353, longitude: 46.773846)
@@ -51,7 +52,7 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
            super.init()
            mapView.delegate = self
            parent.locationManager.startUpdatingHeading()
-        }
+  }
      func updateMarkers2(nameOfList : inout String) {
         parent.locationManager.$lastKnownLocation.sink { location in
             if let heading = location?.course {
@@ -60,7 +61,7 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
             }
         }
         if listenerRegistration == nil {
-            listenerRegistration = parent.db.collection("nameOfList").addSnapshotListener { [self] (querySnapshot, error) in
+            listenerRegistration = parent.db.collection(nameOfList).addSnapshotListener { [self] (querySnapshot, error) in
                 guard let documents = querySnapshot?.documents else {
                     print("No documents")
                     return
@@ -107,18 +108,21 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
             }
             
             if let results = response?.results() {
-                if let place = results.first {
+                for res in results {
+                  //  if let place = res {
                     // Access the place name
-                    let placeName = place.administrativeArea
+                        let placeName = res.administrativeArea
+                     //  / place.administrativeArea
                     
                     // Use the place name as needed
                     print("Tapped place: \(String(describing: placeName))")
                     
                     // Assign the place name to a variable or pass it to a parent view controller
-                    self.parent.placeFromTapped = placeName ?? "plece undeifind"
+                    self.parent.placeFromTapped = placeName ?? "not determind"
                 }
-            }
-        }
+          }
+ }
+        
         
         
        // parent.nameOfList = coordinate
@@ -167,7 +171,7 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
         self.mapView.isIndoorEnabled = true
         self.mapView.settings.indoorPicker = true
         self.mapView.delegate = context.coordinator as? GMSMapViewDelegate
-        context.coordinator.updateMarkers2(nameOfList: &nameOfList)
+      
        // context.coordinator.updateMarkers2(nameOfList: <#String#>)
       
         return mapView
@@ -178,6 +182,9 @@ class Coordinator: NSObject, CLLocationManagerDelegate, GMSMapViewDelegate {
     
     func updateUIView(_ mapView: GMSMapView, context: Context) {
         //mapView.clear()
+        if(!locationViewModel.selectedPlace.isEmpty){
+            print("i enter")
+            context.coordinator.updateMarkers2(nameOfList: &locationViewModel.selectedPlace)}
      //   context.coordinator.updateMarkers2()
   }
     func getRouteSteps(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
@@ -367,8 +374,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
      arrowNode.eulerAngles = rotation
  }
  */
-
- 
 struct HeadingCalculator {
     static func calculateHeading(cor: CLLocationCoordinate2D, cor2: CLLocationCoordinate2D) -> Double {
         let lat1 = cor.latitude

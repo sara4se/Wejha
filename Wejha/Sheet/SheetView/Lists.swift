@@ -95,25 +95,24 @@ struct AlSafaAlmarwahList: View {
     }
 }
 struct AlSahanList: View {
+//    @State var ifClick : Bool = true
     @StateObject private var viewModels = FirebaseModel()
     var body: some View{
         VStack{
             List {
                 ForEach(viewModels.places) { place in
                     Button {
-                        
+//                        ifClick.toggle()
                     } label: {
                         Text(place.Name).padding(12)
                     }
-
-                
                 }
             }.listStyle(.plain)
             Spacer()
-        }
-        .onAppear() {
+        }.onAppear(){
             print("AlSafaAlmarwahList appears. and data updates.")
-            self.viewModels.FireAlSahan()}
+            self.viewModels.FireAlSahan()
+        }
     }
 }
 struct LostFoundOfficeList: View {
@@ -122,7 +121,6 @@ struct LostFoundOfficeList: View {
         VStack{
             List {
                 ForEach(viewModels.places) { place in
-                    
                     Text(place.Name).padding(12)
                 }
             }.listStyle(.plain)
@@ -134,13 +132,11 @@ struct LostFoundOfficeList: View {
     }
 }
 struct BusStationList: View {
-    
     @StateObject private var viewModels = FirebaseModel()
     var body: some View{
         VStack{
             List {
                 ForEach(viewModels.places) { place in
-                    
                     Text(place.Name).padding(12)
                 }
             }.listStyle(.plain)
@@ -163,12 +159,10 @@ struct VerticalTransportationsList: View {
                 ForEach(viewModels.places) { place in
                     Button {
                         locationViewModel.selectedPlace = place.Name
-                       
                     } label: {
-                        let _ =  print(locationViewModel.selectedPlace ?? "it is nil ")
+                        let _ =  print("this\(locationViewModel.selectedPlace )")
                         Text(place.Name).padding(12)
                     }
-
                 }
             }.listStyle(.plain)
             Spacer()

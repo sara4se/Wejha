@@ -5,7 +5,6 @@
 //  Created by Sara Alhumidi on 04/11/1444 AH.
 //
 import GoogleMaps
-
 import SwiftUI
 class LocationViewModel: ObservableObject {
     @Published var selectedPlace: String  = ""
@@ -20,6 +19,7 @@ struct MapUIView: View {
     @State var translationHeight: CGFloat = 0
     @State var translationWidth: CGFloat = 0
     @State var ShowAR: Bool = true
+    @State var start: Bool = true
     @State var selectedPlace: String = ""//not work
     @StateObject private var viewModels = FirebaseModel()
 //   @ObservedObject private var locationViewModel = LocationViewModel()
@@ -39,7 +39,7 @@ struct MapUIView: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
-                MapViewRepresentable(placeFromTapped:$placeFromTapped, tDistance: $tDistance, time: $time, nameOfList: $nameOfList ,places: $places )
+                MapViewRepresentable(placeFromTapped : $placeFromTapped, tDistance: $tDistance, time: $time, nameOfList: $nameOfList ,places: $places)
                     .edgesIgnoringSafeArea(.all)
                 let _ = print("selectedPlace : \(locationQuery)")
                 GeometryReader { geo in
@@ -66,7 +66,7 @@ struct MapUIView: View {
                     // to read frame height
                     
                     if(tDistance.isEmpty){
-                        BottomSheet(stringAR: $stringAR, placeFromTapped: $placeFromTapped, locationQuery: $selectedPlace, locationHandler: locationHandler)
+                        BottomSheet(stringAR: $stringAR,   locationQuery: $selectedPlace, locationHandler: locationHandler)
                         .offset(y: geo.frame(in: .global).height - 120)
                         .offset(y: offset)
                         .gesture(DragGesture().onChanged({ value in
@@ -106,9 +106,8 @@ struct MapUIView: View {
                                     }
                                 }
                             }))
-                }
-                    else{
-                        MapCardView(tDistance: $tDistance, time: $time, stringAR: $stringAR)
+                }else{
+                    MapCardView(tDistance: $tDistance, time: $time, start: $start, placeFromTapped: $placeFromTapped, stringAR: $stringAR)
                            // .offset(y: geo.size.height - 140 + offset)
                             .padding([.leading,.trailing],24).padding(.top,640).padding(.bottom,72)
                     }

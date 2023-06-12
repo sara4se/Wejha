@@ -144,7 +144,7 @@ class FirebaseModel: ObservableObject {
     }
     func FireAlsafaAlmarwaGates() {
         if listenerRegistration == nil {
-            listenerRegistration =  db.collection("Al-Safa & Al-marwah").addSnapshotListener { (querySnapshot, error) in
+            listenerRegistration =  db.collection("Al-SafaAl-marwah").addSnapshotListener { (querySnapshot, error) in
                 guard let documents = querySnapshot?.documents else {
                     print("No documents")
                     return

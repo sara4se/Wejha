@@ -12,7 +12,7 @@ struct BottomSheet: View {
     //    @Binding var offset: CGFloat
     //    var value: CGFloat
     @Binding var stringAR : String
-    @Binding var placeFromTapped : String
+ 
     @Binding var locationQuery: String 
     @ObservedObject var locationHandler: PlaceSearch
     var categories : Categories = Categories()
@@ -49,7 +49,7 @@ struct BottomSheet: View {
                                             .overlay(
                                                 Image("safaAndMarwa")
                                                     .aspectRatio(contentMode: .fill))
-                                        Text(LocalizedStringKey("Text18")).foregroundColor(Color("DarkGreen"))
+                                        Text(LocalizedStringKey("Text18")).foregroundColor(Color("DarkGreenText"))
                                     }
                                 }
                                 NavigationLink(destination: AlSahanList()) {
@@ -60,7 +60,7 @@ struct BottomSheet: View {
                                             .overlay(
                                                 Image("Al-Sahan")
                                                     .aspectRatio(contentMode: .fill) )
-                                        Text(LocalizedStringKey("Text17")).foregroundColor(Color("DarkGreen"))
+                                        Text(LocalizedStringKey("Text17")).foregroundColor(Color("DarkGreenText"))
                                     }
                                 }
                                 NavigationLink(destination: GateLists()) {
@@ -71,7 +71,7 @@ struct BottomSheet: View {
                                             .overlay(
                                                 Image("Gates")
                                                     .aspectRatio(contentMode: .fill))
-                                        Text(LocalizedStringKey("Text16")).foregroundColor(Color("DarkGreen"))
+                                        Text(LocalizedStringKey("Text16")).foregroundColor(Color("DarkGreenText"))
                                     }
                                 }
                                 NavigationLink(destination: AblutionLists()) {
@@ -83,7 +83,7 @@ struct BottomSheet: View {
                                                 Image("Ablution")
                                                     .aspectRatio(contentMode: .fill)
                                             )
-                                        Text(LocalizedStringKey("Text21")).foregroundColor(Color("DarkGreen"))
+                                        Text(LocalizedStringKey("Text21")).foregroundColor(Color("DarkGreenText"))
                                     }
                                 }
                                 NavigationLink(destination: RestRoomLists()) {
@@ -95,7 +95,7 @@ struct BottomSheet: View {
                                                 Image("Restroom")
                                                     .aspectRatio(contentMode: .fill)
                                            )
-                                        Text(LocalizedStringKey("Text20")).foregroundColor(Color("DarkGreen"))
+                                        Text(LocalizedStringKey("Text20")).foregroundColor(Color("DarkGreenText"))
                                     }
                                 }
                                 
@@ -108,7 +108,7 @@ struct BottomSheet: View {
                                                 Image("WheelchairStore")
                                                     .aspectRatio(contentMode: .fill)
                                             )
-                                        Text(LocalizedStringKey("Text19")).foregroundColor(Color("DarkGreen"))
+                                        Text(LocalizedStringKey("Text19")).foregroundColor(Color("DarkGreenText"))
                                     }
                                 }
                                 
@@ -121,7 +121,7 @@ struct BottomSheet: View {
                                                 Image("LostAndFoundOffice")
                                                     .aspectRatio(contentMode: .fill)
                                            )
-                                        Text(LocalizedStringKey("Text24")).foregroundColor(Color("DarkGreen"))
+                                        Text(LocalizedStringKey("Text24")).foregroundColor(Color("DarkGreenText"))
                                     }
                                 }
                                 NavigationLink(destination:  BusStationList()) {
@@ -133,7 +133,7 @@ struct BottomSheet: View {
                                                 Image("BusStation")
                                                     .aspectRatio(contentMode: .fill)
                                             )
-                                        Text(LocalizedStringKey("Text23")).foregroundColor(Color("DarkGreen"))
+                                        Text(LocalizedStringKey("Text23")).foregroundColor(Color("DarkGreenText"))
                                     }
                                 }
                                 NavigationLink(destination:  VerticalTransportationsList()) {
@@ -142,10 +142,11 @@ struct BottomSheet: View {
                                             .frame(width: 69, height: 69)
                                             .foregroundColor(Color("DarkGreen"))
                                             .overlay(
-                                                Image("VerticalTransportation")
+                                                Image("Verticaltransportation")
                                                     .aspectRatio(contentMode: .fill)
                                             )
-                                        Text(LocalizedStringKey("Text22")).foregroundColor(Color("DarkGreen"))
+                                        Text(LocalizedStringKey("Text22")).foregroundColor(Color("DarkGreenText"))
+                                             
                                     }
                                 }
                                 
@@ -240,8 +241,8 @@ struct BottomSheet: View {
 //}
 struct BottomSheet_Previews: PreviewProvider {
     static var previews: some View {
-        BottomSheet(stringAR: .constant(""), placeFromTapped: .constant(""), locationQuery: .constant(""), locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "ar"))
-        BottomSheet(stringAR: .constant(""), placeFromTapped: .constant(""), locationQuery: .constant(""),locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "en"))
-        BottomSheet(stringAR: .constant(""), placeFromTapped: .constant(""),locationQuery: .constant(""), locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "fr"))
+        BottomSheet(stringAR: .constant(""),  locationQuery: .constant(""), locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "ar"))
+        BottomSheet(stringAR: .constant(""),  locationQuery: .constant(""),locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "en"))
+        BottomSheet(stringAR: .constant(""), locationQuery: .constant(""), locationHandler: PlaceSearch()).environment(\.locale, .init(identifier: "fr"))
     }
 }

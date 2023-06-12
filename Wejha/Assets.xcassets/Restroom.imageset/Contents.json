@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "Restroom.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Restroom.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
